@@ -7,7 +7,7 @@
   
   <servlet>
     <servlet-name>simple</servlet-name>
-    <servlet-class>org.sonatype.mavenbook.web.SimpleServlet</servlet-class>
+    <servlet-class>info.martinussen.web.SimpleServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>simple</servlet-name>
