@@ -1,0 +1,8 @@
+syntax: glob
+*.log*
+.classpath
+.project
+.settings
+target\
+
+syntax: regexp
