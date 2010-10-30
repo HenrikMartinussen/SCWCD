@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>Ch4 Beer</servlet-name>
-    <servlet-class>info.martinussen.scwcd.ch4.BeerServlet</servlet-class>
+    <servlet-class>info.martinussen.scwcd.hfsj.ch4.BeerServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Ch4 Beer</servlet-name>

@@ -1,6 +1,4 @@
-package info.martinussen.scwcd.ch4.model;
-
-import info.martinussen.scwcd.ch4.model.BeerExpert;
+package info.martinussen.scwcd.hfsj.ch4.model;
 
 import java.util.List;
 

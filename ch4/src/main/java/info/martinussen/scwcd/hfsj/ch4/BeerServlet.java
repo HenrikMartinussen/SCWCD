@@ -1,8 +1,8 @@
-package info.martinussen.scwcd.ch4;
+package info.martinussen.scwcd.hfsj.ch4;
 
 
 
-import info.martinussen.scwcd.ch4.model.BeerExpert;
+import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
 
 import java.io.IOException;
 import java.util.List;

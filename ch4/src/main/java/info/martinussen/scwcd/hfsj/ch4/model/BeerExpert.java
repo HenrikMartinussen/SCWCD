@@ -1,4 +1,4 @@
-package info.martinussen.scwcd.ch4.model;
+package info.martinussen.scwcd.hfsj.ch4.model;
 
 import java.util.ArrayList;
 import java.util.List;
