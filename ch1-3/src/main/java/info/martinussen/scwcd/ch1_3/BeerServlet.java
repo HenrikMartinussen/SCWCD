@@ -4,6 +4,7 @@ import info.martinussen.scwcd.ch1_3.model.BeerExpert;
 import info.martinussen.scwcd.ch1_3.model.Dog;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
