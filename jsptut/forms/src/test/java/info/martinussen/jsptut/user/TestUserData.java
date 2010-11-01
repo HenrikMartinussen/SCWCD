@@ -1,7 +1,5 @@
 package info.martinussen.jsptut.user;
 
-import javax.print.attribute.standard.MediaSize.Other;
-
 import junit.framework.TestCase;
 
 public class TestUserData extends TestCase {
@@ -23,12 +21,24 @@ public class TestUserData extends TestCase {
 		assertNotNull(testUserData);
 		assertTrue(testUserData instanceof UserData);
 	}
+	
+	public void testSetUsername(){
+		testUserData.setUsername("Hansemann Luchter");
+		assertEquals("Hansemann Luchter", testUserData.getUsername());
+	}
 
 	public void testEquals() {
 		testUserData.setEmail("hma@mail.dk");
 		UserData otherTestUserData = new UserData();
 		otherTestUserData.setEmail("hma@mail.dk");
 		assertEquals(testUserData, otherTestUserData);
+	}
+	
+	public void testEquals2(){
+		testUserData.setEmail("hma@mail.dk");
+		UserData otherTestUserData = new UserData();
+		otherTestUserData.setEmail("hby@pfa.dk");
+		assertFalse(testUserData.equals(otherTestUserData));
 	}
 
 	public TestUserData(String name) {
