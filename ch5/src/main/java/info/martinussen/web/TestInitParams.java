@@ -13,17 +13,20 @@ public class TestInitParams extends HttpServlet {
         throws ServletException, IOException {
 
     	response.setContentType("text/html");
+        
         PrintWriter out = response.getWriter();
-        
-        out.println("Test init parameters<br/>" );
-        
+
         Enumeration e = getServletConfig().getInitParameterNames();
+        
+        out.println("Test init parameters<br/>");
+        
         while (e.hasMoreElements()){
-        	out.println("<br/>" + "param name = " + e.nextElement() + "<br/>");
+            out.println("Parameter name: " + e.nextElement() + "<br/>");
         }
-        out.println("Main Email is: " + getServletConfig().getInitParameter("adminEmail"));
+
+        out.println("Main Email is: " + getServletConfig().getInitParameter("mainEmail"));
         out.println("<br/>");
-        out.println("admin Email is: " + getServletConfig().getInitParameter("mainEmail"));
+        out.println("Admin Email is " + getServletConfig().getInitParameter("adminEmail"));
         out.flush();
         out.close();
     }
