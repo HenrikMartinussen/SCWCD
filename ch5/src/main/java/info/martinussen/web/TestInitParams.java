@@ -3,6 +3,7 @@ package info.martinussen.web;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import java.util.Enumeration;
 
 @SuppressWarnings("serial")
 public class TestInitParams extends HttpServlet {
@@ -11,11 +12,20 @@ public class TestInitParams extends HttpServlet {
         throws ServletException, IOException {
 
     	response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
         
-        out.println( "Test init parameters<br/>" );
-        out.println(getServletConfig().getInitParameter("adminEmail"));
-        out.println(getServletConfig().getInitParameter("mainEmail"));
+        PrintWriter out = response.getWriter();
+
+        Enumeration e = getServletConfig().getInitParameterNames();
+        
+        out.println("Test init parameters<br/>");
+
+        while (e.hasMoreElements()){
+            out.println("Parameter name: " + e.nextElement() + "<br/>");
+        }
+
+        out.println("Main Email is " + getServletConfig().getInitParameter("mainEmail"));
+        out.println("<br/>");
+        out.println("Admin Email is " + getServletConfig().getInitParameter("adminEmail"));
         out.flush();
         out.close();
     }
