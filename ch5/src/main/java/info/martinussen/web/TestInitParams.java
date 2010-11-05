@@ -14,6 +14,8 @@ public class TestInitParams extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         out.println( "Test init parameters<br/>" );
+        out.println(getServletConfig().getInitParameter("adminEmail"));
+        out.println(getServletConfig().getInitParameter("mainEmail"));
         out.flush();
         out.close();
     }
