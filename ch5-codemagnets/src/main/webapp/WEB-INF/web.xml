@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+     http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+     version="2.4">
+
+  <servlet>
+    <servlet-name>BeerTest</servlet-name>
+    <servlet-class>com.wickedlysmart.BeerTester</servlet-class>
+  </servlet>
+
+  <!-- the servlet mapping element is not among the code magnets, 
+       but nevertheless necessary in order to make it work on all servers.
+       on Tomcat a URL of the form: 
+         http://www.mysite.org/mywebapp/servlet/<fully qualified class name of servlet>
+       should work
+    -->
+  <servlet-mapping>
+    <servlet-name>BeerTest</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
+  <context-param>
+    <param-name>foo</param-name>
+    <param-value>bar</param-value>
+  </context-param>
+
+
+</web-app>
