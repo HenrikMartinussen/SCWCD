@@ -30,7 +30,7 @@ public class MyServletContextListener implements ServletContextListener{
 
   public void contextDestroyed(ServletContextEvent event) {
     // Nothing to do here
-    
+    System.out.println("MyServletContextListener.contextDestroyed has been called");
   }
 
 }
