@@ -2,7 +2,7 @@ package info.martinussen.scwcd.hfsj.ch4;
 
 
 
-import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
+import info.martinussen.scwcd.hfsj.ch4.model.BeerSizeExpert;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * HFSJ p 89, 97 (Lifecycle)
+ * HFSJ p 121 multiple values, 97 (Lifecycle)
  * @author Henrik
  *
  */
@@ -34,14 +34,21 @@ public class BeerServlet extends HttpServlet{
             throws ServletException, IOException { 
     
     System.out.println("doPost is called");
-    String c = req.getParameter("color");
+    String[] sizes = req.getParameterValues("sizes");
 
-    BeerExpert expert = new BeerExpert();
-    List<String> advice = expert.getBrands(c);
+    BeerSizeExpert expert = new BeerSizeExpert();
+    
+    List<String> advice = expert.getBrands(sizes);
+    
     req.setAttribute("styles", advice);
     
     RequestDispatcher view = req.getRequestDispatcher("result.jsp");
     view.forward(req, resp);
+  }
+  
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    System.out.println("doGet is called - Calling through to DoPost, wait a short while..." );
+    doPost(req, resp);
   }
 
   @Override
