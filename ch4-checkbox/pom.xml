@@ -4,13 +4,13 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>info.martinussen.scwcd</groupId>
-  <artifactId>ch4</artifactId>
+  <artifactId>ch4-checkbox</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Maven Webapp Archetype</name>
+  <name>Example from hfsj p121 on multivalue parameter</name>
   <url>http://maven.apache.org</url>
   <build>
-    <finalName>ch4</finalName>
+    <finalName>ch4-checkbox</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
