@@ -5,6 +5,11 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+/**
+ * HFSJ p. 168 ff., Ch 5 - ServletContextListener tutorial
+ * @author hma
+ *
+ */
 @SuppressWarnings("serial")
 public class ListenerTester extends HttpServlet {
   
