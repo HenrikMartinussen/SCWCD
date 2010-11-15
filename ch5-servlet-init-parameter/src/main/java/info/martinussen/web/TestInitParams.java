@@ -24,7 +24,9 @@ public class TestInitParams extends HttpServlet {
             out.println("Parameter name: " + e.nextElement() + "<br/>");
         }
 
-        out.println("Main Email is: " + getServletConfig().getInitParameter("mainEmail"));
+        //out.println("Admin Email is blooper@wickedlysmart.com"); // Hard coded email addresses is a maintainability nightmare waiting to happen
+
+        out.println("Main Email is: " + getServletConfig().getInitParameter("mainEmail")); //...better with a deploy-time constant, defined in the DD
         out.println("<br/>");
         out.println("Admin Email is " + getServletConfig().getInitParameter("adminEmail"));
         out.flush();
