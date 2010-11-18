@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+     version="2.4">
+  <display-name>Simple Custom Cookie Example</display-name>
+  <servlet>
+    <servlet-name>Ch6 CheckCookie</servlet-name>
+    <servlet-class>info.martinussen.scwcd.hfsj.ch6.CheckCookie</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Ch6 CookieTest</servlet-name>
+    <servlet-class>info.martinussen.scwcd.hfsj.ch6.CookieTest</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Ch6 CheckCookie</servlet-name>
+    <url-pattern>/checkcookie.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Ch6 CookieTest</servlet-name>
+    <url-pattern>/ProcessForm.do</url-pattern>
+  </servlet-mapping>
+</web-app>
