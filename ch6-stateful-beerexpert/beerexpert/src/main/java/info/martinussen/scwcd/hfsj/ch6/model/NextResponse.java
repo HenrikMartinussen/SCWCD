@@ -5,9 +5,7 @@ public class NextResponse {
   private boolean finalAdvice = false;
   private String[] messages = null;
   
-  private NextResponse(){
-    
-  }
+  private NextResponse(){}
   
   public NextResponse(boolean finalAdvice, String[] messages){
     this();
