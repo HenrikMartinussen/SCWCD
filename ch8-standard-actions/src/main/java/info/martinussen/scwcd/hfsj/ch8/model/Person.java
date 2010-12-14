@@ -1,11 +1,10 @@
 package info.martinussen.scwcd.hfsj.ch8.model;
 
-public class Person {
-  private String name = "<none>";
+public abstract class Person {
+  private String name;
 
   public Person () {
     super();
-    
   }
   
   public String getName() {
@@ -15,6 +14,4 @@ public class Person {
   public void setName(String name) {
     this.name = name;
   }
-  
-
 }

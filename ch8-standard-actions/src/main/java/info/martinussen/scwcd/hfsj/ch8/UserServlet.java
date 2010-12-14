@@ -2,6 +2,7 @@ package info.martinussen.scwcd.hfsj.ch8;
 
 
 
+import info.martinussen.scwcd.hfsj.ch8.model.Employee;
 import info.martinussen.scwcd.hfsj.ch8.model.Person;
 import info.martinussen.scwcd.hfsj.ch8.model.UserProcessor;
 
@@ -37,7 +38,7 @@ public class UserServlet extends HttpServlet{
     String userName = req.getParameter("userName");
 
     UserProcessor processor = new UserProcessor();
-    Person p = new Person();
+    Person p = new Employee();
     p.setName(processor.processUserName(userName));
     
     req.setAttribute("person", p);
