@@ -2,10 +2,10 @@ package info.martinussen.scwcd.hfsj.ch8;
 
 
 
+import info.martinussen.scwcd.hfsj.ch8.model.Person;
 import info.martinussen.scwcd.hfsj.ch8.model.UserProcessor;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,12 +34,13 @@ public class UserServlet extends HttpServlet{
             throws ServletException, IOException { 
     
     System.out.println("doPost is called");
-    String name = req.getParameter("userName");
+    String userName = req.getParameter("userName");
 
     UserProcessor processor = new UserProcessor();
-    name = processor.processUserName(name);
+    Person p = new Person();
+    p.setName(processor.processUserName(userName));
     
-    req.setAttribute("name", name);
+    req.setAttribute("person", p);
     
     RequestDispatcher view = req.getRequestDispatcher("/result.jsp");
     view.forward(req, resp);
