@@ -5,11 +5,11 @@
      version="2.4">
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-    <servlet-name>Ch4 Beer</servlet-name>
-    <servlet-class>info.martinussen.scwcd.hfsj.ch4.BeerServlet</servlet-class>
+    <servlet-name>Ch8 User</servlet-name>
+    <servlet-class>info.martinussen.scwcd.hfsj.ch8.UserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Ch4 Beer</servlet-name>
-    <url-pattern>/SelectBeer.do</url-pattern>
+    <servlet-name>Ch8 User</servlet-name>
+    <url-pattern>/ProcessUserInfo.do</url-pattern>
   </servlet-mapping>
 </web-app>

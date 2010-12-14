@@ -1,8 +1,8 @@
-package info.martinussen.scwcd.hfsj.ch4;
+package info.martinussen.scwcd.hfsj.ch8;
 
 
 
-import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
+import info.martinussen.scwcd.hfsj.ch8.model.UserProcessor;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,33 +14,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * HFSJ p 89, 97 (Lifecycle)
- * @author Henrik
+ * HFSJ p 345 (controller)
+ * @author henmar
  *
  */
 @SuppressWarnings("serial")
-public class BeerServlet extends HttpServlet{
+public class UserServlet extends HttpServlet{
 
   static {
-    System.out.println("BeerServlet class is loaded");
+    System.out.println("UserServlet class is loaded");
   }
 
-  public BeerServlet(){
+  public UserServlet(){
     super();
-    System.out.println("BeerServlet is constructed");
+    System.out.println("UserServlet is constructed");
   }
   
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException { 
     
     System.out.println("doPost is called");
-    String c = req.getParameter("color");
+    String name = req.getParameter("userName");
 
-    BeerExpert expert = new BeerExpert();
-    List<String> advice = expert.getBrands(c);
-    req.setAttribute("styles", advice);
+    UserProcessor processor = new UserProcessor();
+    name = processor.processUserName(name);
     
-    RequestDispatcher view = req.getRequestDispatcher("result.jsp");
+    req.setAttribute("name", name);
+    
+    RequestDispatcher view = req.getRequestDispatcher("/result.jsp");
     view.forward(req, resp);
   }
 

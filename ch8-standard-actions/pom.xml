@@ -4,7 +4,7 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>info.martinussen.scwcd.hfsj</groupId>
-  <artifactId>ch8</artifactId>
+  <artifactId>ch8-standard-actions</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>Jsp Standard Actions</name>
