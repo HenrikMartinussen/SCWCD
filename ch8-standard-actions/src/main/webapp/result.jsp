@@ -1,9 +1,10 @@
-<%@ page import="info.martinussen.scwcd.hfsj.ch8.model.Person" %>
 <html>
 <body>
 <p>
-Hello <%= ((Person) request.getAttribute("person")).getName() %> <%-- Use scripting and die :-£ --%>
-<jsp:useBean id="porsen" class="info.martinussen.scwcd.hfsj.ch8.model.Person" scope="request">
+<jsp:useBean id="porsen"
+           type="info.martinussen.scwcd.hfsj.ch8.model.Person" 
+          class="info.martinussen.scwcd.hfsj.ch8.model.Employee" 
+          scope="request">
   <jsp:setProperty name="porsen" property="name" value="John Doe" />
 </jsp:useBean>
 
