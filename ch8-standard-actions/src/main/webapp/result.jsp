@@ -1,14 +1,14 @@
 <html>
 <body>
 <p>
-<jsp:useBean id="porsen"
+<jsp:useBean id="person"
            type="info.martinussen.scwcd.hfsj.ch8.model.Person" 
           class="info.martinussen.scwcd.hfsj.ch8.model.Employee" 
           scope="request">
-  <jsp:setProperty name="porsen" property="name" value="John Doe" />
+  <jsp:setProperty name="person" property="name" value="John Doe" />
 </jsp:useBean>
 
-Hello <jsp:getProperty name="porsen" property="name" />
+Hello <jsp:getProperty name="person" property="name" />
 </p>
 </body>
 </html>
