@@ -10,7 +10,7 @@
   <name>Jsp Standard Actions</name>
   <url>http://maven.apache.org</url>
   <build>
-    <finalName>ch8</finalName>
+    <finalName>ch8-standard-actions</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

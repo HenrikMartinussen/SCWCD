@@ -4,13 +4,13 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>info.martinussen.scwcd.hfsj</groupId>
-  <artifactId>ch8-nested-properties</artifactId>
+  <artifactId>ch9-jstl-looping</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Jsp nested properties</name>
+  <name>Jsp JSTL looping</name>
   <url>http://maven.apache.org</url>
   <build>
-    <finalName>ch8-nested-properties</finalName>
+    <finalName>ch9-jstl-looping</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -41,6 +41,13 @@
       <artifactId>jsp-api</artifactId>
       <version>2.0</version>
       <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.1.0</version>
+      <scope>runtime</scope>
     </dependency>
     
   </dependencies>
