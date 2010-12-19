@@ -1,7 +1,5 @@
 package info.martinussen.scwcd.hfsj.ch8;
 
-
-
 import info.martinussen.scwcd.hfsj.ch8.model.Employee;
 import info.martinussen.scwcd.hfsj.ch8.model.Person;
 import info.martinussen.scwcd.hfsj.ch8.model.UserProcessor;

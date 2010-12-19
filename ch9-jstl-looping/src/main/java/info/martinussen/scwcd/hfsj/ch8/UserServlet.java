@@ -1,10 +1,5 @@
 package info.martinussen.scwcd.hfsj.ch8;
 
-
-
-import info.martinussen.scwcd.hfsj.ch8.model.Dog;
-import info.martinussen.scwcd.hfsj.ch8.model.Person;
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -14,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * HFSJ p 366
+ * HFSJ p 446
  * @author henmar
  *
  */
@@ -34,14 +29,9 @@ public class UserServlet extends HttpServlet{
             throws ServletException, IOException { 
     
     System.out.println("doPost is called");
-    Person p = new Person();
-    p.setName("Evan");
+    String name = req.getParameter("name");
+    req.setAttribute("name", name);
     
-    Dog dog = new Dog() ;
-    dog.setName("Spike");
-    p.setDog(dog) ;
-    
-    req.setAttribute("person" , p) ;
     
     RequestDispatcher view = req.getRequestDispatcher("result.jsp");//removed a forward slash...
     view.forward(req, resp);
