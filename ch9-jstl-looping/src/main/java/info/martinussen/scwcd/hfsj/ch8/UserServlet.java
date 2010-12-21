@@ -32,6 +32,9 @@ public class UserServlet extends HttpServlet{
     String name = req.getParameter("name");
     req.setAttribute("name", name);
     
+    String[] movieList = {"Amelie", "Top Secret", "Lord Of The Rings"};
+    req.setAttribute("movieList", movieList);
+    
     
     RequestDispatcher view = req.getRequestDispatcher("result.jsp");//removed a forward slash...
     view.forward(req, resp);
