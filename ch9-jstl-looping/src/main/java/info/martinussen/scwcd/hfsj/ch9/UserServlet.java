@@ -1,6 +1,8 @@
-package info.martinussen.scwcd.hfsj.ch8;
+package info.martinussen.scwcd.hfsj.ch9;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,9 +34,12 @@ public class UserServlet extends HttpServlet{
     String name = req.getParameter("name");
     req.setAttribute("name", name);
     
-    String[] movieList = {"Amelie", "Top Secret", "Lord Of The Rings"};
-    req.setAttribute("movieList", movieList);
-    
+    String[] movies1 = {"Amelie", "Top Secret", "Lord Of The Rings"};
+    String[] movies2 = {"Mig og Charlie", "Midt om natten", "Olsenbanden i Jylland"};
+    List<String[]> movieList = new ArrayList<String[]>();
+    movieList.add(movies1);
+    movieList.add(movies2);
+    req.setAttribute("movies", movieList);
     
     RequestDispatcher view = req.getRequestDispatcher("result.jsp");//removed a forward slash...
     view.forward(req, resp);

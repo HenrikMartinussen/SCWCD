@@ -10,9 +10,13 @@
   
   
   <table>
-    <c:forEach var="movie" items="${movieList}" varStatus="status" >
+    <c:forEach var="listElement" items="${movies}" varStatus="outerStatus" >
      <tr>
-        <td>${status.count}</td><td>${movie} </td>  
+        <td>Row:${outerStatus.count}</td>
+        <c:forEach var="movie" items="${listElement}">
+        
+          <td>${movie} </td>  
+        </c:forEach>
      </tr>
     </c:forEach>
   </table>
