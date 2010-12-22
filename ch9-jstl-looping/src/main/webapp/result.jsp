@@ -6,12 +6,12 @@
   
   
   <table>
-  <c:forEach var="movie" items="${movieList}" >
+    <c:forEach var="movie" items="${movieList}" >
      <tr>
         <td>${movie} </td>  
      </tr>
-  </c:forEach>
-</table>
+    </c:forEach>
+  </table>
   
 
 </body>
