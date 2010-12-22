@@ -2,18 +2,8 @@
 <html>
 <body>
 
-  <b>Hello ${name}.</b><br/>
-  <b>Hello <c:out value='${name}'>guest</c:out></b>
+  <b>Hello <c:out value='${name}' default='Guest'/>.</b>
   
-  <table>
-  <% String[] items = (String[] ) request. getAttribute("movieList") ;
-    String var = null;
-    for (int i = 0; i < items.length; i++) {
-      var = items[i] ;
-    %>
-      <tr><td><%= var %></td></tr>
-    <% } %>
-  </table>
   
   <table>
   <c:forEach var="movie" items="${movieList}" >
