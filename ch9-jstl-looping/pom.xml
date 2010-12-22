@@ -51,4 +51,21 @@
     </dependency>
     
   </dependencies>
+
+        <repositories> 
+			<repository> 
+				<id>maven-repository.repo1</id>
+				<name>Maven main Repository</name>
+				<url>http://repo1.maven.org/maven2/</url> 
+				<releases>
+					<enabled>true</enabled> 
+					<updatePolicy>never</updatePolicy> 
+				</releases>
+				<snapshots> 
+					<enabled>false</enabled> 
+				</snapshots> 
+			</repository>
+		</repositories>
+
+
 </project>
