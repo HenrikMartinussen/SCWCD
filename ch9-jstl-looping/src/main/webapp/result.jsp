@@ -13,9 +13,9 @@
     <c:forEach var="listElement" items="${movies}" varStatus="outerStatus" >
      <tr>
         <td>Row:${outerStatus.count}</td>
-        <c:forEach var="movie" items="${listElement}">
+        <c:forEach var="movie" items="${listElement}" varStatus="innerStatus">
         
-          <td>${movie} </td>  
+          <td>${innerStatus.count} ${movie} </td>  
         </c:forEach>
      </tr>
     </c:forEach>
