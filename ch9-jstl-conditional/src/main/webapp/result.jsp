@@ -7,7 +7,8 @@
   <table>
     <c:forEach var="comment" items="${commentList}">
      <tr>
-       <td>${comment} </td>  
+       <%-- use of the <c:out> tag prevents html/script in comments from being rendered  --%>
+       <td><c:out value="${comment}"></c:out></td>  
      </tr>
     </c:forEach>
   </table>  

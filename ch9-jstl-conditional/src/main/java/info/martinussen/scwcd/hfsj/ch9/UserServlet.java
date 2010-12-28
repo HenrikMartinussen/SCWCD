@@ -33,7 +33,7 @@ public class UserServlet extends HttpServlet{
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException { 
     
-    System.out.println("doPost is called");
+    System.out.println("In UserServlet.doPost()");
     HttpSession session = req.getSession();
     if (session.isNew()){
       String name = req.getParameter("name");
@@ -51,19 +51,19 @@ public class UserServlet extends HttpServlet{
   protected void service(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
 
-    System.out.println("service is called");
+    System.out.println("In UserServlet.service()");
     super.service(req, resp);
   }
 
   @Override
   public void init() throws ServletException {
-    System.out.println("init is called");
+    System.out.println("In UserServlet.init()");
     super.init();
   }
   
   @Override
   public void destroy(){
-    System.out.println("destroy is called");
+    System.out.println("In UserServlet.destroy()");
     super.destroy();
   }
 }
