@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+     version="2.4">
+  <display-name>Archetype Created Web Application</display-name>
+<!--  <servlet>-->
+<!--    <servlet-name>Ch8 JSP User</servlet-name>-->
+<!--    <jsp-file>/TestInit.jsp</jsp-file>-->
+<!--  </servlet>-->
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>Ch8 JSP User</servlet-name>-->
+<!--    <url-pattern>/TestInit.jsp</url-pattern>-->
+<!--  </servlet-mapping>-->
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/errorPage.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.ArithmeticException</exception-type>
+    <location>/arithmeticError.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/notFoundError.jsp</location>
+  </error-page>
+</web-app>
