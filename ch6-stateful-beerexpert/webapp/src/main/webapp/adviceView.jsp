@@ -1,4 +1,4 @@
-<%@ page import="info.martinussen.scwcd.hfsj.ch6.model.*" %>
+<%@ page import="info.martinussen.scwcd.hfsj.ch9.tag.*" %>
 <html>
 <body>
 <h2>Beer Advice Web Application</h2>
