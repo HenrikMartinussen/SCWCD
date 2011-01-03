@@ -4,8 +4,12 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
 
-  <display-name>Random Advice Web Application</display-name>
+  <display-name>Tagfile Demonstration Web Application</display-name>
   
+  <context-param>
+  	<param-name>mainEmail</param-name>
+  	<param-value>asIfWeCared@wickedlysmart.com</param-value>
+  </context-param>
   <session-config>
   	<session-timeout>1</session-timeout> <!-- 1 minute -->
   </session-config>
