@@ -4,19 +4,19 @@
                       http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>info.martinussen.scwcd.hfsj.ch9</groupId>
-    <artifactId>custom-taglib-parent</artifactId>
+    <groupId>info.martinussen.scwcd.hfsj.ch10</groupId>
+    <artifactId>ch10-simple-taghandler</artifactId>
     <version>1.0</version>
   </parent>
 
-  <artifactId>taglib-webapp</artifactId>
+  <artifactId>ch10-simple-taghandler-war</artifactId>
   <packaging>war</packaging>
-  <name>webapp utilizing custom taglib</name>
+  <name>webapp utilizing simple taghandler</name>
   <dependencies>
 
     <dependency>
-      <groupId>info.martinussen.scwcd.hfsj.ch9</groupId>
-      <artifactId>advice-taglib</artifactId>
+      <groupId>info.martinussen.scwcd.hfsj.ch10</groupId>
+      <artifactId>ch10-simple-taghandler-jar</artifactId>
       <version>1.0</version>
     </dependency>
 
@@ -24,7 +24,7 @@
 
   <build>
 
-    <finalName>simple-webapp</finalName>
+    <finalName>simple-taghandler-webapp</finalName>
 
     <plugins>
       <plugin>
