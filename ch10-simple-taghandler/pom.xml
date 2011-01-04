@@ -4,15 +4,15 @@
                       http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>info.martinussen.scwcd.hfsj.ch9</groupId>
-  <artifactId>custom-taglib-parent</artifactId>
+  <groupId>info.martinussen.scwcd.hfsj.ch10</groupId>
+  <artifactId>ch10-simple-taghandler</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
-  <name>custom taglib example parent pom</name>
+  <name>simple taghandler example parent pom</name>
  
   <modules>
-    <module>advice-taglib</module>
-    <module>webapp</module>
+    <module>ch10-simple-taghandler-jar</module>
+    <module>ch10-simple-taghandler-war</module>
   </modules>
 
   <build>
@@ -31,12 +31,6 @@
   </build>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
 
     <dependency>
       <groupId>javax.servlet</groupId>
