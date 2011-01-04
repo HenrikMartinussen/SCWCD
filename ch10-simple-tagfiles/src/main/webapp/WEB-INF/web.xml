@@ -8,7 +8,7 @@
   
   <context-param>
   	<param-name>mainEmail</param-name>
-  	<param-value>asIfWeCared@wickedlysmart.com</param-value>
+  	<param-value>likewecare@wickedlysmart.com</param-value>
   </context-param>
   <session-config>
   	<session-timeout>1</session-timeout> <!-- 1 minute -->
