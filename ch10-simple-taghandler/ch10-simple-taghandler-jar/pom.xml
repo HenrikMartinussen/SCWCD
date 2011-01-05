@@ -10,8 +10,9 @@
   </parent>
   <artifactId>ch10-simple-taghandler-jar</artifactId>
   <packaging>jar</packaging>
+  <version>1.1</version>
 
-  <name>advice taglib</name>
+  <name>simple taghandler jar</name>
 
   <build>
     <pluginManagement>
