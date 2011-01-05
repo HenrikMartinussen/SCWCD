@@ -7,18 +7,13 @@
     
     <short-name>RandomTags</short-name>
     
-    <uri>randomThings</uri>
+    <uri>simpleTags</uri>
     
     <tag>
-      <description>random advice</description>
-	  <name>advice</name>
-        <tagclass>info.martinussen.scwcd.hfsj.ch9.tag.AdvisorTagHandler</tagclass>
-        <bodycontent>empty</bodycontent>
-        <attribute>
-            <name>user</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
+      <description>worst use of a custom tag</description>
+	  <name>simple1</name>
+      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest1</tagclass>
+      <bodycontent>empty</bodycontent>
     </tag>
 </taglib>
 

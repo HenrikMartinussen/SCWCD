@@ -17,7 +17,7 @@
     <dependency>
       <groupId>info.martinussen.scwcd.hfsj.ch10</groupId>
       <artifactId>ch10-simple-taghandler-jar</artifactId>
-      <version>1.0</version>
+      <version>1.1</version>
     </dependency>
 
   </dependencies>
