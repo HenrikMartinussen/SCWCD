@@ -6,6 +6,10 @@
 
   <!-- hfsj p 513 -->
   <display-name>Simple Tag Handler Web Application</display-name>
+  <context-param>
+  	<param-name>mainEmail</param-name>
+  	<param-value>likewecare@wickedlysmart.com</param-value>
+  </context-param>
   
   <session-config>
   	<session-timeout>1</session-timeout> <!-- 1 minute -->

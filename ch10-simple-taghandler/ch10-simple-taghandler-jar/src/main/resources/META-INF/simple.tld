@@ -5,6 +5,8 @@
         version="2.0">
     <tlib-version>1.2</tlib-version>
     
+    <!-- hfsj p 513 -->
+    
     <short-name>RandomTags</short-name>
     
     <uri>simpleTags</uri>
@@ -14,6 +16,13 @@
 	  <name>simple1</name>
       <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest1</tagclass>
       <bodycontent>empty</bodycontent>
+      <attribute>
+        <name>user</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue><!-- Defaults to false -->
+      </attribute>
+      
+      
     </tag>
 </taglib>
 
