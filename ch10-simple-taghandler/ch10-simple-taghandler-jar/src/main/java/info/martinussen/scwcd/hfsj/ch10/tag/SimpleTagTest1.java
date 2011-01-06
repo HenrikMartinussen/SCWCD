@@ -10,9 +10,14 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 public class SimpleTagTest1 extends SimpleTagSupport {
   
+  private String user;
   
   public void doTag() throws JspException, IOException {
-    getJspContext().getOut().print(getStatement() + "<br/>");
+    getJspContext().getOut().print(user + ": " + getStatement() + "<br/>");
+  }
+  
+  public void setUser(String user){
+    this.user = user;
   }
   
   private String getStatement(){

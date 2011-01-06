@@ -9,7 +9,7 @@
 </jsp:include> 
  --%>
 <%-- This part does depend on the taglib directive  --%>
-<myTags:Header hoverText="image depicting an angle, made from wooden bricks with painted letters on top">We add an angle to html</myTags:Header>
+<myTags:Header hoverText="${initParam.mainEmail }">We add an angle to html</myTags:Header>
 <h2>Welcome to our site</h2>
 Contact us at: ${initParam.mainEmail }
 </body>

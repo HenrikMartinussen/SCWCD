@@ -3,7 +3,7 @@
 <html>
 <body>
 <h2>Simple Tag Handler Example Web Application</h2>
-<myTags:simple1/>
+<myTags:simple1 user="${initParam.mainEmail}"/>
 <br/>
 
 </body>
