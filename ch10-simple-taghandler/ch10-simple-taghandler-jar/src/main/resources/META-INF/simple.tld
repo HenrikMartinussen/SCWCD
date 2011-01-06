@@ -3,11 +3,12 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" 
         version="2.0">
+
     <tlib-version>1.2</tlib-version>
     
-    <!-- hfsj p 513 -->
+    <!-- hfsj p 513, 514 -->
     
-    <short-name>RandomTags</short-name>
+    <short-name>SimpleTags</short-name>
     
     <uri>simpleTags</uri>
     
@@ -19,10 +20,14 @@
       <attribute>
         <name>user</name>
         <required>true</required>
-        <rtexprvalue>true</rtexprvalue><!-- Defaults to false -->
+        <rtexprvalue>true</rtexprvalue><!-- Defaults to false; if the rtexprvalue tag is left out it is considered the same as if it was set to false -->
       </attribute>
-      
-      
+    </tag>
+    <tag>
+      <description>worst use of a custom tag, this time with a body...</description>
+	  <name>simple2</name>
+      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest2</tagclass>
+      <bodycontent>scriptless</bodycontent> <!-- The tag can have a body, but the body cannot have scripting (scriptlets, scripting expressions, or declarations) -->
     </tag>
 </taglib>
 

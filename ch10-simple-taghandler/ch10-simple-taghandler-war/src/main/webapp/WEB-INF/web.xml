@@ -6,9 +6,9 @@
 
   <!-- hfsj p 513 -->
   <display-name>Simple Tag Handler Web Application</display-name>
-  <context-param>
-  	<param-name>mainEmail</param-name>
-  	<param-value>likewecare@wickedlysmart.com</param-value>
+  <context-param> <!-- added for the sake of a test of rtexprvalue default value in an attribute tag in a tld - default is false! -->
+  	<param-name>defaultUser</param-name>
+  	<param-value>René</param-value>
   </context-param>
   
   <session-config>

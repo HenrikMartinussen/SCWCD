@@ -22,7 +22,7 @@ public class SimpleTagTest1 extends SimpleTagSupport {
   
   private String getStatement(){
     String statement;
-    String[] statements = {"This is the lamest use of a custom ta", "How lame is this", "How come the tall girl in the book is always so negative"};
+    String[] statements = {"This is the lamest use of a custom tag", "How lame is this", "How come the tall girl in the book is always so negative"};
     int random = (int) (Math.random() * statements.length);
     statement = statements[random];
     return statement;
