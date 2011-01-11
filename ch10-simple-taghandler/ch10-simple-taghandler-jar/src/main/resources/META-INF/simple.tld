@@ -29,5 +29,17 @@
       <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest2</tagclass>
       <bodycontent>scriptless</bodycontent> <!-- The tag can have a body, but the body cannot have scripting (scriptlets, scripting expressions, or declarations) -->
     </tag>
+    <tag>
+      <description>demonstrates how to implement an expression in the tagbody accessing an attribute set in the doTag() method - hfsj p 519</description>
+      <name>simple3</name>
+      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest3</tagclass>
+      <bodycontent>scriptless</bodycontent>
+    </tag>
+    <tag>
+      <description> As simple3 - but further demonstrates the concept in an iterative scenario - hfsj p 520</description>
+      <name>simple4</name>
+      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest4</tagclass>
+      <bodycontent>scriptless</bodycontent>
+    </tag>
 </taglib>
 

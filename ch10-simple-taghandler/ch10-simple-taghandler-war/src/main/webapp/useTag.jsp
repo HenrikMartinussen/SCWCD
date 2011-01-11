@@ -1,5 +1,5 @@
 <%@ taglib prefix="myTags" uri="simpleTags" %>
-<%-- HFSJ p513, 514 --%>
+<%-- HFSJ p513, 514, 519, 520 --%>
 <html>
 <body>
 <h2>Simple Tag Handler Example Web Application</h2>
@@ -16,6 +16,17 @@ Simple tag 2:<br/>
 <myTags:simple2>And this go in the body ${initParam.defaultUser} ;-)</myTags:simple2><%-- EL is quite allright, scripting is disallowed though when tld says bodycontent is scriptless --%>
 <br/>
 <myTags:simple2>Another body content...</myTags:simple2> <%-- Doesn't work without body content... --%>
+
+<br/>
+Simple tag 3:<br/>
+<myTags:simple3>Message is: ${message}</myTags:simple3><%-- message attribute is set in the taghandler --%>
+<br/>
+simple tag 4:<br/>
+<table>
+<myTags:simple4>
+  <tr><td>&nbsp;</td><td>${movie}</td></tr>
+</myTags:simple4>
+</table>
 
 </body>
 </html>
