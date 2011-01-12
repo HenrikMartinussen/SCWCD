@@ -21,6 +21,9 @@ public class SimpleTagTest5 extends SimpleTagSupport {
     Iterator it = movieList.iterator();
     while (it.hasNext()){
       Movie movie = (Movie) it.next();
+      getJspContext().setAttribute("movie", movie);
+      getJspBody().invoke(null);
+      
     }
   }
   
