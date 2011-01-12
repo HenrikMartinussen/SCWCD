@@ -41,5 +41,18 @@
       <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest4</tagclass>
       <bodycontent>scriptless</bodycontent>
     </tag>
+    <tag>
+      <description>Takes an attribute and iterates over it. 
+      The body of the tag is rendered once for every item in the movieList attribute. 
+      The attribute movie is set before each iteration</description>
+      <name>simple5</name>
+      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest5</tagclass>
+      <bodycontent>scriptless</bodycontent>
+      <attribute>
+        <name>movieList</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+      </attribute>
+    </tag>
 </taglib>
 
