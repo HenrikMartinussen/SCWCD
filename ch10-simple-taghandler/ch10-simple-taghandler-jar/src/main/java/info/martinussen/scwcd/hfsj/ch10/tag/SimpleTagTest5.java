@@ -23,10 +23,6 @@ public class SimpleTagTest5 extends SimpleTagSupport {
       Movie movie = (Movie) it.next();
       getJspContext().setAttribute("movie", movie);
       getJspBody().invoke(null);
-      
     }
   }
-  
-  
-
 }
