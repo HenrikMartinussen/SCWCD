@@ -5,12 +5,18 @@
         version="2.0">
 
     <tlib-version>1.2</tlib-version>
-    
-    <!-- hfsj p 513, 514 -->
+    <!-- HFSJ p 513, 514, 519, 520, 521 simple tags-->
+    <!-- HFSJ p 393 EL functions  -->
     
     <short-name>SimpleTags</short-name>
     
     <uri>simpleTags</uri>
+    
+    <function>
+      <name>movielist</name>
+      <function-class>info.martinussen.scwcd.hfsj.ch10.tag.CreateMovieListFunction</function-class>
+      <function-signature>HorseDo suggestMovie()</function-signature>
+    </function>
     
     <tag>
       <description>worst use of a custom tag</description>
