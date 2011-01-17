@@ -1,6 +1,6 @@
-<%@ page import="java.util.*" %>
-<%@ page import="info.martinussen.scwcd.hfsj.ch10.tag.Movie" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!--<%@ page import="java.util.*" %>-->
+<!--<%@ page import="info.martinussen.scwcd.hfsj.ch10.tag.Movie" %>-->
+<!--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>-->
 <%@ taglib prefix="myTags" uri="simpleTags" %>
 <%-- HFSJ p513, 514, 519, 520 521--%>
 <html>
@@ -34,15 +34,8 @@ simple tag 4:<br/>
 </table>
 <hr align="left" width="40%"/>
 simple tag 5:<br/>
-<% 
-  ArrayList movieList = new ArrayList();
-  request.setAttribute("movieCollection", movieList);
-  movieList.add(new Movie("Monsoon Wedding", "Comedy"));
-  movieList.add(new Movie("Saved!", "Disaster Drama"));
-  movieList.add(new Movie("The Good, The Bad and The Ugly", "Spaghetti Western"));
-%>
 <table>
-  <myTags:simple5 movieList="${movieCollection}">
+  <myTags:simple5 movieList="${myTags:movielist()}">
     <tr>
       <td>${movie.name}</td>
       <td>${movie.genre}</td>
