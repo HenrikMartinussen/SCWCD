@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+     version="2.4">
+  <display-name>Basic Authentication Example Web Application</display-name>
+  <login-config>
+    <auth-method>BASIC</auth-method><!-- To make the container enforce authentication -->
+  </login-config>
+  <servlet>
+    <servlet-name>Ch12 User</servlet-name>
+    <servlet-class>info.martinussen.scwcd.hfsj.ch12.UserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Ch12 Comment</servlet-name>
+    <servlet-class>info.martinussen.scwcd.hfsj.ch12.CommentController</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>Ch12 User</servlet-name>
+    <url-pattern>/ProcessUserInfo.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Ch12 Comment</servlet-name>
+  	<url-pattern>/ProcessComments.do</url-pattern>
+  </servlet-mapping>
+  <session-config>
+  	<session-timeout>2</session-timeout><!-- session-timeout in minutes -->
+  </session-config>
+</web-app>
