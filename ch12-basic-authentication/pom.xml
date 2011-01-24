@@ -32,6 +32,7 @@
               <config>src/test/resources/realm.properties</config>
             </userRealm>
           </userRealms>
+          
         </configuration>
       </plugin>
     </plugins>
