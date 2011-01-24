@@ -6,6 +6,7 @@
   <display-name>Basic Authentication Example Web Application</display-name>
   <login-config>
     <auth-method>BASIC</auth-method><!-- To make the container enforce authentication -->
+    <realm>BasicRealm</realm>
   </login-config>
   <servlet>
     <servlet-name>Ch12 User</servlet-name>
@@ -23,6 +24,9 @@
   	<servlet-name>Ch12 Comment</servlet-name>
   	<url-pattern>/ProcessComments.do</url-pattern>
   </servlet-mapping>
+  <listener>
+    <listener-class>info.martinussen.scwcd.hfsj.ch12.ContextListener</listener-class>
+  </listener>
   <session-config>
   	<session-timeout>2</session-timeout><!-- session-timeout in minutes -->
   </session-config>

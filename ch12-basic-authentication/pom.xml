@@ -24,6 +24,15 @@
         <groupId>org.mortbay.jetty</groupId>
         <artifactId>maven-jetty-plugin</artifactId>
         <version>6.1.19</version>
+        <configuration> 
+          <contextPath>/ch12-basic-authentication</contextPath>
+          <userRealms>
+            <userRealm implementation="org.mortbay.jetty.security.HashUserRealm">
+              <name>BasicRealm</name>
+              <config>src/test/resources/realm.properties</config>
+            </userRealm>
+          </userRealms>
+        </configuration>
       </plugin>
     </plugins>
   </build>
