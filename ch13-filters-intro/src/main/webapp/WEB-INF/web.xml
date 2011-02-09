@@ -4,15 +4,26 @@
      xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
      version="2.4">
 
-  <display-name>Archetype Created Web Application</display-name>
+  <display-name>Servlet Filter Example Web Application</display-name>
   
   <servlet>
-    <servlet-name>simple</servlet-name>
-    <servlet-class>info.martinussen.web.SimpleServlet</servlet-class>
+    <servlet-name>target servlet</servlet-name>
+    <servlet-class>info.martinussen.scwcd.hfsj.ch13.SimpleServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>simple</servlet-name>
-    <url-pattern>/simple</url-pattern>
+    <servlet-name>target servlet</servlet-name>
+    <url-pattern>/sutsko/*</url-pattern>
   </servlet-mapping>
+  
+  <filter>
+    <filter-name>logger</filter-name>
+    <filter-class>info.martinussen.scwcd.hfsj.ch13.LoggingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>logger</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
 
 </web-app>
