@@ -1,0 +1,17 @@
+package info.martinussen.scwcd.hfsj.ch13;
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class SimpleServlet extends HttpServlet {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    System.out.println("Simple Servlet doGet() runs");
+      
+    PrintWriter out = response.getWriter();
+    out.println( "SimpleServlet Executed" );
+    out.flush();
+    out.close();
+  }
+}
