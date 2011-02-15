@@ -3,27 +3,29 @@
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
      version="2.4">
-  <display-name>Archetype Created Web Application</display-name>
+
+  <display-name>Struts variant beer Web Application</display-name>
+
   <servlet>
-    <servlet-name>Ch3 Beer</servlet-name>
-    <servlet-class>info.martinussen.scwcd.ch1_3.BeerServlet</servlet-class>
+    <servlet-name>FrontController</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
     <init-param>
-      <param-name>version</param-name>
-      <param-value>0.1</param-value>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
     </init-param>
+    <load-on-startup>1</load-on-startup>
   </servlet>
+
   <servlet-mapping>
-    <servlet-name>Ch3 Beer</servlet-name>
-    <url-pattern>/SelectBeer.do</url-pattern>
+    <servlet-name>FrontController</servlet-name>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  <context-param>
-    <param-name>Breed</param-name>
-    <param-value>Great Dane</param-value>
-  </context-param>
+
   <listener>
-    <listener-class>info.martinussen.scwcd.ch1_3.listener.StartUpListener</listener-class>
+    <listener-class>info.martinussen.scwcd.hfsj.ch14.listener.StartUpListener</listener-class>
   </listener>
+
   <listener>
-    <listener-class>info.martinussen.scwcd.ch1_3.listener.RequestListener</listener-class>
+    <listener-class>info.martinussen.scwcd.hfsj.ch14.listener.RequestListener</listener-class>
   </listener>
 </web-app>
