@@ -1,10 +1,9 @@
-package info.martinussen.scwcd.ch1_3.model;
-
-import info.martinussen.scwcd.ch1_3.model.BeerExpert;
+package info.martinussen.scwcd.hfsj.ch14.model;
 
 import java.util.List;
 
 import junit.framework.TestCase;
+
 
 public class TestBeerExpert extends TestCase {
   private BeerExpert testExpert = null;
