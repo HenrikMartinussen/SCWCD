@@ -4,14 +4,16 @@
   "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 <struts-config>
   <form-beans>
-    <form-bean name="selectBeerForm" type="com.example.web.BeerSelectForm" />
+    <form-bean name="selectBeerForm" type="info.martinussen.scwcd.hfsj.ch14.BeerSelectForm" />
   </form-beans>
+  
   <action-mappings>
-    <action path="/SelectBeer" type="com.example.web.BeerSelectAction"
+    <action path="/SelectBeer" type="info.martinussen.scwcd.hfsj.ch14.BeerSelectAction"
             name="selectBeerForm" scope="request"
             validate="true" input="/form.jsp">
     <forward name="show_results" path="/result.jsp"/>
     </action>
   </action-mappings>
- <message-resources parameter="ApplicationResources" /> 
+  
+  <message-resources parameter="ApplicationResources" /> 
 </struts-config>

@@ -1,6 +1,7 @@
 package info.martinussen.scwcd.hfsj.ch14.listener;
 
-import info.martinussen.scwcd.ch1_3.model.Dog;
+
+import info.martinussen.scwcd.hfsj.ch14.model.Dog;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
