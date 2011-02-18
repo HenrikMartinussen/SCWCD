@@ -32,6 +32,13 @@ public class TestBeerServlet extends TestCase {
     assertNotNull(testBeerServlet);
   }
 
+  /**
+   * Provides the BeerServlet with enough mocks to make it believe it is being run in a container.
+   * Verifies that BeerServlet gets the color parameter and puts the styles attribute on the request.
+   * Further verifies that BeerServlet obtains a RequestDispatcher from the mockRequest and subsequently 
+   * forwards to "result.jsp"  
+   * @throws ServletException, IOException
+   */
   public void testBeerAppDoPost()throws ServletException, IOException {
     testBeerServlet = new BeerServlet();
 
@@ -50,6 +57,7 @@ public class TestBeerServlet extends TestCase {
     
     verify(requestMock, times(1)).getParameter(eq("color"));
     verify(requestMock, times(1)).setAttribute(eq("styles"), anyObject());
+    verify(requestMock, times(1)).getRequestDispatcher(eq("result.jsp"));
     verify(reqDispatcherMock, times(1)).forward(eq(requestMock), eq(responseMock));
     
     assertNotNull(testBeerServlet);
