@@ -40,13 +40,17 @@ public class TestBeerServlet extends TestCase {
     
     HttpServletRequest requestMock = mock(HttpServletRequest.class);
     when(requestMock.getParameter("color")).thenReturn("amber");
+    
     RequestDispatcher reqDispatcherMock = mock(RequestDispatcher.class);
     when(requestMock.getRequestDispatcher("result.jsp")).thenReturn(reqDispatcherMock);
     
     HttpServletResponse responseMock = mock(HttpServletResponse.class);
+    
     testBeerServlet.doPost(requestMock, responseMock );
     
-    verify(requestMock, times(1)).setAttribute(anyString(), anyObject());
+    verify(requestMock, times(1)).getParameter(eq("color"));
+    verify(requestMock, times(1)).setAttribute(eq("styles"), anyObject());
+    verify(reqDispatcherMock, times(1)).forward(eq(requestMock), eq(responseMock));
     
     assertNotNull(testBeerServlet);
   }
