@@ -5,40 +5,28 @@
         version="2.0">
 
     <tlib-version>1.2</tlib-version>
-    <!-- HFSJ p 513, 514, 519, 520, 521 simple tags-->
-    <!-- HFSJ p 393 EL functions  -->
+    <!-- HFSJ p 533 classic tags-->
     
     <short-name>SimpleTags</short-name>
     
-    <uri>simpleTags</uri>
-    
-    <function>
-      <name>movielist</name>
-      <function-class>info.martinussen.scwcd.hfsj.ch10.tag.CreateMovieListFunction</function-class>
-      <function-signature>Java.util.List suggestMovie()</function-signature>
-    </function>
+    <uri>classicTags</uri>
     
     <tag>
-      <description>worst use of a custom tag</description>
-	  <name>simple1</name>
-      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest1</tagclass>
+      <description>worst use of a classic custom tag</description>
+	  <name>classic1</name>
+      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.ClassicTagTest1</tagclass>
       <bodycontent>empty</bodycontent>
-      <attribute>
-        <name>user</name>
-        <required>true</required>
-        <rtexprvalue>true</rtexprvalue><!-- Defaults to false; if the rtexprvalue tag is left out it is considered the same as if it was set to false -->
-      </attribute>
     </tag>
     <tag>
-      <description>worst use of a custom tag, this time with a body...</description>
-	  <name>simple2</name>
-      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest2</tagclass>
-      <bodycontent>scriptless</bodycontent> <!-- The tag can have a body, but the body cannot have scripting (scriptlets, scripting expressions, or declarations) -->
+      <description>worst use of a classic custom tag, this time with a doStartTag and a doEndTag...</description>
+	  <name>classic2</name>
+      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.ClassicTagTest2</tagclass>
+      <bodycontent>empty</bodycontent> 
     </tag>
     <tag>
-      <description>demonstrates how to implement an expression in the tagbody accessing an attribute set in the doTag() method - hfsj p 519</description>
+      <description>demonstrates how to implement a classic tag, which evaluates the body content hfsj p 533</description>
       <name>simple3</name>
-      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest3</tagclass>
+      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.ClassicTagTest3</tagclass>
       <bodycontent>scriptless</bodycontent>
     </tag>
     <tag>
