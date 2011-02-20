@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+  <!-- hfsj p 513 -->
+  <display-name>Simple Tag Handler Web Application</display-name>
+  <context-param> <!-- added for the sake of a test of rtexprvalue default value in an attribute tag in a tld - default is false! -->
+  	<param-name>defaultUser</param-name>
+  	<param-value>René</param-value>
+  </context-param>
+  
+  <session-config>
+  	<session-timeout>1</session-timeout> <!-- 1 minute -->
+  </session-config>
+</web-app>

@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.mockito.InOrder;
+
 import static org.mockito.Mockito.*;
 
 import info.martinussen.scwcd.hfsj.ch4.BeerServlet;
@@ -55,10 +57,11 @@ public class TestBeerServlet extends TestCase {
     
     testBeerServlet.doPost(requestMock, responseMock );
     
-    verify(requestMock, times(1)).getParameter(eq("color"));
-    verify(requestMock, times(1)).setAttribute(eq("styles"), anyObject());
-    verify(requestMock, times(1)).getRequestDispatcher(eq("result.jsp"));
-    verify(reqDispatcherMock, times(1)).forward(eq(requestMock), eq(responseMock));
+    InOrder inorder = inOrder(requestMock, reqDispatcherMock);
+    inorder.verify(requestMock, times(1)).getParameter(eq("color"));
+    inorder.verify(requestMock, times(1)).setAttribute(eq("styles"), anyListOf(String.class));
+    inorder.verify(requestMock, times(1)).getRequestDispatcher(eq("result.jsp"));
+    inorder.verify(reqDispatcherMock, times(1)).forward(eq(requestMock), eq(responseMock));
   }
 
 }
