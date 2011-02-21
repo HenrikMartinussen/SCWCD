@@ -12,15 +12,15 @@ Classic tag 2:<br/>
 <myTags:classic2/><br/><%-- must be empty - implemented with a doStartTag as well as a doEndTag --%>
 <myTags:classic2></myTags:classic2>
 <hr align="left" width="40%"/>
-Simple tag 3:<br/>
-<myTags:simple3>This is the body!</myTags:simple3><br/><%-- message attribute is set in the taghandler --%>
+Classic tag 3:<br/>
+<myTags:classic3>This is the body!</myTags:classic3><br/>
 <br/>
 <hr align="left" width="40%"/>
-simple tag 4:<br/>
+classic tag 4:<br/>
 <table>
-<myTags:simple4>
+<myTags:classic4>
   <tr><td>&nbsp;</td><td>${movie}</td></tr>
-</myTags:simple4>
+</myTags:classic4>
 </table>
 <hr align="left" width="40%"/>
 

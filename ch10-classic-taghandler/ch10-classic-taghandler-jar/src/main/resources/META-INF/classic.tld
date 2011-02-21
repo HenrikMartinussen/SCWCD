@@ -25,28 +25,15 @@
     </tag>
     <tag>
       <description>demonstrates how to implement a classic tag, which evaluates the body content hfsj p 533</description>
-      <name>simple3</name>
+      <name>classic3</name>
       <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.ClassicTagTest3</tagclass>
       <bodycontent>scriptless</bodycontent>
     </tag>
     <tag>
-      <description> As simple3 - but further demonstrates the concept in an iterative scenario - hfsj p 520</description>
-      <name>simple4</name>
-      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest4</tagclass>
+      <description> Classic 4 demonstrates an iterative scenario - hfsj p 537</description>
+      <name>classic4</name>
+      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.ClassicTagTest4</tagclass>
       <bodycontent>scriptless</bodycontent>
-    </tag>
-    <tag>
-      <description>Takes an attribute and iterates over it. 
-      The body of the tag is rendered once for every item in the movieList attribute. 
-      The attribute movie is set before each iteration</description>
-      <name>simple5</name>
-      <tagclass>info.martinussen.scwcd.hfsj.ch10.tag.SimpleTagTest5</tagclass>
-      <bodycontent>scriptless</bodycontent>
-      <attribute>
-        <name>movieList</name>
-        <required>true</required>
-        <rtexprvalue>true</rtexprvalue>
-      </attribute>
     </tag>
 </taglib>
 
