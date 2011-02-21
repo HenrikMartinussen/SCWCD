@@ -4,9 +4,13 @@ import java.io.IOException;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.tagext.SimpleTagSupport;
 import javax.servlet.jsp.tagext.TagSupport;
 
+/**
+ * hfsj p 533
+ * @author HMS
+ *
+ */
 public class ClassicTagTest3 extends TagSupport{
 
   private JspWriter out;

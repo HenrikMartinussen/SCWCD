@@ -21,13 +21,7 @@ public class SimpleTagTest5 extends SimpleTagSupport {
   @SuppressWarnings("unchecked")
   @Override
   public void doTag() throws JspException, IOException {
-    Iterator it = movieList.iterator();
-    while (it.hasNext()){
-      Movie movie = (Movie) it.next();
-//      String movieTitle = (String) it.next();
-//      Movie movie = new Movie(movieTitle, "Unknown");
-      getJspContext().setAttribute("movie", movie);
-      getJspBody().invoke(null);
-    }
+    getJspContext().getOut().print("SimpleTagTest5") ;
+    getJspBody().invoke(null);
   }
 }
