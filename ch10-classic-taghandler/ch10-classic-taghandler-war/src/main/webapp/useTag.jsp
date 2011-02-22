@@ -17,9 +17,15 @@ Classic tag 3:<br/>
 <br/>
 <hr align="left" width="40%"/>
 classic tag 4:<br/>
-<table>
+<table border="1">
 <myTags:classic4>
-  <tr><td>&nbsp;</td><td>${movie}</td></tr>
+  <tr><td>${movie}</td></tr>
+</myTags:classic4>
+</table>
+<br/>
+<table border="1"><%-- second time it's invoked the tag's instance variables might be "dirty" --%>
+<myTags:classic4>
+  <tr><td>${movie}</td></tr>
 </myTags:classic4>
 </table>
 <hr align="left" width="40%"/>
