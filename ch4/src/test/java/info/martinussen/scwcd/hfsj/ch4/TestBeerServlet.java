@@ -48,16 +48,18 @@ public class TestBeerServlet extends TestCase {
     testBeerServlet.init(configMock);
     
     HttpServletRequest requestMock = mock(HttpServletRequest.class);
+    when(requestMock.getMethod()).thenReturn("POST"); //this forces the service method to delegate to doPost()
     when(requestMock.getParameter("color")).thenReturn("amber");
+    
     
     RequestDispatcher reqDispatcherMock = mock(RequestDispatcher.class);
     when(requestMock.getRequestDispatcher("result.jsp")).thenReturn(reqDispatcherMock);
     
     HttpServletResponse responseMock = mock(HttpServletResponse.class);
     
-    testBeerServlet.doPost(requestMock, responseMock );
+    testBeerServlet.service(requestMock, responseMock );//delegates to doPost()
     
-    InOrder inorder = inOrder(requestMock, reqDispatcherMock);
+    InOrder inorder = inOrder(reqDispatcherMock, requestMock); //the order of the mocks is of no consequence
     inorder.verify(requestMock, times(1)).getParameter(eq("color"));
     inorder.verify(requestMock, times(1)).setAttribute(eq("styles"), anyListOf(String.class));
     inorder.verify(requestMock, times(1)).getRequestDispatcher(eq("result.jsp"));

@@ -1,7 +1,5 @@
 package info.martinussen.scwcd.hfsj.ch10.tag;
 
-import java.io.IOException;
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
@@ -14,7 +12,6 @@ public class ClassicTagTest4 extends TagSupport{
   
   private String[] movies = {"Spiderman", "Saved!", "Amelie"};
   private int index; 
-
   
   public int doStartTag() throws JspException{
     index = 0; // classic tags might be reused, so instance variables must be reset for each invocation
