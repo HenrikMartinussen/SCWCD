@@ -41,7 +41,7 @@ public class TestBeerServlet extends TestCase {
    * forwards to "result.jsp"  
    * @throws ServletException, IOException
    */
-  public void testBeerAppDoPost()throws ServletException, IOException {
+  public void testBeerAppDoPost() throws ServletException, IOException {
     testBeerServlet = new BeerServlet();
 
     ServletConfig configMock = mock(ServletConfig.class);
