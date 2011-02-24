@@ -45,7 +45,7 @@ public class TestSelectTagHandler extends TestCase {
     
     testSelect.setJspContext(mockJspContext);
     testSelect.setName("color");
-    testSelect.setSize("1");
+    testSelect.setDynamicAttribute("", "size", "1");
     testSelect.setOptionsList(testOptions);
     
     testSelect.doTag();
