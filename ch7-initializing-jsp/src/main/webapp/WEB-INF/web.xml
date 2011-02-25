@@ -5,6 +5,7 @@
      version="2.4">
 
   <display-name>HFSJ ch7 Initializing Your JSP</display-name>
+  <!-- hfsj p310 -->
   
   <servlet>
     <servlet-name>myTestInit</servlet-name>
