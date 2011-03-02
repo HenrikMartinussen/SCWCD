@@ -14,7 +14,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 /**
- * Junit in action p 17 Running parameterized tests
+ * "Junit in action" p 17 - "Running parameterized tests"
  * @author HMS
  *
  */

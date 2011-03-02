@@ -1,4 +1,5 @@
 <html>
+<%-- hfsj p 353, 354 --%>
 <body>
 <p>
 <jsp:useBean id="person"
