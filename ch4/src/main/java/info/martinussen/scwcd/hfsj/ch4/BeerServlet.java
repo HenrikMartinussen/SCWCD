@@ -1,7 +1,5 @@
 package info.martinussen.scwcd.hfsj.ch4;
 
-
-
 import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
 
 import java.io.IOException;
@@ -14,27 +12,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 /**
  * HFSJ p 89, 97 (Lifecycle)
  * @author Henrik
- *
  */
 @SuppressWarnings("serial")
 public class BeerServlet extends HttpServlet{
+  
+  static Logger log = Logger.getLogger(BeerServlet.class);
 
   static {
-    System.out.println("BeerServlet class is loaded");
+    log.debug("BeerServlet class is loaded");
   }
 
   public BeerServlet(){
     super();
-    System.out.println("BeerServlet is constructed");
+    log.debug("BeerServlet is constructed");
   }
   
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException { 
     
-    System.out.println("doPost is called");
+    log.debug("doPost is called");
     String c = req.getParameter("color");
 
     BeerExpert expert = new BeerExpert();
@@ -48,7 +49,7 @@ public class BeerServlet extends HttpServlet{
   @Override
   protected void service(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    System.out.println("service is called");
+    log.debug("service is called");
     super.service(req, resp);
   }
 
@@ -56,19 +57,19 @@ public class BeerServlet extends HttpServlet{
   
   @Override
   public void init(ServletConfig config) throws ServletException {
-    System.out.println("init(ServletConfig) is called");
+    log.debug("init(ServletConfig) is called");
     super.init(config);
   }
 
   @Override
   public void init() throws ServletException {
-    System.out.println("init() is called");
+    log.debug("init() is called");
     super.init();
   }
   
   @Override
   public void destroy(){
-    System.out.println("destroy is called");
+    log.debug("destroy is called");
     super.destroy();
   }
 }

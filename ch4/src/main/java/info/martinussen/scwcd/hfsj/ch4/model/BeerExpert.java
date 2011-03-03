@@ -3,18 +3,21 @@ package info.martinussen.scwcd.hfsj.ch4.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 public class BeerExpert {
+  static Logger log = Logger.getLogger(BeerExpert.class);
   
   static {
-    System.out.println("BeerExpert is loaded");
+    log.debug("BeerExpert is loaded");
   }
   
   public BeerExpert(){
-    System.out.println("BeerExpert is constructed");
+    log.debug("BeerExpert is constructed");
   }
   
   public List<String> getBrands(String color){
-    System.out.println("BeerExpert.getBrands() is called, parameter color was: " + color);
+    log.debug("BeerExpert.getBrands() is called, parameter color was: " + color);
     List<String> brands = new ArrayList<String>();
     if (color.equals("amber")){
       brands.add("Jack Amber");
@@ -23,7 +26,7 @@ public class BeerExpert {
       brands.add("Jail Pale Ale");
       brands.add("Gout Stout");
     }
-    System.out.println("BeerExpert.getBrands() returns: " + brands);
+    log.debug("BeerExpert.getBrands() returns: " + brands);
     return brands;
   }
 

@@ -12,4 +12,5 @@
     <servlet-name>Ch4 Beer</servlet-name>
     <url-pattern>/SelectBeer.do</url-pattern>
   </servlet-mapping>
+  
 </web-app>
