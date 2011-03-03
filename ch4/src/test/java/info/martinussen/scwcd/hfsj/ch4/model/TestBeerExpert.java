@@ -32,7 +32,7 @@ public class TestBeerExpert {
         {"amber", "Jack Amber", "Red Moose"}, // value, expected1, expected2
         {"light", "Jail Pale Ale", "Gout Stout"},
         {"brown", "Jail Pale Ale", "Gout Stout"},
-        {"dark", "Jail Pale Ale", "Gout Stout"}
+        {"dark",  "Jail Pale Ale", "Gout Stout"}
     });
   }
   
