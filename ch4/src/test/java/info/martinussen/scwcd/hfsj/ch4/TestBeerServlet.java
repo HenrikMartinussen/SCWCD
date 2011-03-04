@@ -59,6 +59,8 @@ public class TestBeerServlet extends TestCase {
     
     testBeerServlet.service(requestMock, responseMock );//delegates to doPost()
     
+    testBeerServlet.destroy();
+    
     InOrder inorder = inOrder(reqDispatcherMock, requestMock); //the order of the mocks is of no consequence
     inorder.verify(requestMock, times(1)).getMethod();
     inorder.verify(requestMock, times(1)).getParameter(eq("color"));
