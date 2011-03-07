@@ -29,8 +29,13 @@ public class Person {
     return returnValue; 
   }
   
+  public List<Dog> getDogs(){
+    log.debug("Person.getDogs was called, the list included " + dogs.size() + " dog(s)");
+    return dogs;
+  }
+  
   public void addDog(Dog dog) {
-    log.debug("Person.setDog was called - Dog parameter's name property was: " + dog.getName());
+    log.debug("Person.addDog was called - Dog parameter's name property was: " + dog.getName());
     dogs.add(dog);
   }
 
@@ -44,7 +49,6 @@ public class Person {
   }
 
   public int getDogCount() {
-    // TODO Auto-generated method stub
     return dogs.size();
   }
 }
