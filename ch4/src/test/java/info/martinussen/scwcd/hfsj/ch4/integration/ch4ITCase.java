@@ -9,7 +9,7 @@ import com.thoughtworks.selenium.*;
 
 
 
-public class ch4ITCase extends SeleneseTestCase {
+public class Ch4ITCase extends SeleneseTestCase {
   
   
   @Before
