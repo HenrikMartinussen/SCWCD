@@ -50,6 +50,7 @@ public class UserServlet extends HttpServlet{
     
     //http://www.exampledepot.com/egs/java.util/coll_GetArrayFromVector.html
     String[] musicTypes = musicMap.keySet().toArray(new String[1]);
+    Arrays.sort(musicTypes);
     req.setAttribute("MusicType", musicTypes);
     
     
