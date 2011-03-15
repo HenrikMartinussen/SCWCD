@@ -4,24 +4,29 @@
      xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
      version="2.4">
 
+<!-- csjv2 p 212  -->
   <display-name>Servlet Filter Example Web Application</display-name>
   
   <servlet>
-    <servlet-name>target servlet</servlet-name>
-    <servlet-class>info.martinussen.scwcd.csjv2.ch5.SimpleServlet</servlet-class>
+    <servlet-name>TodaysSpecial</servlet-name>
+    <servlet-class>info.martinussen.scwcd.csjv2.ch5.TodaysSpecialServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>target servlet</servlet-name>
-    <url-pattern>/sutsko/*</url-pattern>
+    <servlet-name>TodaysSpecial</servlet-name>
+    <url-pattern>/TodaysSpecial</url-pattern>
   </servlet-mapping>
   
   <filter>
-    <filter-name>logger</filter-name>
-    <filter-class>info.martinussen.scwcd.csjv2.ch5.LoggingFilter</filter-class>
+    <filter-name>Reporter</filter-name>
+    <filter-class>info.martinussen.scwcd.csjv2.ch5.ReportFilter</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>logger</filter-name>
-    <url-pattern>/*</url-pattern>
+    <filter-name>Reporter</filter-name>
+    <url-pattern>/index.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>Reporter</filter-name>
+    <servlet-name>TodaysSpecial</servlet-name>
   </filter-mapping>
   
   
