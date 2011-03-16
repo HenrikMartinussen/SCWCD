@@ -21,7 +21,11 @@
     <filter-class>info.martinussen.scwcd.csjv2.ch5.AccessTimeFilter</filter-class>
     <init-param>
       <param-name>attentionTimeBegin</param-name>
-      <param-value>hyphest</param-value>  
+      <param-value>02:00:00</param-value>
+    </init-param>
+    <init-param>
+      <param-name>attentionTimeEnd</param-name>
+      <param-value>10:00:00</param-value>
     </init-param>
   </filter>
   <filter-mapping>
