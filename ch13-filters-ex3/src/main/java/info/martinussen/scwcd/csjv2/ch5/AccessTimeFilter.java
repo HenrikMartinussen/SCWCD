@@ -36,6 +36,7 @@ public class AccessTimeFilter implements Filter{
   private ServletContext servletContext;
   private String filterName;
   private Date attentionTimeBegin;
+  private Date attentionTimeEnd;
   
   public AccessTimeFilter(){
     super();
@@ -62,14 +63,18 @@ public class AccessTimeFilter implements Filter{
     filterName = this.filterConfig.getFilterName();
     
     String attentionTimeBeginString = this.filterConfig.getInitParameter("attentionTimeBegin");
+    String attentionTimeEndString = this.filterConfig.getInitParameter("attentionTimeEnd");
     DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
     try {
       attentionTimeBegin = (Date)formatter.parse(attentionTimeBeginString);
+      attentionTimeEnd = (Date)formatter.parse(attentionTimeEndString);
     } catch (ParseException e) {
-      log.error("Couldn't parse attentionTimeBegin filter init parameter", e);
+      log.error("Couldn't parse attentionTimeSpan filter init parameter", e);
+      
     }
 
     log.info("attentionTimeBegin = " + attentionTimeBegin);
+    log.info("attentionTimeEnd = " + attentionTimeEnd);
   }
 
   public void destroy() {
