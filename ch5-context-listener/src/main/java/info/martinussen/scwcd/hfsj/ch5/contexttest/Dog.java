@@ -1,15 +1,18 @@
 package info.martinussen.scwcd.hfsj.ch5.contexttest;
 
+import org.apache.log4j.Logger;
+
 public class Dog {
 
+  private static Logger log = Logger.getLogger(Dog.class);
   private String breed;
   
   static {
-    System.out.println("Dog class is loaded");
+    log.debug("Dog class is loaded");
   }
 
   public Dog(String Breed) {
-    System.out.println("Dog object is constructed, Breed is: " + breed);
+    log.debug("Dog object is constructed, Breed is: " + breed);
     this.breed = Breed; 
   }
 
