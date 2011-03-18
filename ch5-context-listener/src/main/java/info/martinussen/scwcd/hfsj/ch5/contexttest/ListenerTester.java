@@ -5,6 +5,8 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import org.apache.log4j.Logger;
+
 /**
  * HFSJ p. 168 ff., Ch 5 - ServletContextListener tutorial
  * @author hma
@@ -12,45 +14,50 @@ import javax.servlet.http.*;
  */
 @SuppressWarnings("serial")
 public class ListenerTester extends HttpServlet {
+
+  private static Logger log = Logger.getLogger(ListenerTester.class);
   
   static {
-    System.out.println("ListenerTester is being loaded");
+    log.debug("ListenerTester is being loaded");
   }
   
   public ListenerTester(){
     super();
-    System.out.println("ListenerTester is being constructed");
+    log.debug("ListenerTester is being constructed");
   }
   
   @Override
   public void init() throws ServletException {
     super.init();
-    System.out.println("ListenerTester is being initialized");
+    log.debug("ListenerTester.init() has run");
   }
   
-  
-  
+  @Override
+  public void init(ServletConfig config) throws ServletException {
+    super.init(config);
+    log.debug("ListenerTester.init(ServletConfig) has run");
+  }
+
+
   @Override
   public void destroy() {
     super.destroy();
-    System.out.println("ListenerTester is being destroyed");
+    log.debug("ListenerTester is being destroyed");
   }
 
   @Override
   protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    System.out.println("ListenerTester.service(req, resp) runs");
+    log.debug("ListenerTester.service(req, resp) runs");
     super.service(req, resp);
   }
 
-
   public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    System.out.println("ListenerTester.doGet(req, resp) runs");
+    log.debug("ListenerTester.doGet(req, resp) runs");
     resp.setContentType("text/html");
         
     PrintWriter out = resp.getWriter();
 
-        
-    out.println("Test context attributes set by listener<br/>");
+    out.println("<h3>Test context attributes set by listener</h3>");
     out.println("<br/>");
     Dog dog = (Dog) getServletContext().getAttribute("dog");
     out.println("Dog's breed is: " + dog.getBreed());
