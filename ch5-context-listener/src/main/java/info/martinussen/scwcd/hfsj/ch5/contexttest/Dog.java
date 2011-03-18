@@ -11,9 +11,9 @@ public class Dog {
     log.debug("Dog class is loaded");
   }
 
-  public Dog(String Breed) {
+  public Dog(String breed) {
     log.debug("Dog object is constructed, Breed is: " + breed);
-    this.breed = Breed; 
+    this.breed = breed; 
   }
 
   public String getBreed() {
