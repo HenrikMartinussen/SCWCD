@@ -2,7 +2,7 @@ package info.martinussen.scwcd.hfsj.ch5.contexttest;
 
 import org.apache.log4j.Logger;
 
-public class Dog {
+public class Dog{
 
   private static Logger log = Logger.getLogger(Dog.class);
   private String breed;
@@ -19,5 +19,4 @@ public class Dog {
   public String getBreed() {
     return breed;
   }
-
 }

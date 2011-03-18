@@ -13,7 +13,10 @@ import org.apache.log4j.Logger;
  *
  */
 @SuppressWarnings("serial")
-public class ListenerTester extends HttpServlet {
+public class ListenerTester extends HttpServlet implements ServletContextListener {
+  /* Besides being a servlet ListenerTester is also a ServletContextListener, 
+   * receiving notices about ServletContext being initialized and destroyed
+   */
 
   private static Logger log = Logger.getLogger(ListenerTester.class);
   
@@ -64,5 +67,19 @@ public class ListenerTester extends HttpServlet {
        
     out.flush();
     out.close();
+  }
+
+
+  public void contextInitialized(ServletContextEvent event) {
+    log.debug("ListenerTester.contextInitialized(ServletContextEvent) runs");
+    ServletContext servletContext = event.getServletContext();
+    Dog dog = new Dog(servletContext.getInitParameter("breed"));
+    servletContext.setAttribute("dog", dog);
+    
+  }
+
+  public void contextDestroyed(ServletContextEvent event) {
+    log.debug("ListenerTester.contextDestroyed(ServletContextEvent) runs");
+    // Nothing to do here - Dogs die with the context :-/
   }
 }
