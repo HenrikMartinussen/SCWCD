@@ -81,5 +81,25 @@ public class BeerExpertTest extends TestCase {
 	  assertEquals(1, advice.getMessages().length);
 	  assertEquals(expectedMessages[0], advice.getMessages()[0]);
 	}
+
+	public void testAdvice7() throws Exception {
+	  String[] expectedMessages = new String[] {"gammel carlsberg porter"};
+	  NextResponse advice =  testExpert.getAdvice("");
+	  advice = testExpert.getAdvice(advice.getMessages()[0]);//dark
+	  advice = testExpert.getAdvice(advice.getMessages()[0]);//cheap
+	  assertTrue(advice.isFinalAdvice());
+	  assertEquals(1, advice.getMessages().length);
+	  assertEquals(expectedMessages[0], advice.getMessages()[0]);
+	}
+
+	public void testAdvice8() throws Exception {
+	  String[] expectedMessages = new String[] {"carls dark abbey ale"};
+	  NextResponse advice =  testExpert.getAdvice("");
+	  advice = testExpert.getAdvice(advice.getMessages()[0]);//dark
+	  advice = testExpert.getAdvice(advice.getMessages()[2]);//exclusive
+	  assertTrue(advice.isFinalAdvice());
+	  assertEquals(1, advice.getMessages().length);
+	  assertEquals(expectedMessages[0], advice.getMessages()[0]);
+	}
 	
 }

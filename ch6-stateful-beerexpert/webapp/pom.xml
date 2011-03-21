@@ -4,15 +4,38 @@
                       http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>info.martinussen.scwcd.hfsj.ch6</groupId>
-    <artifactId>stateful-beerexpert-parent</artifactId>
+    <groupId>info.martinussen.scwcd.hfsj</groupId>
+    <artifactId>ch6-stateful-beerexpert-parent</artifactId>
     <version>1.0</version>
   </parent>
 
-  <artifactId>webapp</artifactId>
+  <artifactId>ch6-stateful-webapp</artifactId>
   <packaging>war</packaging>
+  
   <name>webapp giving stateful beeradvice</name>
+  
+  <build>
+    <finalName>simple-webapp</finalName>
+
+    <plugins>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>maven-jetty-plugin</artifactId>
+        <version>6.1.19</version>
+        <configuration>
+          <connectors>
+            <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+              <port>8081</port>
+            </connector>
+          </connectors>
+        </configuration>
+      </plugin>
+    </plugins>
+
+  </build>
+
   <dependencies>
+  
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
@@ -28,20 +51,12 @@
     </dependency>
     
     <dependency>
-      <groupId>info.martinussen.scwcd.hfsj.ch6</groupId>
-      <artifactId>beerexpert</artifactId>
+      <groupId>info.martinussen.scwcd.hfsj</groupId>
+      <artifactId>ch6-stateful-beerexpert</artifactId>
       <version>1.0</version>
     </dependency>
+  
   </dependencies>
-  <build>
-    <finalName>simple-webapp</finalName>
-    <plugins>
-      <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>maven-jetty-plugin</artifactId>
-        <version>6.1.19</version>
-      </plugin>
-    </plugins>
-  </build>
+  
 
 </project>

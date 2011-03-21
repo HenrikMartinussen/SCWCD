@@ -21,4 +21,16 @@ public class NextResponse {
     return messages;
   }
 
+  @Override
+  public String toString() {
+    String returnString = "NextResponse[ finalAdvice = " + finalAdvice + ", messages[ ";
+    for (String s : messages){
+      returnString += s + ", ";
+    }
+    returnString += "]]";
+    return returnString;
+  }
+  
+  
+
 }
