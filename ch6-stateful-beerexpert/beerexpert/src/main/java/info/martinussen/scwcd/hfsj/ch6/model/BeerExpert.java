@@ -62,7 +62,8 @@ public class BeerExpert implements HttpSessionBindingListener{
         throw new IllegalArgumentException();
       }
       NextResponse response = new NextResponse(false, new String[] {"Dark", "Amber", "Pale"});
-      currentState = oneQestionAnsweredState;
+      log.debug("State is set to oneQuestionsAnsweredState");
+      currentState = oneQestionAnsweredState; 
       return response;
     }
   }
@@ -72,7 +73,8 @@ public class BeerExpert implements HttpSessionBindingListener{
       log.debug("OneQuestionAnswered State.getAdvice() runs");
       answer1 = answer;
       NextResponse response = new NextResponse(false, new String[] {"Cheap", "Regular", "Exclusive"});
-      currentState = twoQuestionsAnsweredState;
+      log.debug("State is set to twoQuestionsAnsweredState");
+      currentState = twoQuestionsAnsweredState; 
       return response;
     }
   }
@@ -95,7 +97,7 @@ public class BeerExpert implements HttpSessionBindingListener{
       log.debug("Advice " + advice[0] + " was returned");
       NextResponse response = new NextResponse(true, advice);
       log.debug("State is set back to InitialState");
-      currentState = initialState;
+      currentState = initialState;  
       return response;
     }
   }
