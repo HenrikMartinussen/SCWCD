@@ -10,7 +10,7 @@ public class MyServletRequestAttributeListener implements
   private static Logger log = Logger.getLogger(MyServletRequestAttributeListener.class);
 
   public void attributeAdded(ServletRequestAttributeEvent servletRequestAttributeEvent) {
-    log.debug("requestAttributeAdded: ");
+    log.debug("requestAttributeAdded: " + servletRequestAttributeEvent.getName());
   }
 
   public void attributeRemoved(ServletRequestAttributeEvent servletRequestAttributeEvent) {
