@@ -9,7 +9,7 @@
 <br/>
 <em>We can help.</em>
 <br/><br/>
-Contact us at: ${initParam.mainEmail }
+Contact us at: ${initParam.mainEmail }<br/>
 <%@ include file="Footer.jsp" %><%--Footer is merely a link - doesn't hurt to use an include directive --%>
 </body>
 </html>
