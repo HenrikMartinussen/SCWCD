@@ -25,6 +25,7 @@ public class ContextListener implements ServletContextListener{
     comments.add("This site is cool.");
     comments.add("This site is stupid.");
     event.getServletContext().setAttribute("commentList", comments);
+    System.out.println("contextInitialized");
   }
 
 }

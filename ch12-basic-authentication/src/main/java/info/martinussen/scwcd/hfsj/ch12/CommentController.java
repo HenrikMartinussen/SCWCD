@@ -43,7 +43,9 @@ public class CommentController extends HttpServlet {
     boolean acceptsNewSession = false; //pre-existing or null
     HttpSession session = req.getSession(acceptsNewSession);
     if (session == null) { //session timed out
+      System.out.println("session was null");
       String contextPath = req.getContextPath();
+      System.out.println("sendRedirect");
       resp.sendRedirect(contextPath + "/");//log in anew on default page
     } else { //sessions lives
       ServletContext context = getServletContext();
