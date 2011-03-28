@@ -35,6 +35,6 @@
   </listener>
   
   <session-config>
-  	<session-timeout>1</session-timeout> <!-- 1 minute -->
+  	<session-timeout>1</session-timeout> <!-- 1:1 minute/-1:never/0:never -->
   </session-config>
 </web-app>
