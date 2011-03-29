@@ -11,7 +11,7 @@ import javax.servlet.ServletContextListener;
  * @author HMS
  *
  */
-public class ContextListener implements ServletContextListener{
+public class MyServletContextListener implements ServletContextListener{
 
   List<String> comments;
   
