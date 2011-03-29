@@ -16,7 +16,4 @@ public class SimpleTagTest4 extends SimpleTagSupport{
       getJspBody().invoke(null);
     }
   }
-  
-  
-
 }
