@@ -68,8 +68,8 @@ public class SimpleTagTest1 extends SimpleTagSupport {
   }
   
   /**
-   * selects and returns one of the statements in the statements in the statements array
-   * @return
+   * selects and returns one of the statements in the statements array
+   * @return a statement
    */
   private String getStatement(){
     String statement;

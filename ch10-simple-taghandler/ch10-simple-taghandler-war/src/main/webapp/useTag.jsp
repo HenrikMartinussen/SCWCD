@@ -26,14 +26,14 @@ Simple tag 3:<br/>
 <myTags:simple3>Message is: ${message}</myTags:simple3><%-- message attribute is set in the taghandler --%>
 <br/>
 <hr align="left" width="40%"/>
-simple tag 4:<br/>
+Simple tag 4:<br/>
 <table>
 <myTags:simple4>
   <tr><td>&nbsp;</td><td>${movie}</td></tr>
 </myTags:simple4>
 </table>
 <hr align="left" width="40%"/>
-simple tag 5:<br/>
+Simple tag 5:<br/>
 <table>
   <myTags:simple5 movieList="${myTags:movielist()}">
     <tr>

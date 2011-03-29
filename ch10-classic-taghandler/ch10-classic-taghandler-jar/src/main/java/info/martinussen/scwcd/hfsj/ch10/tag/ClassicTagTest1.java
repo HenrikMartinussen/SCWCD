@@ -25,10 +25,11 @@ public class ClassicTagTest1 extends TagSupport {
     try {
       out.println("classic tag output says:");
       out.println(getStatement());
+      System.out.println("SKIP_BODY has the value: " + SKIP_BODY);
     } catch (IOException e) {
       throw new JspException("IOException- " + e.toString());
     }
-    return 42;
+    return SKIP_BODY;
   }
   
   /**

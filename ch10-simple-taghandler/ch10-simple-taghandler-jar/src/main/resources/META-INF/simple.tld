@@ -15,7 +15,7 @@
     <function>
       <name>movielist</name>
       <function-class>info.martinussen.scwcd.hfsj.ch10.tag.CreateMovieListFunction</function-class>
-      <function-signature>Java.util.List suggestMovie()</function-signature>
+      <function-signature>java.util.list suggestMovie()</function-signature>
     </function>
     
     <tag>
