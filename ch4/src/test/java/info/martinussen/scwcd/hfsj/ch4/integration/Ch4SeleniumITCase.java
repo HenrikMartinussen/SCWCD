@@ -1,15 +1,12 @@
 package info.martinussen.scwcd.hfsj.ch4.integration;
 
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.thoughtworks.selenium.*;
 
-
-
-public class Ch4ITCase extends SeleneseTestCase {
+public class Ch4SeleniumITCase extends SeleneseTestCase {
   
   
   @Before
