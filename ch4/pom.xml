@@ -91,6 +91,16 @@
             </configuration>
           </execution>
         </executions>
+
+		<!-- necessary in maven 3, when access to internet repositories is considered a risk, rather than a feature-->
+		<dependencies>
+			<dependency>
+				<groupId>org.codehaus.plexus</groupId>
+				<artifactId>plexus-interpolation</artifactId>
+				<version>1.2</version>
+			</dependency>
+		</dependencies>
+
       </plugin>
       
       <plugin>
@@ -169,20 +179,14 @@
       <version>2.4</version>
       <scope>provided</scope>
     </dependency>
+	
     
   </dependencies>
   <repositories> 
     <repository> 
-      <id>maven-repository.repo1</id>
+      <id>maven</id>
       <name>Maven main Repository</name>
       <url>http://repo1.maven.org/maven2/</url> 
-      <releases>
-        <enabled>true</enabled> 
-        <updatePolicy>never</updatePolicy> 
-      </releases>
-      <snapshots> 
-        <enabled>false</enabled> 
-      </snapshots> 
     </repository>
   </repositories>
   
