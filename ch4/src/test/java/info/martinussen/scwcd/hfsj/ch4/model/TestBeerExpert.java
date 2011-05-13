@@ -16,7 +16,6 @@ import org.junit.runners.Parameterized.Parameters;
 /**
  * "Junit in action" p 17 - "Running parameterized tests"
  * @author HMS
- *
  */
 @RunWith(value = Parameterized.class)
 public class TestBeerExpert {
@@ -52,8 +51,11 @@ public class TestBeerExpert {
     testExpert = null;
   }
 
+  /**
+   * Runs once for each item in the testParameters collection
+   */
   @Test
-  public void testGetBrandsForAmber() {
+  public void testGetBrandsForTestParameters() {
     List<String> result = testExpert.getBrands(testColor);
     assertEquals(2, result.size());
     assertTrue(result.contains(expected1));

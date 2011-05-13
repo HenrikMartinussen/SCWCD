@@ -8,6 +8,9 @@ import com.thoughtworks.selenium.*;
 
 public class Ch4SeleniumITCase extends SeleneseTestCase {
   
+  private static final String RESOURCE_TO_OPEN = "/ch4/";
+  private static final String PAGE_LOAD_WAITING_TIME = "30000";
+  
   
   @Before
   public void setUp(){
@@ -15,46 +18,47 @@ public class Ch4SeleniumITCase extends SeleneseTestCase {
     this.selenium.start();
   }
   
+  @After
+  public void tearDown(){
+    this.selenium.stop();
+  }
+
   @Test
   public void testCh4Amber() throws Exception {
-    selenium.open("/ch4/");
+    selenium.open(RESOURCE_TO_OPEN);
     selenium.select("color", "label=amber");
     selenium.click("//input[@type='SUBMIT']");
-    selenium.waitForPageToLoad("30000");
+    selenium.waitForPageToLoad(PAGE_LOAD_WAITING_TIME);
     verifyTrue(selenium.isTextPresent("exact:try: Jack Amber\ntry: Red Moose")); //defined in SeleneseTestCase
   }
   
   @Test
   public void testCh4Dark() throws Exception {
-    selenium.open("/ch4/");
+    selenium.open(RESOURCE_TO_OPEN);
     selenium.select("color", "label=dark");
     selenium.click("//input[@type='SUBMIT']");
-    selenium.waitForPageToLoad("30000");
+    selenium.waitForPageToLoad(PAGE_LOAD_WAITING_TIME);
     verifyTrue(selenium.isTextPresent("exact:try: Jail Pale Ale\ntry: Gout Stout")); //defined in SeleneseTestCase
   }
   
   @Test
   public void testCh4Light() throws Exception {
-    selenium.open("/ch4/");
+    selenium.open(RESOURCE_TO_OPEN);
     selenium.select("color", "label=light");
     selenium.click("//input[@type='SUBMIT']");
-    selenium.waitForPageToLoad("30000");
+    selenium.waitForPageToLoad(PAGE_LOAD_WAITING_TIME);
     verifyTrue(selenium.isTextPresent("exact:try: Jail Pale Ale\ntry: Gout Stout")); //defined in SeleneseTestCase
   }
   
   @Test
   public void testCh4Brown() throws Exception {
-    selenium.open("/ch4/");
+    selenium.open(RESOURCE_TO_OPEN);
     selenium.select("color", "label=brown");
     selenium.click("//input[@type='SUBMIT']");
-    selenium.waitForPageToLoad("30000");
+    selenium.waitForPageToLoad(PAGE_LOAD_WAITING_TIME);
     verifyTrue(selenium.isTextPresent("exact:try: Jail Pale Ale\ntry: Gout Stout")); //defined in SeleneseTestCase
   }
   
-  @After
-  public void tearDown(){
-    this.selenium.stop();
-  }
 
 
 }
