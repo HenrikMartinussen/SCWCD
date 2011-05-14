@@ -12,7 +12,7 @@
     <uri>formTags</uri>
     
     <tag>
-      <description>worst use of a custom tag</description>
+      <description>An example tag library of replacements for the HTML form tags</description>
 	  <name>select</name>
       <tagclass>info.martinussen.scwcd.hfsj.ch10.taglib.SelectTagHandler</tagclass>
       <bodycontent>empty</bodycontent>
