@@ -78,6 +78,7 @@ public class Ch4HUITCase {
   @After
   public void tearDown(){
     startForm = null;
+    webClient.closeAllWindows();
     webClient = null;
   }
   
