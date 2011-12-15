@@ -1,0 +1,1 @@
+http://localhost:8080/ch7-initializing-jsp/TestInit.jsp
