@@ -1,9 +1,26 @@
 syntax: glob
 *.log*
+
+#Eclipse project files are not to be version tracked:
 .classpath
 .project
 .settings
-target\
+
+#Eclipse workspace are not to be version tracked:
+#works for windows:
 workspace\
+#Works for Linux
+workspace/*
+
+#IntelliJ project files are not to be version tracked:
+*.iml
+*.ipr
+*.iws
+
+#Maven build products are not to be version tracked:
+#In windows:
+target\
+#In Linux
+*/target/*
 
 syntax: regexp
