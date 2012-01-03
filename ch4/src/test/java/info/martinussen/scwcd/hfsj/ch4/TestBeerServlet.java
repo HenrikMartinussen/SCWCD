@@ -1,5 +1,13 @@
 package info.martinussen.scwcd.hfsj.ch4;
 
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Matchers.anyListOf;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -8,25 +16,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.junit.After;
+import org.junit.Test;
 import org.mockito.InOrder;
 
-import static org.mockito.Mockito.*;
 
-import info.martinussen.scwcd.hfsj.ch4.BeerServlet;
-import junit.framework.TestCase;
-
-
-public class TestBeerServlet extends TestCase {
+public class TestBeerServlet {
 
   BeerServlet testBeerServlet = null;
   
-  protected void setUp() throws Exception {
-    super.setUp();
-  }
-
-  protected void tearDown() throws Exception {
+  @After
+  public void tearDown() throws Exception {
     testBeerServlet = null;
-    super.tearDown();
   }
 
   public void testBeerAppConstructor() {
@@ -41,6 +42,7 @@ public class TestBeerServlet extends TestCase {
    * forwards to "result.jsp"  
    * @throws ServletException, IOException
    */
+  @Test
   public void testBeerAppDoPost() throws ServletException, IOException {
     testBeerServlet = new BeerServlet();
 
@@ -68,5 +70,4 @@ public class TestBeerServlet extends TestCase {
     inorder.verify(requestMock, times(1)).getRequestDispatcher(eq("result.jsp"));
     inorder.verify(reqDispatcherMock, times(1)).forward(eq(requestMock), eq(responseMock));
   }
-
 }
