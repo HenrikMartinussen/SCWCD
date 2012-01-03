@@ -11,6 +11,8 @@ import static org.mockito.Mockito.when;
 import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -49,8 +51,12 @@ public class TestBeerServlet {
   public void testBeerAppDoPost() throws ServletException, IOException {
     testBeerServlet = new BeerServlet();
 
+    BeerExpert beerExpertMock = mock(BeerExpert.class);
+	when(beerExpertMock.getBrands("amber"))
+	     .thenReturn(Arrays.asList(new String[] {"Jack Amber", "Red Moose"}));
+    
     ServletContext servletContextMock = mock(ServletContext.class);
-    when(servletContextMock.getAttribute("beerExpert")).thenReturn(new BeerExpert()); //TODO return a mock instead
+    when(servletContextMock.getAttribute("beerExpert")).thenReturn(beerExpertMock); 
     
     ServletConfig configMock = mock(ServletConfig.class);
 	when(configMock.getServletContext()).thenReturn(servletContextMock);
@@ -70,9 +76,10 @@ public class TestBeerServlet {
     
     testBeerServlet.destroy();
     
-    InOrder inorder = inOrder(reqDispatcherMock, requestMock); //the order of the mocks is of no consequence
+    InOrder inorder = inOrder(servletContextMock, reqDispatcherMock, requestMock); //the order of the mocks is of no consequence
     inorder.verify(requestMock, times(1)).getMethod();
     inorder.verify(requestMock, times(1)).getParameter(eq("color"));
+    inorder.verify(servletContextMock, times(1)).getAttribute(eq("beerExpert"));
     inorder.verify(requestMock, times(1)).setAttribute(eq("styles"), anyListOf(String.class));
     inorder.verify(requestMock, times(1)).getRequestDispatcher(eq("result.jsp"));
     inorder.verify(reqDispatcherMock, times(1)).forward(eq(requestMock), eq(responseMock));

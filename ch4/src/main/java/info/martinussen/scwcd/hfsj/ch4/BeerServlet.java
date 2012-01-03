@@ -38,14 +38,7 @@ public class BeerServlet extends HttpServlet{
     log.debug("doPost is called");
     String c = req.getParameter("color");
     
-    
-
-//    BeerExpert expert = new BeerExpert();
-    
     BeerExpert expert = (BeerExpert) getServletContext().getAttribute("beerExpert");
-    
-    
-    
     
     List<String> advice = expert.getBrands(c);
     req.setAttribute("styles", advice);
