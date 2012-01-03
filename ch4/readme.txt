@@ -1,3 +1,13 @@
+Very simple webapplication - one index.html, one result.jsp and a BeerServlet.java
+The baseline is the Beer recommendation webapp in chapter 4 of head First Servlets and JSP
+
+Demonstrates 
+-parameterized unit test (TestBeerExpert)
+-test of servlet w/o container using mocks (mockito) (TestBeerServlet)
+-integration test using htmlunit (Ch4HUITCase)
+-integration test using Selenium (Ch4SeleniumITCase)
+-measuring test coverage using cobertura
+
 In order to run application:
 mvn clean package jetty:run
 
@@ -10,4 +20,7 @@ application name stems from the pom.xml artifact-id, and can be changed there
 
 In order to test and generate test coverage reports:
 mvn clean test cobertura:cobertura 
-In order to see the test coverage reports, go to 
+In order to see the test coverage reports, go to target/site/cobertura/ browse from the index.html
+
+In order to run integration-tests
+mvn clean integration-test or mvn clean verify
