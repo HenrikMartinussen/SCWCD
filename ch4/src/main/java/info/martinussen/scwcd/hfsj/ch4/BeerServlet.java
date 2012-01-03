@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
 @SuppressWarnings("serial")
 public class BeerServlet extends HttpServlet{
   
-  static Logger log = Logger.getLogger(BeerServlet.class);
+  private static Logger log = Logger.getLogger(BeerServlet.class);
 
   static {
     log.debug("BeerServlet class is loaded");
@@ -37,8 +37,16 @@ public class BeerServlet extends HttpServlet{
     
     log.debug("doPost is called");
     String c = req.getParameter("color");
+    
+    
 
-    BeerExpert expert = new BeerExpert();
+//    BeerExpert expert = new BeerExpert();
+    
+    BeerExpert expert = (BeerExpert) getServletContext().getAttribute("beerExpert");
+    
+    
+    
+    
     List<String> advice = expert.getBrands(c);
     req.setAttribute("styles", advice);
     
@@ -52,8 +60,6 @@ public class BeerServlet extends HttpServlet{
     log.debug("service is called");
     super.service(req, resp);
   }
-
-  
   
   @Override
   public void init(ServletConfig config) throws ServletException {
