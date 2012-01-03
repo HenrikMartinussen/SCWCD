@@ -12,5 +12,8 @@
     <servlet-name>Ch4 Beer</servlet-name>
     <url-pattern>/SelectBeer.do</url-pattern>
   </servlet-mapping>
+  <listener>
+  	<listener-class>info.martinussen.scwcd.hfsj.ch4.StartupListener</listener-class>
+  </listener>
   
 </web-app>

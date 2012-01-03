@@ -8,10 +8,13 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
+import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,7 +49,11 @@ public class TestBeerServlet {
   public void testBeerAppDoPost() throws ServletException, IOException {
     testBeerServlet = new BeerServlet();
 
+    ServletContext servletContextMock = mock(ServletContext.class);
+    when(servletContextMock.getAttribute("beerExpert")).thenReturn(new BeerExpert()); //TODO return a mock instead
+    
     ServletConfig configMock = mock(ServletConfig.class);
+	when(configMock.getServletContext()).thenReturn(servletContextMock);
     testBeerServlet.init(configMock);
     
     HttpServletRequest requestMock = mock(HttpServletRequest.class);
