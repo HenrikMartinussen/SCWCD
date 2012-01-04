@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
+<%-- http://www.jsptut.com/Declarations.jsp --%>
 <%! private Date date = new Date(); %>
 <%! private Date getDate(){
 	  return date;
@@ -17,6 +17,7 @@
 </head>
 <body>
 <h2>Declarations</h2>
+<p>Revisited...</p>
 <%resetDate(); %>
 <p>Time is: <%= getDate() %></p>
 </body>
