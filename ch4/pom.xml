@@ -44,13 +44,7 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-all</artifactId>
-      <version>1.8.4</version>
-      <scope>test</scope>
-    </dependency>
-
+    
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
@@ -160,30 +154,7 @@
         <version>2.4</version>
       </plugin>
 
-      <plugin>
-        <groupId>org.codehaus.groovy.maven</groupId>
-        <artifactId>gmaven-plugin</artifactId>
-        <version>1.0</version>
-        <extensions>true</extensions>
-        <executions>
-          <execution>
-            <goals>
-              <goal>testCompile</goal>
-            </goals>
-            <configuration>
-              <sources>
-                <fileset>
-                  <directory>${pom.basedir}/src/test/java</directory>
-                  <includes>
-                    <include>**/*.groovy</include>
-                  </includes>
-                </fileset>
-              </sources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
+      
     </plugins>
   </build>
 
