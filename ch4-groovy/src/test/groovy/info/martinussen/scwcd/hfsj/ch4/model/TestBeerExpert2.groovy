@@ -27,14 +27,14 @@ public class TestBeerExpert2{
 		      ["dark",  "Jail Pale Ale", "Gout Stout"] as String[]]
   }
   
-  TestBeerExpert2 (p , ex1, ex2){
+  TestBeerExpert2 (p , ex1, ex2){ //constructor utilizing the parameters
 	param = p
 	expected1 = ex1
 	expected2 = ex2
   }
   
   @Test
-  void testBeerExpertAmber(){
+  void testBeerExpertAmber(){ //runs once for each String array returned by data()
 	testExpert = new BeerExpert()
 	def result = testExpert.getBrands(param)
 	assertTrue result.size() == 2 

@@ -3,10 +3,11 @@ package info.martinussen.scwcd.hfsj.ch4;
 import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
 
 import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 
 import org.apache.log4j.Logger;
 
-public class StartupListener implements javax.servlet.ServletContextListener {
+public class StartupListener implements ServletContextListener {
 
 	private static Logger log = Logger.getLogger(BeerServlet.class);
 	
