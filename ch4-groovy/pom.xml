@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-                             
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>info.martinussen.scwcd.hfsj</groupId>
   <artifactId>ch4-groovy</artifactId>
@@ -8,6 +8,9 @@
   <version>1.0-SNAPSHOT</version>
   <name>ch4-groovy</name>
   <url>http://maven.apache.org</url>
+
+<!-- todo: rework this according to  -->
+<!-- http://groovy.codehaus.org/Groovy-Eclipse+compiler+plugin+for+Maven -->
 
   <dependencies>
     <dependency>
@@ -44,11 +47,19 @@
         </configuration>
       </plugin>
 
-     
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <version>2.9</version>
+        <configuration>
+          <downloadJavadocs>true</downloadJavadocs>
+        </configuration>
+      </plugin>
+      
       <plugin>
         <groupId>org.codehaus.gmaven</groupId>
         <artifactId>gmaven-plugin</artifactId>
-        <version>1.3</version>
+        <version>1.4</version>
         <extensions>true</extensions>
         <executions>
           <execution>
@@ -63,7 +74,7 @@
     </plugins>
   </build>
 
-  
+
   <repositories>
     <repository>
       <id>maven</id>
@@ -72,5 +83,5 @@
     </repository>
   </repositories>
 
-  
+
 </project>
