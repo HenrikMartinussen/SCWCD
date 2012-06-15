@@ -9,66 +9,92 @@
   <name>ch4-groovy</name>
   <url>http://maven.apache.org</url>
 
-<!-- todo: rework this according to  -->
-<!-- http://groovy.codehaus.org/Groovy-Eclipse+compiler+plugin+for+Maven -->
+  <!-- todo: rework this according to -->
+  <!-- http://groovy.codehaus.org/Groovy-Eclipse+compiler+plugin+for+Maven -->
+
+  <properties>
+    <java.version>1.6</java.version>
+    <groovy.version>1.8.4</groovy.version>
+    <log4j.version>1.2.12</log4j.version>
+    <junit.version>4.8.2</junit.version>
+
+    <!-- <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version> -->
+    <maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
+    <maven.eclipse.plugin.version>2.9</maven.eclipse.plugin.version>
+    <groovy.eclipse.compiler.version>2.6.0-01</groovy.eclipse.compiler.version>
+  </properties>
 
   <dependencies>
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <version>1.2.12</version>
+      <version>${log4j.version}</version>
     </dependency>
 
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.2</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-all</artifactId>
-      <version>1.6.5</version>
-      <scope>test</scope>
+      <artifactId>groovy</artifactId>
+      <version>${groovy.version}</version>
+      <type>jar</type>
     </dependency>
-
   </dependencies>
 
   <build>
     <finalName>ch4-groovy</finalName>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
         <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
           <encoding>UTF-8</encoding>
+
+          <compilerId>groovy-eclipse-compiler</compilerId>
+          <compilerArgument>nowarn</compilerArgument>
+          <verbose>true</verbose>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-compiler</artifactId>
+            <version>${groovy.eclipse.compiler.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
-        <version>2.9</version>
+        <version>${maven.eclipse.plugin.version}</version>
         <configuration>
+          <additionalProjectnatures>
+            <projectnature>org.eclipse.jdt.groovy.core.groovyNature</projectnature>
+          </additionalProjectnatures>
+          <!-- Source includes is necessary to allow groovy files in the 
+            java folder, else eclipse will throw a filtering exception -->
+          <sourceIncludes>
+            <sourceInclude>**/*.groovy</sourceInclude>
+          </sourceIncludes>
           <downloadJavadocs>true</downloadJavadocs>
         </configuration>
       </plugin>
-      
+
+      <!-- necessary in order to be able to have groovy code in src/main/groovy 
+        and src/test/groovy -->
       <plugin>
-        <groupId>org.codehaus.gmaven</groupId>
-        <artifactId>gmaven-plugin</artifactId>
-        <version>1.4</version>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-eclipse-compiler</artifactId>
+        <version>${groovy.eclipse.compiler.version}</version>
         <extensions>true</extensions>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 
     </plugins>
