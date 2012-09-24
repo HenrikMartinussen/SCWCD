@@ -30,12 +30,13 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.seleniumhq.selenium.client-drivers</groupId>
-      <artifactId>selenium-java-client-driver</artifactId>
-      <version>1.0.1</version>
-      <scope>test</scope>
-    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>org.seleniumhq.selenium.client-drivers</groupId> -->
+<!--       <artifactId>selenium-java-client-driver</artifactId> -->
+<!--       <version>1.0.1</version> -->
+<!-- 	  <version>1.0.2</version> -->
+<!--       <scope>test</scope> -->
+<!--     </dependency> -->
 
     <dependency>
       <groupId>net.sourceforge.htmlunit</groupId>
@@ -119,33 +120,34 @@
         </executions>
       </plugin>
 
-      <plugin>
-        <!-- http://olamy.blogspot.com/2011/06/selenium-maven-plugin-upgrade-to.html -->
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>selenium-maven-plugin</artifactId>
-        <version>2.2-SNAPSHOT</version>
-        <executions>
-          <execution>
-            <phase>pre-integration-test</phase>
-            <goals>
-              <goal>start-server</goal>
-            </goals>
-            <configuration>
-              <background>true</background>
-            </configuration>
-          </execution>
-        </executions>
+<!--       <plugin> -->
+<!--         http://olamy.blogspot.com/2011/06/selenium-maven-plugin-upgrade-to.html -->
+<!--         <groupId>org.codehaus.mojo</groupId> -->
+<!--         <artifactId>selenium-maven-plugin</artifactId> -->
+<!--         <version>2.2-SNAPSHOT</version> -->
+<!-- 		<version>2.3</version> -->
+<!--         <executions> -->
+<!--           <execution> -->
+<!--             <phase>pre-integration-test</phase> -->
+<!--             <goals> -->
+<!--               <goal>start-server</goal> -->
+<!--             </goals> -->
+<!--             <configuration> -->
+<!--               <background>true</background> -->
+<!--             </configuration> -->
+<!--           </execution> -->
+<!--         </executions> -->
 
-        <!-- necessary in maven 3, when access to internet repositories is 
-          considered a risk, rather than a feature -->
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.plexus</groupId>
-            <artifactId>plexus-interpolation</artifactId>
-            <version>1.2</version>
-          </dependency>
-        </dependencies>
-      </plugin>
+<!--         necessary in maven 3, when access to internet repositories is -->
+<!--           considered a risk, rather than a feature  -->
+<!--         <dependencies> -->
+<!--           <dependency> -->
+<!--             <groupId>org.codehaus.plexus</groupId> -->
+<!--             <artifactId>plexus-interpolation</artifactId> -->
+<!--             <version>1.2</version> -->
+<!--           </dependency> -->
+<!--         </dependencies> -->
+<!--       </plugin> -->
 
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -156,18 +158,18 @@
     </plugins>
   </build>
 
-  <pluginRepositories>
-    <pluginRepository>
-      <id>codehaus.snapshots</id>
-      <url>https://nexus.codehaus.org/content/repositories/snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
+<!--   <pluginRepositories> -->
+<!--     <pluginRepository> -->
+<!--       <id>codehaus.snapshots</id> -->
+<!--       <url>https://nexus.codehaus.org/content/repositories/snapshots/</url> -->
+<!--       <releases> -->
+<!--         <enabled>false</enabled> -->
+<!--       </releases> -->
+<!--       <snapshots> -->
+<!--         <enabled>true</enabled> -->
+<!--       </snapshots> -->
+<!--     </pluginRepository> -->
+<!--   </pluginRepositories> -->
 
 
   <repositories>
