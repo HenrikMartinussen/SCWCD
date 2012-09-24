@@ -29,6 +29,7 @@
   </build>
 
   <dependencies>
+  	<!-- The Beerexpert is also a HttpSessionBindingListener, thus servlet-api is needed  -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>

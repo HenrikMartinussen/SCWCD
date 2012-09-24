@@ -15,7 +15,7 @@ public class BeerExpert implements HttpSessionBindingListener{
   private static Logger log = Logger.getLogger(BeerExpert.class);
 
   private State initialState;
-  private State oneQestionAnsweredState;
+  private State oneQuestionAnsweredState;
   private State twoQuestionsAnsweredState;
   
   /*
@@ -38,7 +38,7 @@ public class BeerExpert implements HttpSessionBindingListener{
   public BeerExpert() {
     log.debug("BeerExpert is being instantiated");
     initialState = new InitialState();
-    oneQestionAnsweredState = new OneQuestionAnsweredState();
+    oneQuestionAnsweredState = new OneQuestionAnsweredState();
     twoQuestionsAnsweredState = new TwoQuestionsAnsweredState();
     currentState = initialState;
   }
@@ -63,7 +63,7 @@ public class BeerExpert implements HttpSessionBindingListener{
       }
       NextResponse response = new NextResponse(false, new String[] {"Dark", "Amber", "Pale"});
       log.debug("State is set to oneQuestionsAnsweredState");
-      currentState = oneQestionAnsweredState; 
+      currentState = oneQuestionAnsweredState; 
       return response;
     }
   }
@@ -91,8 +91,16 @@ public class BeerExpert implements HttpSessionBindingListener{
         advice[0] = "tuborg classic";
       } else if (answer1.equals("Dark") && answer2.equals("Exclusive")){
         advice[0] = "carls dark abbey ale";
+      } else if (answer1.equals("Dark") && answer2.equals("Regular")){
+          advice[0] = "gammel carlsber porter";
+      } else if (answer1.equals("Dark") && answer2.equals("Cheap")){
+          advice[0] = "harboe porter";
+      } else if (answer1.equals("Pale") && answer2.equals("Exclusive")){
+          advice[0] = "skovlyst birkebryg"; 
+      } else if (answer1.equals("Pale") && answer2.equals("Regular")){
+              advice[0] = "duff";
       } else {
-        advice[0] = "gammel carlsberg porter";
+        advice[0] = "netto silver pils";
       }
       log.debug("Advice " + advice[0] + " was returned");
       NextResponse response = new NextResponse(true, advice);

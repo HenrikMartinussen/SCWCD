@@ -59,18 +59,18 @@ public class BeerExpertTest extends TestCase {
 	  advice = testExpert.getAdvice(advice.getMessages()[0]);//Cheap
 	  assertTrue(advice.isFinalAdvice());
 	  assertEquals(1, advice.getMessages().length);
-    assertEquals(expectedMessages[0], advice.getMessages()[0]);
+      assertEquals(expectedMessages[0], advice.getMessages()[0]);
 	}
 
 	public void testAdvice5() throws Exception {
-    String[] expectedMessages = new String[] {"leffe blonde"};
-    NextResponse advice =  testExpert.getAdvice("");
-    advice = testExpert.getAdvice(advice.getMessages()[1]);//amber
-    advice = testExpert.getAdvice(advice.getMessages()[2]);//exclusive
-    assertTrue(advice.isFinalAdvice());
-    assertEquals(1, advice.getMessages().length);
-    assertEquals(expectedMessages[0], advice.getMessages()[0]);
-  }
+	  String[] expectedMessages = new String[] {"leffe blonde"};
+	  NextResponse advice =  testExpert.getAdvice("");
+	  advice = testExpert.getAdvice(advice.getMessages()[1]);//amber
+	  advice = testExpert.getAdvice(advice.getMessages()[2]);//exclusive
+	  assertTrue(advice.isFinalAdvice());
+	  assertEquals(1, advice.getMessages().length);
+	  assertEquals(expectedMessages[0], advice.getMessages()[0]);
+	}
 	
 	public void testAdvice6() throws Exception {
 	  String[] expectedMessages = new String[] {"tuborg classic"};
@@ -83,7 +83,7 @@ public class BeerExpertTest extends TestCase {
 	}
 
 	public void testAdvice7() throws Exception {
-	  String[] expectedMessages = new String[] {"gammel carlsberg porter"};
+	  String[] expectedMessages = new String[] {"harboe porter"};
 	  NextResponse advice =  testExpert.getAdvice("");
 	  advice = testExpert.getAdvice(advice.getMessages()[0]);//dark
 	  advice = testExpert.getAdvice(advice.getMessages()[0]);//cheap
