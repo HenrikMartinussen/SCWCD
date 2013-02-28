@@ -5,24 +5,57 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>info.martinussen.scwcd.csjv2.ch5</groupId>
-  <!-- csjv2 p 217 -->
+  <!-- csjv2, ch5, p 217 -->
+<!--   Logging Filter Example from 'Core Servlets vol2' -->
 
-  <artifactId>ch5-filters-ex2</artifactId>
+  <artifactId>ch13-filters-ex2</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Logging Filter Example from 'Core Servlets vol2'</name>
+  <name>ch13-filters-ex2</name>
 
   <url>http://maven.apache.org</url>
+  
+  <properties>
+  	<!-- this is to prevent the build from being platform dependent" -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.5</java.version>
+    <log4j.version>1.2.12</log4j.version>
+    <servlet.api.version>2.4</servlet.api.version>
+    <jsp.api.version>2.0</jsp.api.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>${servlet.api.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>${jsp.api.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+  </dependencies>
 
   <build>
-    <finalName>ch5-filters-ex</finalName>
+    <finalName>ch13-filters-ex2</finalName>
     <plugins>
 
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
         <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
       </plugin>
 
@@ -38,32 +71,6 @@
           </connectors>
         </configuration>
       </plugin>
-
     </plugins>
-
   </build>
-
-  <dependencies>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.4</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
-      <version>2.0</version>
-      <scope>provided</scope>
-    </dependency>
-    
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.12</version>
-    </dependency>
-    
-  </dependencies>
-
 </project>
