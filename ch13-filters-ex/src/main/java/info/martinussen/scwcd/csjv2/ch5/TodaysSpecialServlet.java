@@ -13,10 +13,19 @@ public class TodaysSpecialServlet extends HttpServlet {
   private static Logger log = Logger.getLogger(TodaysSpecialServlet.class);
   private String title;
   private String picture;
+  
+  static {
+    log.debug("TodaysSpecialServlet is loaded");
+  }
 
+  public TodaysSpecialServlet(){
+    super();
+    log.debug("TodaysSpecialServlet is constructed");
+  }
+  
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    log.debug("Simple Servlet doGet() runs");
+    log.debug("TodaysSpecialServlet.doGet() runs");
       
     updateSpecials();
     response.setContentType("text/html") ;

@@ -17,7 +17,7 @@ public class SimpleServlet extends HttpServlet {
   
   public SimpleServlet(){
     super();
-    log.debug("LoggingFilter is constructed");
+    log.debug("SimpleServlet is constructed");
   }
 	
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
