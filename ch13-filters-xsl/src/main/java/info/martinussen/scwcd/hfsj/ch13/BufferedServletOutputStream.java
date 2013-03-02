@@ -5,6 +5,8 @@ import java.io.IOException;
 
 import javax.servlet.ServletOutputStream;
 
+import org.apache.log4j.Logger;
+
 //Java and xslt p.316
 
 /**
@@ -15,6 +17,12 @@ import javax.servlet.ServletOutputStream;
  */
 public class BufferedServletOutputStream extends ServletOutputStream {
   
+  private static Logger log = Logger.getLogger(BufferedServletOutputStream.class);
+  
+  static {
+    log.trace("BufferedServletOutputStream was loaded");
+  }
+  
   //The actual buffer
   private ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
@@ -22,6 +30,7 @@ public class BufferedServletOutputStream extends ServletOutputStream {
    * @return the contents of the buffer
    */
   public byte[] getBuffer(){
+    log.debug("BufferedServletOutputStream.getBuffer() was called");
     return this.bos.toByteArray();
   }
   
@@ -32,11 +41,13 @@ public class BufferedServletOutputStream extends ServletOutputStream {
   
   //BufferedHttpResponseWrapper calls this method
   public void reset(){
+    log.debug("BufferedServletOutputStream.reset() was called");
     this.bos.reset();
   }
   
   //BufferedHttpResponseWrapper calls this method
   public void setBufferSize(int size){
+    log.debug("BufferedServletOutputStream.setBufferSize() was called - parameter size was: " + size);
     // no way to resize an existing ByteArrayOutputStream
     this.bos = new ByteArrayOutputStream(size);
   }
