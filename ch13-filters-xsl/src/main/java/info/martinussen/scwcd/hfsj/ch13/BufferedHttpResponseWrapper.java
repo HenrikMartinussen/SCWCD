@@ -29,32 +29,39 @@ public class BufferedHttpResponseWrapper extends HttpServletResponseWrapper{
 
   public PrintWriter getWriter(){
     if (this.outputStream != null){
-      throw new IllegalStateException("The Servlet API forbids calling getWriter(  ) after"
-          + " getOutputStream(  ) has been called");
+      throw new IllegalStateException("The Servlet API forbids calling getWriter() after "
+                                    + "getOutputStream() has been called");
     } 
+    
     if (this.printWriter == null){
       this.printWriter = new PrintWriter(this.bufferedServletOut);
     }
+    
     return this.printWriter;
   }
 
   public ServletOutputStream getOutputStream(){
     if (this.printWriter != null){
-      throw new IllegalStateException("The Servlet API forbids calling getOutputStream(  ) after"
-          + " getWriter(  ) has been called");
+      throw new IllegalStateException("The Servlet API forbids calling getOutputStream() after "
+                                    + "getWriter() has been called");
     }
+    
     if (this.outputStream == null){
       this.outputStream = this.bufferedServletOut;
     }
+    
     return this.outputStream;
   }
 
   //override methods that deal with the response buffer
-  public void flushBuffer(  ) throws IOException {
+
+  public void flushBuffer() throws IOException {
     if (this.outputStream != null) {
-      this.outputStream.flush(  );
-    } else if (this.printWriter != null) {
-      this.printWriter.flush(  );
+      this.outputStream.flush();
+    } else {
+      if (this.printWriter != null) {
+        this.printWriter.flush();
+      } 
     }
   }
 

@@ -15,8 +15,12 @@ import javax.servlet.ServletOutputStream;
  */
 public class BufferedServletOutputStream extends ServletOutputStream {
   
+  //The actual buffer
   private ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
+  /**
+   * @return the contents of the buffer
+   */
   public byte[] getBuffer(){
     return this.bos.toByteArray();
   }

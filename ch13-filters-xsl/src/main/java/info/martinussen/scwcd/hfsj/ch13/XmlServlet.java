@@ -12,12 +12,12 @@ public class XmlServlet extends HttpServlet {
 	private static Logger log = Logger.getLogger(XmlServlet.class);
 	
 	static {
-    log.debug("XmlServlet is loaded");
+    log.trace("XmlServlet is loaded");
   }
   
   public XmlServlet(){
     super();
-    log.debug("XmlServlet is constructed");
+    log.trace("XmlServlet is constructed");
   }
 	
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
