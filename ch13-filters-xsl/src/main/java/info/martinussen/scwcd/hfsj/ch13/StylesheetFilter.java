@@ -2,8 +2,11 @@ package info.martinussen.scwcd.hfsj.ch13;
 
 import info.martinussen.scwcd.hfsj.ch13.util.StylesheetCache;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -14,8 +17,12 @@ import javax.servlet.ServletResponse;
 import javax.servlet.UnavailableException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
 import org.apache.log4j.Logger;
 
@@ -55,6 +62,8 @@ public class StylesheetFilter implements Filter {
     }
     log.debug("xsltPath: " + xsltPath);
     
+    InputStream is = config.getServletContext().getResourceAsStream(xsltPath);
+    
     // convert the context-relative path to a physical path name
     this.xsltFileName = config.getServletContext().getRealPath(xsltPath);
 
@@ -89,11 +98,21 @@ public class StylesheetFilter implements Filter {
     //implementation which takes place after the filterchain executes
 
     log.debug(config.getFilterName() + " after target");
+    byte[] origXML = responseWrapper.getBuffer();
     try {
+      // do the XSLT transformation
       Transformer trans = StylesheetCache.newTransformer(this.xsltFileName);
-    } catch (TransformerConfigurationException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      ByteArrayInputStream origXMLIn = new ByteArrayInputStream(origXML);
+      Source xmlSource = new StreamSource(origXMLIn);
+      ByteArrayOutputStream resultBuf = new ByteArrayOutputStream(  );
+      trans.transform(xmlSource, new StreamResult(resultBuf));
+      res.setContentLength(resultBuf.size(  ));
+      res.setContentType("text/html");
+      res.getOutputStream().write(resultBuf.toByteArray(  ));
+      res.flushBuffer(  );
+      
+    } catch (TransformerException e) {
+      throw new ServletException(e);
     }
 
   }

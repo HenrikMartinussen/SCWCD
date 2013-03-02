@@ -11,7 +11,7 @@
   <version>1.0-SNAPSHOT</version>
   <name>ch13-filters-xsl</name>
   
-  <!--   Java and xslt, ch 8, p 316 -->
+  <!-- Java and xslt, ch 8, p 316 -->
   <!-- xsl transforming Servlet Filter Example -->
 
   <url>http://maven.apache.org</url>

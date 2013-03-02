@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponseWrapper;
 
 /**
  * A custom response wrapper that captures all output in a buffer.
+ * @author Eric M. Burke
  */
 public class BufferedHttpResponseWrapper extends HttpServletResponseWrapper{
 
