@@ -24,12 +24,12 @@ public class LoggingFilter implements Filter{
   private static Logger log = Logger.getLogger(LoggingFilter.class);
 
   static {
-    log.debug("LoggingFilter is loaded");
+    log.trace("LoggingFilter is loaded");
   }
   
   public LoggingFilter(){
     super();
-    log.debug("LoggingFilter is constructed");
+    log.trace("LoggingFilter is constructed");
   }
   
   public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
