@@ -1,6 +1,5 @@
-package info.martinussen.scwcd.hfsj.ch4;
+package info.martinussen.scwcd.hfsj.ch13;
 
-import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -11,7 +10,6 @@ public class StartupListener implements ServletContextListener {
 
 	private static Logger log = Logger.getLogger(StartupListener.class);
 	
-	private BeerExpert beerExpert; 
 
 	static {
 		log.debug("StartupListener loaded");
@@ -20,13 +18,13 @@ public class StartupListener implements ServletContextListener {
 	public StartupListener (){
 		super();
 		log.debug("StartupListener constructed");
-		beerExpert = new BeerExpert();
+		//instantiate an xml supplier
 	}
 	
 	public void contextInitialized(ServletContextEvent event) {
 		log.debug("Context initialized");
 		
-		event.getServletContext().setAttribute("beerExpert", beerExpert);
+		//event.getServletContext().setAttribute("name", xmlSupplier);
 	}
 
 	public void contextDestroyed(ServletContextEvent event) {
