@@ -1,6 +1,8 @@
 package info.martinussen.scwcd.hfsj.ch13;
 
 
+import info.martinussen.scwcd.hfsj.ch13.model.XmlDataSource;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -10,6 +12,7 @@ public class StartupListener implements ServletContextListener {
 
 	private static Logger log = Logger.getLogger(StartupListener.class);
 	
+	private XmlDataSource xmlDataSource;
 
 	static {
 		log.debug("StartupListener loaded");
@@ -18,13 +21,13 @@ public class StartupListener implements ServletContextListener {
 	public StartupListener (){
 		super();
 		log.debug("StartupListener constructed");
-		//instantiate an xml supplier
+		xmlDataSource = new XmlDataSource(); 
 	}
 	
 	public void contextInitialized(ServletContextEvent event) {
 		log.debug("Context initialized");
 		
-		//event.getServletContext().setAttribute("name", xmlSupplier);
+		event.getServletContext().setAttribute("xmlDataSource", xmlDataSource);
 	}
 
 	public void contextDestroyed(ServletContextEvent event) {
