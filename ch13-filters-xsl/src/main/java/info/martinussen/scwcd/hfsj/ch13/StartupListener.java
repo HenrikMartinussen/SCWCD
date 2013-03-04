@@ -15,12 +15,12 @@ public class StartupListener implements ServletContextListener {
 	private XmlDataSource xmlDataSource;
 
 	static {
-		log.debug("StartupListener loaded");
+		log.trace("StartupListener loaded");
 	}
 
 	public StartupListener (){
 		super();
-		log.debug("StartupListener constructed");
+		log.trace("StartupListener constructed");
 		xmlDataSource = new XmlDataSource(); 
 	}
 	

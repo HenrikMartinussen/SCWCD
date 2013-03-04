@@ -1,5 +1,7 @@
 package info.martinussen.scwcd.hfsj.ch13;
 
+import info.martinussen.scwcd.hfsj.ch13.model.XmlDataSource;
+
 import java.io.*;
 
 import javax.servlet.*;
@@ -23,29 +25,33 @@ public class XmlServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     log.debug("XmlServlet doGet() runs");
-      
+    
+    //obtain a resource called "xmlDataSource" from the servletContext - as in ch4
+    XmlDataSource xmlDataSource = (XmlDataSource) getServletContext().getAttribute("xmlDataSource");
+    
     PrintWriter out = response.getWriter();
-    out.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
-    out.println("<bookstore>");
-    out.println("  <book category=\"COOKING\">");
-    out.println("    <title lang=\"en\">Everyday Italian</title>");
-    out.println("    <author>Giada De Laurentiis</author>");
-    out.println("    <year>2005</year>");
-    out.println("    <price>30.00</price>");
-    out.println("  </book>");
-    out.println("  <book category=\"CHILDREN\">");
-    out.println("    <title lang=\"en\">Harry Potter</title>");
-    out.println("    <author>J K. Rowling</author>");
-    out.println("    <year>2005</year>");
-    out.println("    <price>29.99</price>");
-    out.println("  </book>");
-    out.println("  <book category=\"WEB\">");
-    out.println("    <title lang=\"en\">Learning XML</title>");
-    out.println("    <author>Erik T. Ray</author>");
-    out.println("    <year>2003</year>");
-    out.println("    <price>39.95</price>");
-    out.println("  </book>");
-    out.println("</bookstore>");
+    out.println(xmlDataSource.getXmlData());
+//    out.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
+//    out.println("<bookstore>");
+//    out.println("  <book category=\"COOKING\">");
+//    out.println("    <title lang=\"en\">Everyday Italian</title>");
+//    out.println("    <author>Giada De Laurentiis</author>");
+//    out.println("    <year>2005</year>");
+//    out.println("    <price>30.00</price>");
+//    out.println("  </book>");
+//    out.println("  <book category=\"CHILDREN\">");
+//    out.println("    <title lang=\"en\">Harry Potter</title>");
+//    out.println("    <author>J K. Rowling</author>");
+//    out.println("    <year>2005</year>");
+//    out.println("    <price>29.99</price>");
+//    out.println("  </book>");
+//    out.println("  <book category=\"WEB\">");
+//    out.println("    <title lang=\"en\">Learning XML</title>");
+//    out.println("    <author>Erik T. Ray</author>");
+//    out.println("    <year>2003</year>");
+//    out.println("    <price>39.95</price>");
+//    out.println("  </book>");
+//    out.println("</bookstore>");
     out.flush();
     out.close();
   }
@@ -60,7 +66,7 @@ public class XmlServlet extends HttpServlet {
   @Override
   public void init(ServletConfig config) throws ServletException {
     log.debug("XmlServlet.init(ServletConfig) is called");
-    //obtain a resource called "xmlDataSource" from the servletContext - as in ch4
+    
     super.init(config);
   }
 
