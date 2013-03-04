@@ -6,7 +6,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -19,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
@@ -27,7 +25,7 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.log4j.Logger;
 
 /**
- * A utility class that uses the Servlet 2.3 Filtering API to apply
+ * A utility class that uses the Servlet 2.4 Filtering API to apply
  * an XSLT stylesheet to a servlet response.
  *
  * @author Eric M. Burke
@@ -62,8 +60,6 @@ public class StylesheetFilter implements Filter {
     }
     log.debug("xsltPath: " + xsltPath);
     
-    InputStream is = config.getServletContext().getResourceAsStream(xsltPath);
-    
     // convert the context-relative path to a physical path name
     this.xsltFileName = config.getServletContext().getRealPath(xsltPath);
 
@@ -90,8 +86,7 @@ public class StylesheetFilter implements Filter {
     //implementation which takes place before the filterchain executes
 
     log.debug(config.getFilterName() + " before target");
-    BufferedHttpResponseWrapper responseWrapper =
-        new BufferedHttpResponseWrapper(res);
+    BufferedHttpResponseWrapper responseWrapper = new BufferedHttpResponseWrapper(res);
     
     filterChain.doFilter(req, responseWrapper);    
 
