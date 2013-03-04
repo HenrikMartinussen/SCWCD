@@ -60,6 +60,7 @@ public class XmlServlet extends HttpServlet {
   @Override
   public void init(ServletConfig config) throws ServletException {
     log.debug("XmlServlet.init(ServletConfig) is called");
+    //obtain a resource called "xmlDataSource" from the servletContext - as in ch4
     super.init(config);
   }
 
