@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:template match="/">
-
-    <!--
+<!--
 You are free to copy and use this sample in accordance with the terms of the
 Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
 -->
@@ -22,12 +18,8 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
       function drawVisualization() {
         var wrapper = new google.visualization.ChartWrapper({
           chartType: 'ColumnChart',
-          dataTable: [[''
-          <xsl:for-each select="bookstore/book">, '<xsl:value-of select="title"/>'</xsl:for-each>
-          ],
-          [''
-          <xsl:for-each select="bookstore/book">, '<xsl:value-of select="price"/>'</xsl:for-each>
-          ]],
+          dataTable: [['', 'Everyday Italian', 'Harry Potter', 'Learning Xml'],
+                      ['', 30, 30, 40]],
           options: {'title': 'Books, price comparison'},
           containerId: 'visualization'
         });
@@ -43,6 +35,3 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
     <div id="visualization" style="width: 600px; height: 400px;"></div>
   </body>
 </html>
-    
-  </xsl:template>
-</xsl:stylesheet>
