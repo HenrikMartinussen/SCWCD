@@ -12,23 +12,26 @@ public class XmlDataSource {
   private static final String RESOURCE = "/bookstore.xml";
   private static Logger log = Logger.getLogger(XmlDataSource.class);
   
-  private InputStream in = null;
+  
   
   static {
     log.trace("XmlDataSource loaded");
   }
   
   public XmlDataSource(){
-    in  = this.getClass().getResourceAsStream(RESOURCE);
+    log.trace("XmlDataSource constructed");
+  }
+  
+  public String getXmlData(){
+    String returnValue = null;
+    
+    InputStream in  = this.getClass().getResourceAsStream(RESOURCE);
     if (in != null){
       log.debug("resource retrieved successfully");
     } else {
       log.error("error retrieving resource");
     }
-  }
-  
-  public String getXmlData(){
-    String returnValue = null;
+    
     try {
       returnValue =  streamToString(in);
     } catch (IOException e) {

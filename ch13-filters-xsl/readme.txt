@@ -3,7 +3,10 @@ mvn clean package jetty:run
 watch the logging statements in the console...
 
 point your browser at 
-http://localhost:8081/ch13-filters-xml/sub/givemesomexml
+http://localhost:8081/ch13-filters-xsl/barchart/execute.cobol
+http://localhost:8081/ch13-filters-xsl/table/go.do
+http://localhost:8081/ch13-filters-xsl/xml/thelot.aspx
+http://localhost:8081/ch13-filters-xsl/
 try other urls as well, if you like.
 watch the logging statements in the console...
 

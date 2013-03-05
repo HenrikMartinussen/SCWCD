@@ -12,30 +12,35 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>target servlet</servlet-name>
-    <url-pattern>/sub/*</url-pattern>
+    <url-pattern>/*</url-pattern>
   </servlet-mapping>
   
   <filter>
-    <filter-name>logger</filter-name>
-    <filter-class>info.martinussen.scwcd.hfsj.ch13.LoggingFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>logger</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-    <filter-name>styler</filter-name>
+    <filter-name>barchartStyler</filter-name>
     <filter-class>info.martinussen.scwcd.hfsj.ch13.StylesheetFilter</filter-class>
     <init-param>
       <param-name>xsltPath</param-name>
-      <param-value>/WEB-INF/xslt/a.xsl</param-value>
+      <param-value>/WEB-INF/xslt/barchart.xsl</param-value>
     </init-param>
   </filter>
   <filter-mapping>
-    <filter-name>styler</filter-name>
-    <url-pattern>/*</url-pattern>
+    <filter-name>barchartStyler</filter-name>
+    <url-pattern>/barchart/*</url-pattern>
   </filter-mapping>
+  
+  <filter>
+    <filter-name>tableStyler</filter-name>
+    <filter-class>info.martinussen.scwcd.hfsj.ch13.StylesheetFilter</filter-class>
+    <init-param>
+      <param-name>xsltPath</param-name>
+      <param-value>/WEB-INF/xslt/table.xsl</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>tableStyler</filter-name>
+    <url-pattern>/table/*</url-pattern>
+  </filter-mapping>
+  
   
   <listener>
   	<listener-class>info.martinussen.scwcd.hfsj.ch13.StartupListener</listener-class>
