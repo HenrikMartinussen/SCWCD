@@ -24,31 +24,15 @@
   			return data; 
           }
           
-          function getSimpleData(){
-            var data = new google.visualization.DataTable();
-            data = [[''
-              <xsl:for-each select="bookstore/book">
-                , '<xsl:value-of select="title"/>'
-              </xsl:for-each>
-              ], ['' 
-              <xsl:for-each select="bookstore/book">
-                , <xsl:value-of select="price"/>
-              </xsl:for-each>
-              ]];
-            return data;
-          }
-        
           function drawVisualization() {
             var wrapper = new google.visualization.ChartWrapper({
-              chartType: 'ColumnChart',
+              chartType: 'PieChart',
               dataTable: getData(),
               options: {'title': 'Books, price comparison'},
               containerId: 'visualization'
             });
             wrapper.draw();
           }
-          
-          
 
           google.setOnLoadCallback(drawVisualization);
         </script>
