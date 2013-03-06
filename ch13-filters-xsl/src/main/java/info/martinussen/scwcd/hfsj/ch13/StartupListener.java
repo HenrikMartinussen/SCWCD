@@ -2,6 +2,7 @@ package info.martinussen.scwcd.hfsj.ch13;
 
 
 import info.martinussen.scwcd.hfsj.ch13.model.XmlDataSource;
+import info.martinussen.scwcd.hfsj.ch13.model.XmlFileDataSource;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -21,12 +22,12 @@ public class StartupListener implements ServletContextListener {
 	public StartupListener (){
 		super();
 		log.trace("StartupListener constructed");
-		xmlDataSource = new XmlDataSource(); 
+		 
 	}
 	
 	public void contextInitialized(ServletContextEvent event) {
 		log.debug("Context initialized");
-		
+		xmlDataSource = new XmlFileDataSource();
 		event.getServletContext().setAttribute("xmlDataSource", xmlDataSource);
 	}
 

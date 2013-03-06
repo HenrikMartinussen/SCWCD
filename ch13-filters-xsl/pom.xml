@@ -23,6 +23,7 @@
     <log4j.version>1.2.14</log4j.version>
     <servlet.api.version>2.4</servlet.api.version>
     <jsp.api.version>2.0</jsp.api.version>
+    <jtds.version>1.2</jtds.version>
   </properties>
 
   <dependencies>
@@ -33,18 +34,24 @@
       <scope>provided</scope>
     </dependency>
 
-    <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
-      <version>${jsp.api.version}</version>
-      <scope>provided</scope>
-    </dependency>
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>jsp-api</artifactId>
+		<version>${jsp.api.version}</version>
+		<scope>provided</scope>
+	</dependency>
 
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
+	<dependency> <!-- how about some fresh Sql Server Data? -->
+		<groupId>net.sourceforge.jtds</groupId>
+		<artifactId>jtds</artifactId>
+		<version>${jtds.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>${log4j.version}</version>
+	</dependency>
   </dependencies>
 
   <build>
