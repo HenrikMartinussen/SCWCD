@@ -29,6 +29,19 @@
   </filter-mapping>
   
   <filter>
+    <filter-name>piechartStyler</filter-name>
+    <filter-class>info.martinussen.scwcd.hfsj.ch13.StylesheetFilter</filter-class>
+    <init-param>
+      <param-name>xsltPath</param-name>
+      <param-value>/WEB-INF/xslt/piechart.xsl</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>piechartStyler</filter-name>
+    <url-pattern>/piechart/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
     <filter-name>tableStyler</filter-name>
     <filter-class>info.martinussen.scwcd.hfsj.ch13.StylesheetFilter</filter-class>
     <init-param>
