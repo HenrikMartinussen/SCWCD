@@ -56,7 +56,8 @@
   
   <context-param><!-- Would have liked to use an init-param for the StartupListener, but there is no such thing (@Servlet-2.4) -->
   	<param-name>xmlDataSource</param-name>
-  	<param-value>info.martinussen.scwcd.hfsj.ch13.model.XmlFileDataSource</param-value>
+<!--   	<param-value>info.martinussen.scwcd.hfsj.ch13.model.XmlFileDataSource</param-value> -->
+  	<param-value>info.martinussen.scwcd.hfsj.ch13.model.XmlSqlServerDataSource</param-value>
   </context-param>
   <listener>
   	<listener-class>info.martinussen.scwcd.hfsj.ch13.StartupListener</listener-class>
