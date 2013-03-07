@@ -1,7 +1,7 @@
 /*
 experiment fetching xml with java
 */
-use shark_2
+use myDatabase
 go
 
 drop table Book
