@@ -15,11 +15,11 @@ public class XmlFileDataSource implements XmlDataSource{
   
   
   static {
-    log.trace("XmlDataSource loaded");
+    log.trace("XmlFileDataSource loaded");
   }
   
   public XmlFileDataSource(){
-    log.trace("XmlDataSource constructed");
+    log.trace("XmlFileDataSource constructed");
   }
   
   public String getXmlData(){
