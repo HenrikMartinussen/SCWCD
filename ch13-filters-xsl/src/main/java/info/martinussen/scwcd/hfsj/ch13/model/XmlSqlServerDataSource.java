@@ -12,9 +12,9 @@ public class XmlSqlServerDataSource implements XmlDataSource {
   
   private static Logger log = Logger.getLogger(XmlSqlServerDataSource.class);
   
-  private String db_connect_string = "jdbc:jtds:sqlserver://localhost:1433/myDatabase";
-  private String db_userid = "JamesBond";
-  private String db_password = "mi$$moneypenny";
+  private String db_connect_string = "jdbc:jtds:sqlserver://localhost:1433/gregs_list";
+  private String db_userid = "Admin";
+  private String db_password = "";
   
   static {
     log.trace("XmlSqlServerDataSource loaded");
@@ -32,14 +32,16 @@ public class XmlSqlServerDataSource implements XmlDataSource {
   }
 
   public String getXmlData() {
-    String query = "select \n" + 
-        "b.Category as \"@category\",\n" +
-        "b.Title as title\n," +
-        "b.Author as author\n," +
-        "b.Year as year,\n" +
-        "b.Price as price\n" +
-        "from Book b\n" + 
-        "for xml path ('book'), root ('bookstore');";
+    String query = null;
+//        "select \n" + 
+//        "b.Category as \"@category\",\n" +
+//        "b.Title as title\n," +
+//        "b.Author as author\n," +
+//        "b.Year as year,\n" +
+//        "b.Price as price\n" +
+//        "from Book b\n" + 
+//        "for xml path ('book'), root ('bookstore');";
+    query = "exec Bookstore_asXml";
     String returnValue = null;
     
     Connection conn = null;
