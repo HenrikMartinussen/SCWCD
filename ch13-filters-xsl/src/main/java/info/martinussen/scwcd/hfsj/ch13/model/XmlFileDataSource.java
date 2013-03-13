@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import javax.servlet.ServletContext;
-
 import org.apache.log4j.Logger;
 
 public class XmlFileDataSource implements XmlDataSource{
@@ -55,21 +53,6 @@ public class XmlFileDataSource implements XmlDataSource{
     br.close();
     log.debug(builder.toString());
     return builder.toString();
-  }
-
-  public void setServletContext(ServletContext servletContext) {
-    // TODO Auto-generated method stub
-    
-  }
-
-  public boolean isInitialized() {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-  public void init() {
-    // TODO Auto-generated method stub
-    
   }
 
 }

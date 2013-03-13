@@ -6,6 +6,8 @@ This project demonstrates:
 * transformation of xml with java
 * generating javascript code using xsl
 * examples of using google visualization api
+* accessing Sql Server from java using jtds jdbc driver
+* fetching properties from a properties file
 
 -----------------------------------------------------------------------------------------------------------------------
 INSTRUCTIONS
