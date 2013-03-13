@@ -29,6 +29,7 @@ public class XmlServlet extends HttpServlet {
     //obtain a resource called "xmlDataSource" from the servletContext - as in ch4
     XmlDataSource xmlDataSource = (XmlDataSource) getServletContext().getAttribute("xmlDataSource");
     
+    response.setContentType("text/xml");
     PrintWriter out = response.getWriter();
     out.println(xmlDataSource.getXmlData());
 
