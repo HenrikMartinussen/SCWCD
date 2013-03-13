@@ -37,8 +37,6 @@ public class StartupListener implements ServletContextListener {
 	  String dataSourceClassName = (String) servletContext.getInitParameter("xmlDataSource");
 	  try {
 	    xmlDataSource = (XmlDataSource) Class.forName(dataSourceClassName).newInstance();
-	    xmlDataSource.setServletContext(servletContext); //now the xmlDataSource depends on the ServletApi - is that ok?
-	    xmlDataSource.init();
 	  } catch (Exception e) {
 	    String message = "Error instantiating Class " + dataSourceClassName + " by reflection";
 	    log.fatal(message + " " + e);
