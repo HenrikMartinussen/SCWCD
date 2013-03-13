@@ -59,6 +59,18 @@
 <!--   	<param-value>info.martinussen.scwcd.hfsj.ch13.model.XmlFileDataSource</param-value> -->
   	<param-value>info.martinussen.scwcd.hfsj.ch13.model.XmlSqlServerDataSource</param-value>
   </context-param>
+  <context-param>
+  	<param-name>dbUserId</param-name>
+  	<param-value>sandboxadmin</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>dbPassword</param-name>
+  	<param-value></param-value>
+  </context-param>
+  <context-param>
+  	<param-name>dbConnectString</param-name>
+  	<param-value>jdbc:jtds:sqlserver://localhost:1433/sandbox</param-value>
+  </context-param>
   <listener>
   	<listener-class>info.martinussen.scwcd.hfsj.ch13.StartupListener</listener-class>
   </listener>
