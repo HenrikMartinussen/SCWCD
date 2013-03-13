@@ -2,7 +2,6 @@ package info.martinussen.scwcd.hfsj.ch13;
 
 
 import info.martinussen.scwcd.hfsj.ch13.model.XmlDataSource;
-import info.martinussen.scwcd.hfsj.ch13.model.XmlFileDataSource;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -31,17 +30,24 @@ public class StartupListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent event) {
 		log.debug("StartupListener.contextInitialized() is called");
 		servletContext = event.getServletContext();
-		String dataSourceClassName = (String) servletContext.getInitParameter("xmlDataSource");
-		try {
-      xmlDataSource = (XmlDataSource) Class.forName(dataSourceClassName).newInstance();
-    } catch (Exception e) {
-      String message = "Error instantiating Class " + dataSourceClassName + " by reflection";
-      log.fatal(message + " " + e);
-      throw new IllegalStateException(e);
-    } 
-		
-		event.getServletContext().setAttribute(ATTRIBUTE_NAME, xmlDataSource);
-		log.debug("xmlDataSource was added to ServletContext under the name " + ATTRIBUTE_NAME);
+		addXmlDataSourceToContext();
+	}
+	
+	private void addXmlDataSourceToContext(){
+	  String dataSourceClassName = (String) servletContext.getInitParameter("xmlDataSource");
+	  try {
+	    xmlDataSource = (XmlDataSource) Class.forName(dataSourceClassName).newInstance();
+	    xmlDataSource.setServletContext(servletContext); //now the xmlDataSource depends on the ServletApi - is that ok?
+	    xmlDataSource.init();
+	  } catch (Exception e) {
+	    String message = "Error instantiating Class " + dataSourceClassName + " by reflection";
+	    log.fatal(message + " " + e);
+	    throw new IllegalStateException(e);
+	  } 
+	  
+	  servletContext.setAttribute(ATTRIBUTE_NAME, xmlDataSource);
+	  log.debug("xmlDataSource was added to ServletContext under the name " + ATTRIBUTE_NAME);
+	  
 	}
 
 	public void contextDestroyed(ServletContextEvent event) {

@@ -1,7 +1,7 @@
 /*
 experiment fetching xml with java
 */
-use myDatabase
+use sandbox
 go
 
 drop table Book
@@ -16,12 +16,10 @@ create table Book (
 	Price decimal,
 )
 
-grant select on Book to jamesBond
-
 insert into Book (BookId, Category, Title, Language, Author, Year, Price) 
 select 1, 'COOKING', 'Everyday Italian', 'en', 'Giada De Laurentiis', 2005, 30.00 union all
-select 1, 'CHILDREN', 'Harry Potter', 'en', 'J. K. Rowling', 2005, 29.99 union all
-select 1, 'WEB', 'Learning XML', 'en', 'Erik T. Ray', 2003, 39.95
+select 2, 'CHILDREN', 'Harry Potter', 'en', 'J. K. Rowling', 2005, 29.99 union all
+select 3, 'WEB', 'Learning XML', 'en', 'Erik T. Ray', 2003, 39.95
 
 select 
 b.Category as "@category",
