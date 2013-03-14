@@ -5,4 +5,6 @@ public interface XmlDataSource {
 
   String getXmlData();
 
+  void cleanUp();
+
 }

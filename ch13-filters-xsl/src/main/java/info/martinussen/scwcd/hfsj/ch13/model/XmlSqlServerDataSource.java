@@ -68,6 +68,7 @@ public class XmlSqlServerDataSource implements XmlDataSource {
   }
 
   public String getXmlData() {
+    log.debug("XmlSqlServerDataSource.getXmlData() runs");
     String query = "exec Bookstore_asXml";
     String returnValue = null;
     
@@ -87,13 +88,22 @@ public class XmlSqlServerDataSource implements XmlDataSource {
       log.fatal(message);
       throw new RuntimeException(e);
     } finally {
-        try {rs.close();} catch (SQLException se){}
-        try {st.close();} catch (SQLException se){} 
+        try {rs.close();}   catch (SQLException se){}
+        try {st.close();}   catch (SQLException se){} 
         try {conn.close();} catch (SQLException se){}
-        
     }
     return returnValue;
   }
 
-
+  public void cleanUp() { //TODO driver doesn't seem to be deregistered...
+    log.debug("XmlSqlServerDataSource.cleanUp() runs");
+    try {
+      java.sql.Driver driver = DriverManager.getDriver(dbConnectString);
+      DriverManager.deregisterDriver(driver);
+    } catch (SQLException e) {
+      String message = "SQLException was caught while trying to deregister driver" + e.getMessage();
+      log.error(message);
+      throw new RuntimeException(e);
+    }
+  }
 }
