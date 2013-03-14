@@ -50,6 +50,7 @@ public class StartupListener implements ServletContextListener {
 
 	public void contextDestroyed(ServletContextEvent event) {
 	  servletContext.removeAttribute(ATTRIBUTE_NAME);
+	  xmlDataSource.cleanUp();
 		log.debug("Context destroyed");
 	}
 }

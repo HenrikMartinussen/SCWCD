@@ -55,4 +55,8 @@ public class XmlFileDataSource implements XmlDataSource{
     return builder.toString();
   }
 
+  public void cleanUp() {
+    log.debug("XmlFileDataSource.cleanUp() runs");
+  }
+
 }

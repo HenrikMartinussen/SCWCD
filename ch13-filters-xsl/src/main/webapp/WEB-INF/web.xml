@@ -5,6 +5,10 @@
      version="2.4">
 
   <display-name>Xml Servlet Filter Example Web Application</display-name>
+
+<!--   <welcome-file-list> -->
+<!--     <welcome-file>index.html</welcome-file> -->
+<!--   </welcome-file-list> -->
   
   <servlet>
     <servlet-name>target servlet</servlet-name>
@@ -12,7 +16,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>target servlet</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/xml/*</url-pattern>
   </servlet-mapping>
   
   <filter>
@@ -25,7 +29,7 @@
   </filter>
   <filter-mapping>
     <filter-name>barchartStyler</filter-name>
-    <url-pattern>/barchart/*</url-pattern>
+    <url-pattern>/xml/barchart/*</url-pattern>
   </filter-mapping>
   
   <filter>
@@ -38,7 +42,7 @@
   </filter>
   <filter-mapping>
     <filter-name>piechartStyler</filter-name>
-    <url-pattern>/piechart/*</url-pattern>
+    <url-pattern>/xml/piechart/*</url-pattern>
   </filter-mapping>
   
   <filter>
@@ -51,7 +55,7 @@
   </filter>
   <filter-mapping>
     <filter-name>tableStyler</filter-name>
-    <url-pattern>/table/*</url-pattern>
+    <url-pattern>/xml/table/*</url-pattern>
   </filter-mapping>
   
   <context-param><!-- Would have liked to use an init-param for the StartupListener, but there is no such thing (@Servlet-2.4) -->
@@ -59,18 +63,6 @@
 <!--   	<param-value>info.martinussen.scwcd.hfsj.ch13.model.XmlFileDataSource</param-value> -->
   	<param-value>info.martinussen.scwcd.hfsj.ch13.model.XmlSqlServerDataSource</param-value>
   </context-param>
-<!--   <context-param> -->
-<!--   	<param-name>dbUserId</param-name> -->
-<!--   	<param-value>admin</param-value> -->
-<!--   </context-param> -->
-<!--   <context-param> -->
-<!--   	<param-name>dbPassword</param-name> -->
-<!--   	<param-value></param-value> -->
-<!--   </context-param> -->
-<!--   <context-param> -->
-<!--   	<param-name>dbConnectString</param-name> -->
-<!--   	<param-value>jdbc:jtds:sqlserver://localhost:1433/gregs_list</param-value> -->
-<!--   </context-param> -->
   <listener>
   	<listener-class>info.martinussen.scwcd.hfsj.ch13.StartupListener</listener-class>
   </listener>
