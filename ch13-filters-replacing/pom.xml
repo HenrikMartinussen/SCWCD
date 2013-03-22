@@ -6,24 +6,25 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>info.martinussen.scwcd.hfsj</groupId>
 
-  <artifactId>ch13-filters-xsl</artifactId>
+  <artifactId>ch13-filters-replacing</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>ch13-filters-xsl</name>
+  <name>ch13-filters-replacing</name>
   
   <!-- Java and xslt, ch 8, p 316 -->
   <!-- xsl transforming Servlet Filter Example -->
+  <!-- Core Servlets and JSP, 2nd edition volume 2, -->
+  <!-- chapter 5 Servlet and JSP Filters page 234 ff "Modifying the response"-->
 
   <url>http://maven.apache.org</url>
   
   <properties>
     <!-- this is to prevent the build from being platform dependent" -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>1.5</java.version>    
+    <java.version>1.6</java.version>    
     <log4j.version>1.2.14</log4j.version>
     <servlet.api.version>2.4</servlet.api.version>
     <jsp.api.version>2.0</jsp.api.version>
-    <jtds.version>1.2</jtds.version>
   </properties>
 
   <dependencies>
@@ -41,12 +42,6 @@
 		<scope>provided</scope>
 	</dependency>
 
-	<dependency> <!-- how about some fresh Sql Server Data? -->
-		<groupId>net.sourceforge.jtds</groupId>
-		<artifactId>jtds</artifactId>
-		<version>${jtds.version}</version>
-	</dependency>
-
 	<dependency>
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
@@ -55,7 +50,7 @@
   </dependencies>
 
   <build>
-    <finalName>xsl-transforming-servlet-filter-example</finalName>
+    <finalName>replacing-servlet-filter-example</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
