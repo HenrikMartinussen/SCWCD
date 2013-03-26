@@ -1,6 +1,9 @@
-package info.martinussen.scwcd.hfsj.ch13;
+package info.martinussen.scwcd.hfsj.ch13.replace;
+
+import info.martinussen.scwcd.hfsj.ch13.BufferedHttpResponseWrapper;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -23,6 +26,7 @@ public class ReplacingFilter implements Filter {
 
   private static Logger log = Logger.getLogger(ReplacingFilter.class);
   private FilterConfig config;
+  private List<Rule> rules = null;
 
   static {
     log.trace("ReplacingFilter is loaded");
@@ -37,7 +41,7 @@ public class ReplacingFilter implements Filter {
   public void init(FilterConfig config) throws ServletException {
     log.debug("ReplacingFilter.init runs");
     this.config = config; //save for later reference
-
+    rules = (List<Rule>) this.config.getServletContext().getAttribute("rules");
   }
 
   public void doFilter(ServletRequest servletRequest, 
@@ -65,7 +69,6 @@ public class ReplacingFilter implements Filter {
     // do the replacing
     String origResponse  = new String (responseWrapper.getBuffer(),"UTF-8");
     
-    Rule[] rules = {new Rule ("Shark", "Effisoft"), new Rule("SHARK", "EFFISOFT")};//TODO listener, conf file?
     String workResp = replace(origResponse, rules);
     
     byte[] modifiedResponse = workResp.getBytes("UTF-8");
@@ -77,12 +80,12 @@ public class ReplacingFilter implements Filter {
     res.flushBuffer();
   }
   
-  private String replace (String target, Rule[] rules){
+  private String replace (String target, List<Rule> rules){
     String returnValue = null;
     if (target != null) {
       returnValue = new String(target);
       for (Rule rule : rules){
-        returnValue =  returnValue.replace(rule.toBeReplaced, rule.replaceWith);
+        returnValue =  returnValue.replace(rule.getToBeReplaced(), rule.getReplaceWith());
       }
     }
     return returnValue;
@@ -95,14 +98,4 @@ public class ReplacingFilter implements Filter {
   }
 }
 
-class Rule {
-  String toBeReplaced;
-  String replaceWith;
-  
-  Rule(String tbr, String rw){
-    this.toBeReplaced = tbr;
-    this.replaceWith = rw;
-  }
-  
-  
-}
+
