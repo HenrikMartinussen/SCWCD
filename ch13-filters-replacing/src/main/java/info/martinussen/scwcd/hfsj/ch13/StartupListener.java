@@ -5,6 +5,7 @@ import info.martinussen.scwcd.hfsj.ch13.replace.Rule;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 
@@ -27,8 +28,8 @@ public class StartupListener implements ServletContextListener{
   public StartupListener (){
     super();
     log.trace("StartupListener constructed");
-     
   }
+  
   
   public void contextInitialized(ServletContextEvent event) {
     log.debug("StartupListener.contextInitialized() is called");
@@ -37,11 +38,11 @@ public class StartupListener implements ServletContextListener{
     try {
       prop.load(StartupListener.class.getClassLoader().getResourceAsStream("/replace.properties"));
       rules = new ArrayList<Rule>();
+      Enumeration<Object> keys = prop.keys();
       String key = null;
-      int counter = 0;
-      while (prop.keys().hasMoreElements() && counter < 99){
-        key = (String) prop.keys().nextElement();
-        log.debug("key [" + counter++ + "]---------------> " + key);
+      
+      while (keys.hasMoreElements() ){
+        key = (String) keys.nextElement();
         rules.add(new Rule(key,prop.getProperty(key)));
       }
     } catch (IOException e) {
@@ -49,16 +50,21 @@ public class StartupListener implements ServletContextListener{
       log.fatal(message);
       throw new IllegalStateException(message);
     }
+
+    if (log.isDebugEnabled()){ //no need to loop if nothing is to logged
+      for (Rule rule : rules) {
+        log.debug(rule.toString());
+      }
+    }
     servletContext.setAttribute("rules", rules);
     log.debug("StartupListener.contextInitialized() ends");
-//    log.debug("dbUserId = " + dbUserId);
-//    log.debug("dbPassword = " + dbPassword);
-//    log.debug("dbConnectString = " + dbConnectString);
   }
   
 
   public void contextDestroyed(ServletContextEvent event) {
     log.debug("Context destroyed");
+    servletContext.removeAttribute("rules");
+    rules = null;
   }
 
   

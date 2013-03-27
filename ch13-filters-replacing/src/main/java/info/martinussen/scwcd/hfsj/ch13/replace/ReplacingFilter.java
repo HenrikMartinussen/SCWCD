@@ -41,7 +41,11 @@ public class ReplacingFilter implements Filter {
   public void init(FilterConfig config) throws ServletException {
     log.debug("ReplacingFilter.init runs");
     this.config = config; //save for later reference
-    rules = (List<Rule>) this.config.getServletContext().getAttribute("rules");
+    Object o =  this.config.getServletContext().getAttribute("rules");
+    if (o instanceof List<?>){
+      rules = (List<Rule>) o;
+    }
+    if (rules == null) log.error("ReplacingFilter.init() - No Rules found") ;
   }
 
   public void doFilter(ServletRequest servletRequest, 
