@@ -17,9 +17,11 @@ mvn clean package jetty:run
 watch the logging statements in the console...
 
 point your browser at 
-http://localhost:8081/ch13-filters-xsl/piechart
-http://localhost:8081/ch13-filters-xsl/barchart
-http://localhost:8081/ch13-filters-xsl/table
+http://localhost:8081/ch13-filters-xsl/index.html
+http://localhost:8081/ch13-filters-xsl/xml/piechart
+http://localhost:8081/ch13-filters-xsl/xml/barchart
+http://localhost:8081/ch13-filters-xsl/xml/table
+http://localhost:8081/ch13-filters-xsl/xml/
 http://localhost:8081/ch13-filters-xsl/
 try other urls as well, if you like.
 watch the logging statements in the console...
