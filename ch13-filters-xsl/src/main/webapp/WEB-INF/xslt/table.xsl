@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<xsl:output method="html" version="4.0" encoding="UTF-8" indent="yes"/>
+<xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"
+	doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+	doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
   <xsl:template match="/">
-    <html>
+
+	<html xmlns="http://www.w3.org/1999/xhtml">
+
+      <head>
+		<title>Bookstore [xsl transforming servlet filter demo]</title>
+		<link rel="stylesheet" type="text/css" href="styles/filter-styles.css" />
+	  </head>
       <body>
         <h2>The Bookstore</h2>
-        <table border="1">
-          <tr bgcolor="#9acdff">
+        <table>
+          <tr>
             <th>Title</th>
             <th>Author</th>
             <th>Year</th>
