@@ -30,3 +30,37 @@ b.Price as price
 
 from Book b 
 for xml path ('book'), root ('bookstore');
+
+
+USE [sandbox]
+GO
+/****** Object:  StoredProcedure [dbo].[Bookstore_asXml]    Script Date: 04/02/2013 23:05:31 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Henrik
+-- Create date: 
+-- Description:	
+-- exec Bookstore_asXml
+-- =============================================
+ALTER PROCEDURE [dbo].[Bookstore_asXml] 
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+
+select 
+b.Category as "@category",
+b.Title as title,
+b.Author as author,
+b.[Year] as year,
+b.Price as price
+from Book b 
+for xml path ('book'), root ('bookstore');
+
+end
