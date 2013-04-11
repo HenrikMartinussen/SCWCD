@@ -9,10 +9,6 @@
   <filter>
     <filter-name>replacingFilter</filter-name>
     <filter-class>info.martinussen.scwcd.hfsj.ch13.replace.ReplacingFilter</filter-class>
-    <init-param>
-      <param-name>xsltPath</param-name>
-      <param-value>/WEB-INF/xslt/table.xsl</param-value>
-    </init-param>
   </filter>
   <filter-mapping>
     <filter-name>replacingFilter</filter-name>
