@@ -3,62 +3,67 @@ package info.martinussen.scwcd.hfsj.ch4.integration;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.thoughtworks.selenium.*;
-
-public class Ch4SeleniumITCase extends SeleneseTestCase {
+public class Ch4SeleniumITCase {
   
   private static final String RESOURCE_TO_OPEN = "/ch4/";
-  private static final String PAGE_LOAD_WAITING_TIME = "30000";
+  private static final String SERVER = "http://localhost";
+  private static final String PORT = "8081";
+  
+  private WebDriver webDriver;
   
   
   @Before
   public void setUp(){
-    this.selenium = new DefaultSelenium("localhost", 4444, "*firefox", "http://localhost:8081");
-    this.selenium.start();
+    webDriver = new FirefoxDriver();
+    webDriver.get(SERVER + ":" + PORT  + RESOURCE_TO_OPEN);
   }
   
   @After
   public void tearDown(){
-    this.selenium.stop();
+    webDriver.quit();
   }
 
   @Test
   public void testCh4Amber() throws Exception {
-    selenium.open(RESOURCE_TO_OPEN);
-    selenium.select("color", "label=amber");
-    selenium.click("//input[@type='SUBMIT']");
-    selenium.waitForPageToLoad(PAGE_LOAD_WAITING_TIME);
-    verifyTrue(selenium.isTextPresent("exact:try: Jack Amber\ntry: Red Moose")); //defined in SeleneseTestCase
+    Select colorSelect = new Select(webDriver.findElement(By.name("color")));
+    colorSelect.selectByVisibleText("amber");
+    webDriver.findElement(By.tagName("input")).click();
+    WebDriverWait wait = new WebDriverWait(webDriver, 10);
+    wait.until(ExpectedConditions.textToBePresentInElement(By.tagName("body"), "try: Jack Amber\ntry: Red Moose"));
+    //TODO make it an obvious assert
   }
   
   @Test
   public void testCh4Dark() throws Exception {
-    selenium.open(RESOURCE_TO_OPEN);
-    selenium.select("color", "label=dark");
-    selenium.click("//input[@type='SUBMIT']");
-    selenium.waitForPageToLoad(PAGE_LOAD_WAITING_TIME);
-    verifyTrue(selenium.isTextPresent("exact:try: Jail Pale Ale\ntry: Gout Stout")); //defined in SeleneseTestCase
+    Select colorSelect = new Select(webDriver.findElement(By.name("color")));
+    colorSelect.selectByVisibleText("dark");
+    webDriver.findElement(By.tagName("input")).click();
+    WebDriverWait wait = new WebDriverWait(webDriver, 10);
+    wait.until(ExpectedConditions.textToBePresentInElement(By.tagName("body"), "try: Jail Pale Ale\ntry: Gout Stout"));
   }
   
   @Test
   public void testCh4Light() throws Exception {
-    selenium.open(RESOURCE_TO_OPEN);
-    selenium.select("color", "label=light");
-    selenium.click("//input[@type='SUBMIT']");
-    selenium.waitForPageToLoad(PAGE_LOAD_WAITING_TIME);
-    verifyTrue(selenium.isTextPresent("exact:try: Jail Pale Ale\ntry: Gout Stout")); //defined in SeleneseTestCase
+    Select colorSelect = new Select(webDriver.findElement(By.name("color")));
+    colorSelect.selectByVisibleText("light");
+    webDriver.findElement(By.tagName("input")).click();
+    WebDriverWait wait = new WebDriverWait(webDriver, 10);
+    wait.until(ExpectedConditions.textToBePresentInElement(By.tagName("body"), "try: Jail Pale Ale\ntry: Gout Stout"));
   }
   
   @Test
   public void testCh4Brown() throws Exception {
-    selenium.open(RESOURCE_TO_OPEN);
-    selenium.select("color", "label=brown");
-    selenium.click("//input[@type='SUBMIT']");
-    selenium.waitForPageToLoad(PAGE_LOAD_WAITING_TIME);
-    verifyTrue(selenium.isTextPresent("exact:try: Jail Pale Ale\ntry: Gout Stout")); //defined in SeleneseTestCase
+    Select colorSelect = new Select(webDriver.findElement(By.name("color")));
+    colorSelect.selectByVisibleText("brown");
+    webDriver.findElement(By.tagName("input")).click();
+    WebDriverWait wait = new WebDriverWait(webDriver, 10);
+    wait.until(ExpectedConditions.textToBePresentInElement(By.tagName("body"), "try: Jail Pale Ale\ntry: Gout Stout"));
   }
-  
-
-
 }
