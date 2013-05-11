@@ -16,7 +16,6 @@ import org.apache.log4j.Logger;
 
 /**
  * HFSJ p 89, 97 (Lifecycle)
- * @author Henrik
  */
 @SuppressWarnings("serial")
 public class BeerServlet extends HttpServlet{
