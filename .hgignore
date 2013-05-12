@@ -23,4 +23,15 @@ target\
 #In Linux
 */target/*
 
+#Gradle build products are not to be version tracked:
+#In windows:
+.gradle\
+build\
+bin\
+#In Linux
+*/build/*
+*/bin/*
+*/.gradle/*
+
+
 syntax: regexp
