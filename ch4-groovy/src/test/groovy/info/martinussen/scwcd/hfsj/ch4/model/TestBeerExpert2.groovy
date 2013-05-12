@@ -10,7 +10,7 @@ import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
 import org.apache.log4j.Logger;
 
 @RunWith(Parameterized)
-public class TestBeerExpert2{
+public class TestBeerExpert2{ //TODO verify that this class is really executed
   
   Logger log = Logger.getLogger(TestBeerExpert.class)
   

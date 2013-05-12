@@ -6,5 +6,6 @@ Demonstrates
 -parameterized unit test of java code implemented in groovy (TestBeerExpert2)
 
 In order to run test:
-mvn clean test
+gradle clean test
+or - if you prefer: mvn clean test
 
