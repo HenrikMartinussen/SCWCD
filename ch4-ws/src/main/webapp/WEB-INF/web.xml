@@ -5,15 +5,15 @@
      version="2.4">
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-    <servlet-name>Ch4 Beer</servlet-name>
-    <servlet-class>info.martinussen.scwcd.hfsj.ch4.BeerServlet</servlet-class>
+    <servlet-name>beerservlet</servlet-name>
+    <servlet-class>info.martinussen.beerexpert.BeerServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Ch4 Beer</servlet-name>
+    <servlet-name>beerservlet</servlet-name>
     <url-pattern>/SelectBeer.do</url-pattern>
   </servlet-mapping>
   <listener>
-  	<listener-class>info.martinussen.scwcd.hfsj.ch4.StartupListener</listener-class>
+  	<listener-class>info.martinussen.beerexpert.StartupListener</listener-class>
   </listener>
   
 </web-app>

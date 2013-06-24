@@ -1,6 +1,7 @@
 package info.martinussen.scwcd.hfsj.ch4;
 
-import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
+
+import info.martinussen.beerexpert.model.BeerExpert;
 
 import java.io.IOException;
 import java.util.List;

@@ -1,4 +1,4 @@
-package info.martinussen.scwcd.hfsj.ch4.model;
+package info.martinussen.beerexpert.model;
 
 import static org.junit.Assert.*;
 
