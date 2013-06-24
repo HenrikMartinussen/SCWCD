@@ -1,6 +1,7 @@
-package info.martinussen.scwcd.hfsj.ch4;
+package info.martinussen.beerexpert;
 
-import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
+
+import info.martinussen.beerexpert.model.BeerExpert;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
