@@ -16,7 +16,7 @@ public class BeerExpert {
     log.debug("BeerExpert is constructed");
   }
   
-  public String getBrands(String color){
+  public List<String> getBrands(String color){
     log.debug("BeerExpert.getBrands() is called, parameter color was: " + color);
     List<String> brands = new ArrayList<String>();
     if (color.equals("amber")){
@@ -27,7 +27,7 @@ public class BeerExpert {
       brands.add("Gout Stout");
     }
     log.debug("BeerExpert.getBrands() returns: " + brands);
-    return brands.toString();
+    return brands;
   }
 
 }

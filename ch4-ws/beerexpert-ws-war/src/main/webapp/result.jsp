@@ -4,8 +4,10 @@
 <h1 align="center">Beer recommendations JSP</h1>
 <p>
 <%
-  String styles = (String)request.getAttribute("styles");
-  out.print("<br/>try: " + styles);
+  List<String> styles = (List<String>)request.getAttribute("styles");
+  for (String style : styles){
+	out.print("<br/>try: " + style);
+  }
 %>
 </p>
 </body>
