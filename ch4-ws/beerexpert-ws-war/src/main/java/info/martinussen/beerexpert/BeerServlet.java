@@ -40,7 +40,7 @@ public class BeerServlet extends HttpServlet{
     
     BeerExpert expert = (BeerExpert) getServletContext().getAttribute("beerExpert");
     
-    String advice = expert.getBrands(c);
+    List<String> advice = expert.getBrands(c);
     req.setAttribute("styles", advice);
     
     RequestDispatcher view = req.getRequestDispatcher("result.jsp");

@@ -6,15 +6,15 @@
     <xsd:element name="BeerExpertServiceRequest" type="BeerExpertServiceRequestType"/>
     <xsd:element name="BeerExpertServiceResponse" type="BeerExpertServiceResponseType"/>
  
-    <xsd:complexType name="BeerExpertServiceRequestType">
-    	<xsd:sequence>
+ 	<xsd:complexType name="BeerExpertServiceRequestType">
+    	<xsd:sequence minOccurs="1" maxOccurs="1">
 	        <xsd:element name="Color" type="xsd:string"/>
     	</xsd:sequence>
     </xsd:complexType>
      
     <xsd:complexType name="BeerExpertServiceResponseType">
-    	<xsd:sequence>
-	        <xsd:element name="Advise" type="xsd:string"/>
+    	<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+	        <xsd:element name="Advice" type="xsd:string"/>
     	</xsd:sequence>
     </xsd:complexType>
  

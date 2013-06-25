@@ -56,9 +56,8 @@ public class TestBeerExpert {
    */
   @Test
   public void testGetBrandsForTestParameters() {
-//    List<String> result = testExpert.getBrands(testColor);
-    String result = testExpert.getBrands(testColor);
-//    assertEquals(2, result.size());
+    List<String> result = testExpert.getBrands(testColor);
+    assertEquals(2, result.size());
     assertTrue(result.contains(expected1));
     assertTrue(result.contains(expected2));
   }

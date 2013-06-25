@@ -1,5 +1,7 @@
 package info.martinussen.beerexpert.service;
 
+import java.util.List;
+
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -42,11 +44,13 @@ public class BeerExpertServiceImpl implements BeerExpertServicePortType {
     log.trace("BeerExpertServiceImpl.getBeerAdvise() was called");
     String color = beerExpertServiceRequest.getColor();
     BeerExpert beerExpert = new BeerExpert();
-    String advise = beerExpert.getBrands(color);
+    List<String> advice = beerExpert.getBrands(color);
     log.info("BeerExpertServiceImpl called beerExpert with parameter " + color);
-    log.info("beerExpert responded: " + advise);
+    log.info("beerExpert responded: " + advice.toString());
     BeerExpertServiceResponseType response = new BeerExpertServiceResponseType();
-    response.setAdvise(advise);
+    for (String element : advice){
+      response.getAdvice().add(element);
+    }
     log.trace("BeerExpertServiceImpl.getBeerAdvise returns...");
     return response;
   }
