@@ -12,6 +12,9 @@
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>Beer Expert Webservice jax-ws generated artifacts</name>
+	
+	<!-- https://jax-ws.java.net/2.2.8/docs/ -->
+	<!-- http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/ -->
 
 	<properties>
 		<!-- this is to prevent the build from being platform dependent" -->
