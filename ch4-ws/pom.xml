@@ -6,7 +6,7 @@
   <artifactId>beerexpert-ws-parent</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Beer Expert Webservice</name>
+  <name>Beer Expert Webservice Parent</name>
   <url>http://maven.apache.org</url>
 
   <modules>
@@ -24,23 +24,25 @@
   </properties>
 
   <dependencyManagement>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
+    <dependencies>
+      <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
 
+    </dependencies>
   </dependencyManagement>
 
   <build>
-    <finalName>ch4-ws</finalName>
+    <finalName>beerexpert-ws</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -49,132 +51,18 @@
           <source>${java.version}</source>
           <target>${java.version}</target>
           <encoding>UTF-8</encoding>
-          <!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/usage.html -->
-          <compilerArguments>
-            <endorseddirs>${project.build.directory}/endorsed</endorseddirs>
-          </compilerArguments>
         </configuration>
       </plugin>
 
-      <!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/usage.html -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.3</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>copy</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${project.build.directory}/endorsed</outputDirectory>
-              <silent>true</silent>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>javax.xml.bind</groupId>
-                  <artifactId>jaxb-api</artifactId>
-                  <version>2.2.7</version>
-                  <type>jar</type>
-                </artifactItem>
-                <artifactItem>
-                  <groupId>javax.xml.ws</groupId>
-                  <artifactId>jaxws-api</artifactId>
-                  <version>2.2.9</version>
-                  <type>jar</type>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
         <version>2.9</version>
         <configuration>
-          <wtpversion>2.0</wtpversion>
-          <!-- In order to make it an Eclipse dynamic 
-						web project(war), as opposed to an Eclipse java(jar) project -->
           <downloadSources>true</downloadSources>
           <downloadJavadocs>true</downloadJavadocs>
         </configuration>
-      </plugin>
-
-
-      <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>maven-jetty-plugin</artifactId>
-        <version>${jetty.version}</version>
-        <configuration>
-          <stopPort>9966</stopPort>
-          <stopKey>Holdt</stopKey>
-          <connectors>
-            <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-              <port>${jetty.port}</port>
-            </connector>
-          </connectors>
-        </configuration>
-        <executions>
-          <execution>
-            <!-- Runs Jetty in the pre-integration-test maven phase -->
-            <id>start-jetty</id>
-            <phase>pre-integration-test</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <daemon>true</daemon>
-            </configuration>
-          </execution>
-          <execution>
-            <!-- Stops Jetty in the post-integration-test maven phase -->
-            <id>stop-jetty</id>
-            <phase>post-integration-test</phase>
-            <goals>
-              <goal>stop</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.jvnet.jax-ws-commons</groupId>
-        <artifactId>jaxws-maven-plugin</artifactId>
-        <version>2.3</version>
-        <executions>
-          <execution>
-            <!-- 						<phase>generate-sources</phase> -->
-            <goals>
-              <goal>wsimport</goal>
-            </goals>
-            <configuration>
-              <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
-              <packageName>info.martinussen.beerexpert.service.generated</packageName>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.8</version>
-        <executions>
-          <execution>
-            <id>add-source</id>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>add-source</goal>
-            </goals>
-            <configuration>
-              <sources>
-                <source>${basedir}/target/generated-sources/wsimport</source>
-              </sources>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
 
     </plugins>
