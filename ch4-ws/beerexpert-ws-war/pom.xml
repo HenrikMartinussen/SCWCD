@@ -2,19 +2,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>info.martinussen.beerexpert</groupId>
-    <artifactId>beerexpert-ws-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+	<parent>
+		<groupId>info.martinussen.beerexpert</groupId>
+		<artifactId>beerexpert-ws-parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>beerexpert-ws-war</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>Beer Expert Webservice implementation</name>
-	<url>http://maven.apache.org</url>
 
 	<properties>
-		
 		<servlet.api.version>2.5</servlet.api.version>
 		<jetty.version>6.1.26</jetty.version>
 		<jetty.port>8081</jetty.port>
@@ -31,19 +29,18 @@
 			<artifactId>junit</artifactId>
 		</dependency>
 
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>${servlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
-    
-    <dependency>
-      <groupId>info.martinussen.beerexpert</groupId>
-      <artifactId>beerexpert-ws-jar</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
+
+		<dependency>
+			<groupId>info.martinussen.beerexpert</groupId>
+			<artifactId>beerexpert-ws-jar</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 
 	</dependencies>
 
@@ -57,10 +54,8 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 					<encoding>UTF-8</encoding>
-		
 				</configuration>
 			</plugin>
-
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -74,14 +69,11 @@
 				</configuration>
 			</plugin>
 
-
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>${jetty.version}</version>
 				<configuration>
-					<stopPort>9966</stopPort>
-					<stopKey>Holdt</stopKey>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
 							<port>${jetty.port}</port>
@@ -90,8 +82,6 @@
 				</configuration>
 			</plugin>
 
-
 		</plugins>
 	</build>
-
 </project>
