@@ -10,11 +10,11 @@
 	<artifactId>beerexpert-ws-war</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>Beer Expert Webservice</name>
+	<name>Beer Expert Webservice implementation</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<!-- this is to prevent the build from being platform dependent" -->
+		
 		<servlet.api.version>2.5</servlet.api.version>
 		<jetty.version>6.1.26</jetty.version>
 		<jetty.port>8081</jetty.port>
@@ -24,14 +24,11 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
 		</dependency>
 
 
@@ -41,11 +38,17 @@
 			<version>${servlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
+    
+    <dependency>
+      <groupId>info.martinussen.beerexpert</groupId>
+      <artifactId>beerexpert-ws-jar</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
 
 	</dependencies>
 
 	<build>
-		<finalName>ch4-ws</finalName>
+		<finalName>beerexpert-ws-implementation</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -54,10 +57,7 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 					<encoding>UTF-8</encoding>
-					<!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/usage.html -->
-					<compilerArguments>
-						<endorseddirs>${project.build.directory}/endorsed</endorseddirs>
-					</compilerArguments>
+		
 				</configuration>
 			</plugin>
 
@@ -88,27 +88,6 @@
 						</connector>
 					</connectors>
 				</configuration>
-				<executions>
-					<execution>
-						<!-- Runs Jetty in the pre-integration-test maven phase -->
-						<id>start-jetty</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<daemon>true</daemon>
-						</configuration>
-					</execution>
-					<execution>
-						<!-- Stops Jetty in the post-integration-test maven phase -->
-						<id>stop-jetty</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>stop</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 
 
