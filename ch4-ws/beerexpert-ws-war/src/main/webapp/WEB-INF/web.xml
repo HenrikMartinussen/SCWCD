@@ -21,6 +21,7 @@
 	    <url-pattern>/SelectBeer.do</url-pattern>
   	</servlet-mapping>
 
+	<!-- http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/ -->
     <servlet>
         <description>JAX-WS endpoint</description>
         <display-name>The JAX-WS servlet</display-name>

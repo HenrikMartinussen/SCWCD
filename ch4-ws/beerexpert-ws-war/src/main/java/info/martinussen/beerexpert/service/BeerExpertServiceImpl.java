@@ -12,6 +12,8 @@ import info.martinussen.beerexpert.service.generated.BeerExpertServicePortType;
 import info.martinussen.beerexpert.service.generated.BeerExpertServiceRequestType;
 import info.martinussen.beerexpert.service.generated.BeerExpertServiceResponseType;
 
+//http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/
+
 @WebService(endpointInterface="info.martinussen.beerexpert.service.generated.BeerExpertServicePortType")
 public class BeerExpertServiceImpl implements BeerExpertServicePortType {
   

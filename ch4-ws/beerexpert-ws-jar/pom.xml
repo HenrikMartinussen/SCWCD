@@ -88,13 +88,13 @@
 				</configuration>
 			</plugin>
 
+			<!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/ -->
 			<plugin>
 				<groupId>org.jvnet.jax-ws-commons</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
 				<version>2.3</version>
 				<executions>
 					<execution>
-						<!-- <phase>generate-sources</phase> -->
 						<goals>
 							<goal>wsimport</goal>
 						</goals>
@@ -107,7 +107,7 @@
 				</executions>
 			</plugin>
 
-			<plugin>
+			<plugin> <!-- is this plugin necessary -->
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
 				<version>1.8</version>
