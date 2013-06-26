@@ -9,19 +9,10 @@
 	</session-config>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
-        <welcome-file>index.html</welcome-file>
+        
     </welcome-file-list>
   	
-  	<servlet>
-    	<servlet-name>BeerServlet</servlet-name>
-    	<servlet-class>info.martinussen.beerexpert.BeerServlet</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-	    <servlet-name>BeerServlet</servlet-name>
-	    <url-pattern>/SelectBeer.do</url-pattern>
-  	</servlet-mapping>
-
-	<!-- http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/ -->
+  	<!-- http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/ -->
     <servlet>
         <description>JAX-WS endpoint</description>
         <display-name>The JAX-WS servlet</display-name>
@@ -39,10 +30,4 @@
         </listener-class>
     </listener>
 
-  	<listener>
-	  	<listener-class>
-  			info.martinussen.beerexpert.StartupListener
-		</listener-class>
-  	</listener>
-  
 </web-app>

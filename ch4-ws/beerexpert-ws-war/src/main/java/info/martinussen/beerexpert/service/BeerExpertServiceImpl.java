@@ -41,17 +41,17 @@ public class BeerExpertServiceImpl implements BeerExpertServicePortType {
                         partName = "BeerExpertServiceRequest") 
               BeerExpertServiceRequestType beerExpertServiceRequest) {
 
-    log.trace("BeerExpertServiceImpl.getBeerAdvise() was called");
+    log.debug("BeerExpertServiceImpl.getBeerAdvise() was called");
     String color = beerExpertServiceRequest.getColor();
     BeerExpert beerExpert = new BeerExpert();
     List<String> advice = beerExpert.getBrands(color);
-    log.info("BeerExpertServiceImpl called beerExpert with parameter " + color);
-    log.info("beerExpert responded: " + advice.toString());
+    log.debug("BeerExpertServiceImpl called beerExpert with parameter " + color);
+    log.debug("beerExpert responded: " + advice.toString());
     BeerExpertServiceResponseType response = new BeerExpertServiceResponseType();
     for (String element : advice){
       response.getAdvice().add(element);
     }
-    log.trace("BeerExpertServiceImpl.getBeerAdvise returns...");
+    log.debug("BeerExpertServiceImpl.getBeerAdvise returns...");
     return response;
   }
 
