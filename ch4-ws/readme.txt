@@ -15,5 +15,6 @@ point browser to http://localhost:8081/beerexpert-ws-war/beerExpertService?wsdl 
 
 use the wsdl as input in a new project in SoapUI, fill in request parameter value and run test
 
-port to use (currently 8081) is configurable in beerexpert-ws-war/pom.xml under maven-jetty-plugin configuration, connectors, connector, port
-application name stems from the pom.xml artifact-id, and can be changed there.
+integration tests can be run by issuing the command mvn verify in either the parent folder (besides this readme)
+or in the beerexpert-ws-war subfolder.
+
