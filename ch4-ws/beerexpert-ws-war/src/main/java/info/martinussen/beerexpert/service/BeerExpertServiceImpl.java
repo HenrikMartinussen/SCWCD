@@ -1,5 +1,10 @@
 package info.martinussen.beerexpert.service;
 
+import info.martinussen.beerexpert.model.BeerExpert;
+import info.martinussen.beerexpert.service.generated.BeerExpertServicePortType;
+import info.martinussen.beerexpert.service.generated.BeerExpertServiceRequestType;
+import info.martinussen.beerexpert.service.generated.BeerExpertServiceResponseType;
+
 import java.util.List;
 
 import javax.jws.WebMethod;
@@ -8,11 +13,6 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import org.apache.log4j.Logger;
-
-import info.martinussen.beerexpert.model.BeerExpert;
-import info.martinussen.beerexpert.service.generated.BeerExpertServicePortType;
-import info.martinussen.beerexpert.service.generated.BeerExpertServiceRequestType;
-import info.martinussen.beerexpert.service.generated.BeerExpertServiceResponseType;
 
 //http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/
 

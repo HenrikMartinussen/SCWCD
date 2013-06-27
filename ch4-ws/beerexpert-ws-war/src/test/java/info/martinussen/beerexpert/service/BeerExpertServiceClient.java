@@ -32,7 +32,6 @@ public class BeerExpertServiceClient {
     Service service = Service.create(url, qname);
     port = service.getPort(BeerExpertServicePortType.class);
   }
-  
       
   public List<String> getBrands(String color){
     BeerExpertServiceRequestType request = new BeerExpertServiceRequestType();

@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            elementFormDefault="qualified"
-            xmlns="http://martinussen.info/beerexpertservice/1.0"
-            targetNamespace="http://martinussen.info/beerexpertservice/1.0">
-    <xsd:element name="BeerExpertServiceRequest" type="BeerExpertServiceRequestType"/>
-    <xsd:element name="BeerExpertServiceResponse" type="BeerExpertServiceResponseType"/>
- 
- 	<xsd:complexType name="BeerExpertServiceRequestType">
-    	<xsd:sequence minOccurs="1" maxOccurs="1">
-	        <xsd:element name="Color" type="xsd:string"/>
-    	</xsd:sequence>
-    </xsd:complexType>
-     
-    <xsd:complexType name="BeerExpertServiceResponseType">
-    	<xsd:sequence minOccurs="0" maxOccurs="unbounded">
-	        <xsd:element name="Advice" type="xsd:string"/>
-    	</xsd:sequence>
-    </xsd:complexType>
- 
-    
+   elementFormDefault="qualified" 
+                xmlns="http://martinussen.info/beerexpertservice/1.0"
+      targetNamespace="http://martinussen.info/beerexpertservice/1.0">
+  
+  <xsd:element name="BeerExpertServiceRequest" type="BeerExpertServiceRequestType" />
+  <xsd:element name="BeerExpertServiceResponse" type="BeerExpertServiceResponseType" />
+
+  <xsd:complexType name="BeerExpertServiceRequestType">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="Color" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="BeerExpertServiceResponseType">
+    <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="Advice" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
 </xsd:schema>
