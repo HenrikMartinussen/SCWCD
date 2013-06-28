@@ -16,12 +16,6 @@
   <!-- https://jax-ws.java.net/2.2.8/docs/ -->
   <!-- http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/ -->
 
-  <properties>
-    <!-- this is to prevent the build from being platform dependent" -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.6</java.version>
-  </properties>
 
   <dependencies>
     <dependency>
@@ -81,16 +75,7 @@
         </executions>
       </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <version>2.9</version>
-        <configuration>
-          <downloadSources>true</downloadSources>
-          <downloadJavadocs>true</downloadJavadocs>
-        </configuration>
-      </plugin>
-
+			
       <!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/ -->
       <plugin>
         <groupId>org.jvnet.jax-ws-commons</groupId>
@@ -110,25 +95,6 @@
         </executions>
       </plugin>
 
-      <plugin> <!-- is this plugin necessary -->
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.8</version>
-        <executions>
-          <execution>
-            <id>add-source</id>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>add-source</goal>
-            </goals>
-            <configuration>
-              <sources>
-                <source>${basedir}/target/generated-sources/main/java</source>
-              </sources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
   </build>
 </project>
