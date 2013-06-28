@@ -1,6 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/maven-v4_0_0.xsd">
+                      http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>info.martinussen.beerexpert</groupId>
@@ -15,8 +16,6 @@
 
   <!-- https://jax-ws.java.net/2.2.8/docs/ -->
   <!-- http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/ -->
-
-
   <dependencies>
     <dependency>
       <groupId>com.sun.xml.ws</groupId>
@@ -74,7 +73,6 @@
           </execution>
         </executions>
       </plugin>
-
 			
       <!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/ -->
       <plugin>
@@ -94,7 +92,6 @@
           </execution>
         </executions>
       </plugin>
-
     </plugins>
   </build>
 </project>
