@@ -1,7 +1,6 @@
-package info.martinussen.scwcd.hfsj.ch4;
+package info.martinussen.keyfile;
 
 
-import info.martinussen.scwcd.hfsj.ch4.model.ProductKey;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -12,7 +11,6 @@ public class StartupListener implements ServletContextListener {
 
 	private static Logger log = Logger.getLogger(StartupListener.class);
 	
-	private ProductKey productKey; 
 
 	static {
 		log.debug("StartupListener loaded");
@@ -21,13 +19,11 @@ public class StartupListener implements ServletContextListener {
 	public StartupListener (){
 		super();
 		log.debug("StartupListener constructed");
-		productKey = new ProductKey();
 	}
 	
 	public void contextInitialized(ServletContextEvent event) {
 		log.debug("Context initialized");
 		
-		event.getServletContext().setAttribute("productKey", productKey);
 	}
 
 	public void contextDestroyed(ServletContextEvent event) {
