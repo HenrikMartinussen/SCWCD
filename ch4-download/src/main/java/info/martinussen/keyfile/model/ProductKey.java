@@ -6,6 +6,7 @@ public class ProductKey {
   private static Logger log = Logger.getLogger(ProductKey.class);
   private Element productKey = new RootElement("ProductKey");
   private Element versionElement = new Element("Version");
+  private Element customerElement    = new Element("Customer");  
   private Element clientCountElement = new Element("ClientCount");
   private Element automatCountElement = new Element("AutomatCount");
   private Element tiltEnabledElement = new Element("TiltEnabled");
@@ -17,6 +18,7 @@ public class ProductKey {
   
   public ProductKey(){
     productKey.addChild(versionElement);
+    productKey.addChild(customerElement);
     productKey.addChild(clientCountElement);
     productKey.addChild(automatCountElement);
     productKey.addChild(tiltEnabledElement);
@@ -49,6 +51,11 @@ public class ProductKey {
     String returnValue = productKey.toString();
     log.debug("ProductKey.getKeyAsXml() returns: " + returnValue);
     return returnValue;
+  }
+
+  public void setCustomer(String customer) {
+    this.customerElement.setValue(customer);
+    
   }
 
 
