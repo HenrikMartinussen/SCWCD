@@ -4,8 +4,7 @@ import org.apache.log4j.Logger;
 
 public class ProductKey {
   private static Logger log = Logger.getLogger(ProductKey.class);
-  private static final String XML_HEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-  private Element rootElement = new Element("ProductKey");
+  private Element productKey = new RootElement("ProductKey");
   private Element versionElement = new Element("Version");
   private Element clientCountElement = new Element("ClientCount");
   private Element automatCountElement = new Element("AutomatCount");
@@ -17,6 +16,11 @@ public class ProductKey {
   }
   
   public ProductKey(){
+    productKey.addChild(versionElement);
+    productKey.addChild(clientCountElement);
+    productKey.addChild(automatCountElement);
+    productKey.addChild(tiltEnabledElement);
+    productKey.addChild(liftEnabledElement);
     log.debug("ProductKey is constructed");
   }
   
@@ -42,16 +46,7 @@ public class ProductKey {
 
   public String getKeyAsXmlString() {
     log.debug("ProductKey.getKeyAsXml() is called");
-    String returnValue = "";
-    StringBuilder builder = new StringBuilder().append(XML_HEADER);
-    builder.append(rootElement.getStartTag());
-    builder.append(versionElement.toString());
-    builder.append(clientCountElement.toString());
-    builder.append(automatCountElement.toString());
-    builder.append(tiltEnabledElement.toString());
-    builder.append(liftEnabledElement.toString());
-    builder.append(rootElement.getEndTag());
-    returnValue = builder.toString();
+    String returnValue = productKey.toString();
     log.debug("ProductKey.getKeyAsXml() returns: " + returnValue);
     return returnValue;
   }
