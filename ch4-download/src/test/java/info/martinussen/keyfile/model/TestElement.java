@@ -2,11 +2,18 @@ package info.martinussen.keyfile.model;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestElement {
 
   private Element testElement = null;
+  
+  @After
+  public void tearDown(){
+    testElement = null;
+  }
   
   @Test
   public void testConstructorWithArgument() {
@@ -26,6 +33,82 @@ public class TestElement {
     testElement = new Element(null);
   }
   
-  
+ @Test
+ public void testElementWithChild(){
+   testElement = new Element("Mother");
+   Element child = new Element("Child");
+   testElement.addChild(child);
+   assertEquals("<Mother><Child/></Mother>", testElement.toString());
+ }
+ 
+ @Test
+ public void testElementWithChildren(){
+   testElement = new Element("Mother");
+   Element child1 = new Element("Peter");
+   Element child2 = new Element("Paul");
+   Element child3 = new Element("Mary");
+   testElement.addChild(child1);
+   testElement.addChild(child2);
+   testElement.addChild(child3);
+   assertEquals("<Mother><Peter/><Paul/><Mary/></Mother>", testElement.toString());
+ }
 
+ @Test
+ public void testElementWithChildWithValue(){
+   testElement = new Element("Mother");
+   Element child = new Element("Child");
+   child.setValue(42);
+   testElement.addChild(child);
+   assertEquals("<Mother><Child>42</Child></Mother>", testElement.toString());
+ }
+ 
+ @Test
+ public void testElementWithChildrenWithValues(){
+   testElement = new Element("Mother");
+   Element child1 = new Element("Peter");
+   Element child2 = new Element("Paul");
+   Element child3 = new Element("Mary");
+   child1.setValue(13);
+   child2.setValue(10);
+   child3.setValue(8);
+   testElement.addChild(child1);
+   testElement.addChild(child2);
+   testElement.addChild(child3);
+   assertEquals("<Mother><Peter>13</Peter><Paul>10</Paul><Mary>8</Mary></Mother>", testElement.toString());
+ }
+ 
+ @Test
+ public void testElementWithGrandChild(){
+   testElement = new Element("Mother");
+   Element child = new Element("Child");
+   Element grandChild =  new Element("GrandChild");
+   child.addChild(grandChild);
+   testElement.addChild(child);
+   assertEquals("<Mother><Child><GrandChild/></Child></Mother>", testElement.toString());
+ }
+ 
+ @Test
+ public void testElementWithGrandChildWithValue(){
+   testElement = new Element("Mother");
+   Element child = new Element("Child");
+   Element grandChild =  new Element("GrandChild");
+   grandChild.setValue("Dirty diaper");
+   child.addChild(grandChild);
+   testElement.addChild(child);
+   assertEquals("<Mother><Child><GrandChild>Dirty diaper</GrandChild></Child></Mother>", testElement.toString());
+ }
+ 
+ @Test(expected=IllegalArgumentException.class)
+ public void testElementWithChildAndValue(){
+   testElement = new Element("Mother");
+   testElement.setValue(42);
+   Element child = new Element("Child");
+   testElement.addChild(child);
+ }
+ 
+ @Test(expected=NullPointerException.class)
+ public void testElementWithNullChild(){
+   testElement = new Element("Mother");
+   testElement.addChild(null);
+ }
 }

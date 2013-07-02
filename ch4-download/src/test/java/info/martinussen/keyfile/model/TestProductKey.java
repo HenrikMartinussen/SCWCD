@@ -1,10 +1,13 @@
 package info.martinussen.keyfile.model;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.apache.commons.io.IOUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +17,6 @@ import org.junit.runners.Parameterized.Parameters;
 
 /**
  * "Junit in action" p 17 - "Running parameterized tests"
- * @author HMS
  */
 @RunWith(value = Parameterized.class)
 public class TestProductKey {
@@ -25,30 +27,30 @@ public class TestProductKey {
   private int     automatCount;
   private boolean tiltEnabled;
   private boolean liftEnabled;
-  private String  expected;
+  private String  expectedFileName;
 
   
   @Parameters
   public static Collection<Object[]> getTestParameters(){
     return Arrays.asList(new Object[][]{
-        {"Light",      1, 1, false, false, "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ProductKey><Version>Light</Version><ClientCount>1</ClientCount><AutomatCount>1</AutomatCount><TiltEnabled>false</TiltEnabled><LiftEnabled>false</LiftEnabled></ProductKey>"}, 
-        {"Light",      2, 4, true,  false, "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ProductKey><Version>Light</Version><ClientCount>2</ClientCount><AutomatCount>4</AutomatCount><TiltEnabled>true</TiltEnabled><LiftEnabled>false</LiftEnabled></ProductKey>"}, 
-        {"Basic",      1, 1, false, false, "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ProductKey><Version>Basic</Version><ClientCount>1</ClientCount><AutomatCount>1</AutomatCount><TiltEnabled>false</TiltEnabled><LiftEnabled>false</LiftEnabled></ProductKey>"},
-        {"Basic",      2, 4, true,  false, "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ProductKey><Version>Basic</Version><ClientCount>2</ClientCount><AutomatCount>4</AutomatCount><TiltEnabled>true</TiltEnabled><LiftEnabled>false</LiftEnabled></ProductKey>"},
-        {"Standard",   1, 1, false, false, "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ProductKey><Version>Standard</Version><ClientCount>1</ClientCount><AutomatCount>1</AutomatCount><TiltEnabled>false</TiltEnabled><LiftEnabled>false</LiftEnabled></ProductKey>"},
-        {"Standard",   2, 4, true,  true,  "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ProductKey><Version>Standard</Version><ClientCount>2</ClientCount><AutomatCount>4</AutomatCount><TiltEnabled>true</TiltEnabled><LiftEnabled>true</LiftEnabled></ProductKey>"},
-        {"Enterprise", 2, 2, true,  false, "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ProductKey><Version>Enterprise</Version><ClientCount>2</ClientCount><AutomatCount>2</AutomatCount><TiltEnabled>true</TiltEnabled><LiftEnabled>false</LiftEnabled></ProductKey>"},
-        {"Enterprise", 6, 4, true,  true,  "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ProductKey><Version>Enterprise</Version><ClientCount>6</ClientCount><AutomatCount>4</AutomatCount><TiltEnabled>true</TiltEnabled><LiftEnabled>true</LiftEnabled></ProductKey>"}
+        {"Light",      1, 1, false, false, "expected1.xml"}, 
+        {"Light",      2, 4, true,  false, "expected2.xml"}, 
+        {"Basic",      1, 1, false, false, "expected3.xml"},
+        {"Basic",      2, 4, true,  false, "expected4.xml"},
+        {"Standard",   1, 1, false, false, "expected5.xml"},
+        {"Standard",   2, 4, true,  true,  "expected6.xml"},
+        {"Enterprise", 2, 2, true,  false, "expected7.xml"},
+        {"Enterprise", 6, 4, true,  true,  "expected8.xml"}
     });
   }
   
-  public TestProductKey(String testVersion, int clientCount, int automatCount, boolean tiltEnabled, boolean liftEnabled, String expected){
+  public TestProductKey(String testVersion, int clientCount, int automatCount, boolean tiltEnabled, boolean liftEnabled, String expectedFileName){
     this.version = testVersion;
     this.clientCount = clientCount;
     this.automatCount = automatCount;
     this.tiltEnabled = tiltEnabled;
     this.liftEnabled = liftEnabled;
-    this.expected = expected;
+    this.expectedFileName = expectedFileName;
   }
   
   @Before
@@ -68,10 +70,13 @@ public class TestProductKey {
 
   /**
    * Runs once for each item in the testParameters collection
+   * @throws IOException 
    */
   @Test
-  public void testGetKeyAsXmlStringForTestParameters() {
+  public void testGetKeyAsXmlStringForTestParameters() throws IOException {
     String result = testKey.getKeyAsXmlString();
-    assertTrue(result.contains(expected));
+    InputStream expected = 
+        getClass().getClassLoader().getResourceAsStream(expectedFileName);
+    assertEquals( IOUtils.toString( expected ), result);
   }
 }

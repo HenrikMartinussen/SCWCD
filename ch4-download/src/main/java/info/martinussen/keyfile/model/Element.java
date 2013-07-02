@@ -1,9 +1,13 @@
 package info.martinussen.keyfile.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Element {
   
-  String name = "";
-  String value = "";
+  private String name = "";
+  private String value = "";
+  private List<Element> children = null;
   
   private Element(){
     super();
@@ -36,6 +40,15 @@ public class Element {
     this.name = name;
   }
   
+  public void addChild(Element child){
+    if (child == null) throw new NullPointerException();
+    if (!value.equals("")) throw new IllegalArgumentException();
+    if (children == null){
+      children = new ArrayList<Element>();
+    }
+    children.add(child);
+  }
+  
   public String getStartTag(){
     if (nullOrEmpty(name)) throw new IllegalStateException();
     return "<" + name + ">";
@@ -49,7 +62,15 @@ public class Element {
   public String toString(){
     String returnValue = "";
     if (nullOrEmpty(value)){
-      returnValue = "<" +  name + "/>";
+      if (children != null){
+        returnValue = getStartTag();
+        for (Element c : children){
+          returnValue += c.toString();
+        }
+        returnValue += getEndTag();
+      } else {
+        returnValue = "<" +  name + "/>";
+      }
     } else {
       returnValue = getStartTag() + value  + getEndTag();
     }
