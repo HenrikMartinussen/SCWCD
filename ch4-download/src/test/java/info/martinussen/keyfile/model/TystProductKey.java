@@ -19,11 +19,12 @@ import org.junit.runners.Parameterized.Parameters;
  * "Junit in action" p 17 - "Running parameterized tests"
  */
 @RunWith(value = Parameterized.class)
-public class TestProductKey {
+public class TystProductKey {
   private ProductKey testKey = null;
   
   private String  version;
   private String  customer;
+  private String  orderNumber;
   private int     clientCount;
   private int     automatCount;
   private boolean tiltEnabled;
@@ -34,20 +35,21 @@ public class TestProductKey {
   @Parameters
   public static Collection<Object[]> getTestParameters(){
     return Arrays.asList(new Object[][]{
-        {"Light",      "Carlsberg A/S",     1, 1, false, false, "expected1.xml"}, 
-        {"Light",      "Tuborg A/S",        2, 4, true,  false, "expected2.xml"}, 
-        {"Basic",      "Gourmetbryggeriet", 1, 1, false, false, "expected3.xml"},
-        {"Basic",      "Svaneke Bryghus",   2, 4, true,  false, "expected4.xml"},
-        {"Standard",   "Faxe",              1, 1, false, false, "expected5.xml"},
-        {"Standard",   "Thor",              2, 4, true,  true,  "expected6.xml"},
-        {"Enterprise", "Albani",            2, 2, true,  false, "expected7.xml"},
-        {"Enterprise", "Skovlyst",          6, 4, true,  true,  "expected8.xml"}
+        {"Light",      "Carlsberg A/S",     "00001", 1, 1, false, false, "expected1.xml"}, 
+        {"Light",      "Tuborg A/S",        "00002", 2, 4, true,  false, "expected2.xml"}, 
+        {"Basic",      "Gourmetbryggeriet", "00003", 1, 1, false, false, "expected3.xml"},
+        {"Basic",      "Svaneke Bryghus",   "00004", 2, 4, true,  false, "expected4.xml"},
+        {"Standard",   "Faxe",              "00005", 1, 1, false, false, "expected5.xml"},
+        {"Standard",   "Thor",              "00006", 2, 4, true,  true,  "expected6.xml"},
+        {"Enterprise", "Albani",            "00007", 2, 2, true,  false, "expected7.xml"},
+        {"Enterprise", "Skovlyst",          "00008", 6, 4, true,  true,  "expected8.xml"}
     });
   }
   
-  public TestProductKey(String testVersion, String customer, int clientCount, int automatCount, boolean tiltEnabled, boolean liftEnabled, String expectedFileName){
+  public TystProductKey(String testVersion, String customer, String orderNumber, int clientCount, int automatCount, boolean tiltEnabled, boolean liftEnabled, String expectedFileName){
     this.version = testVersion;
     this.customer = customer;
+    this.orderNumber = orderNumber;
     this.clientCount = clientCount;
     this.automatCount = automatCount;
     this.tiltEnabled = tiltEnabled;
@@ -60,6 +62,7 @@ public class TestProductKey {
     testKey = new ProductKey();
     testKey.setVersion(version);
     testKey.setCustomer(customer);
+    testKey.setOrderNumber(orderNumber);
     testKey.setClientCount(clientCount);
     testKey.setAutomatCount(automatCount);
     testKey.setTiltEnabled(tiltEnabled);

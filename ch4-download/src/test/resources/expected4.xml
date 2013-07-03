@@ -1,1 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><ProductKey><Version>Basic</Version><ClientCount>2</ClientCount><AutomatCount>4</AutomatCount><TiltEnabled>true</TiltEnabled><LiftEnabled>false</LiftEnabled></ProductKey>
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductKey>
+	<Type>Basic</Type>
+	<Customer>Svaneke Bryghus</Customer>
+	<OrderNumber>00004</OrderNumber>
+	<ClientCount>2</ClientCount>
+	<AutomatCount>4</AutomatCount>
+	<LiftEnabled>false</LiftEnabled>
+	<lotSerialNumberEnabled />
+	<TiltEnabled>true</TiltEnabled>
+</ProductKey>
