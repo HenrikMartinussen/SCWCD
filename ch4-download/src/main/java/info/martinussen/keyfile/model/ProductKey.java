@@ -4,30 +4,42 @@ import org.apache.log4j.Logger;
 
 public class ProductKey {
   private static Logger log = Logger.getLogger(ProductKey.class);
-  private Element productKey = new RootElement("ProductKey");
-  private Element versionElement = new Element("Version");
-  private Element customerElement    = new Element("Customer");  
-  private Element clientCountElement = new Element("ClientCount");
-  private Element automatCountElement = new Element("AutomatCount");
-  private Element tiltEnabledElement = new Element("TiltEnabled");
-  private Element liftEnabledElement = new Element("LiftEnabled");
+  private Element productKey =                 new RootElement("ProductKey");
+  private Element typeElement =                new Element("Type");
+  private Element customerElement    =         new Element("Customer");  
+  private Element orderNumberElement =         new Element("OrderNumber");
+  private Element clientCountElement =         new Element("ClientCount");
+  private Element automatCountElement =        new Element("AutomatCount");
+  private Element liftEnabledElement =         new Element("LiftEnabled");
+  private Element serialNumberEnabledElement = new Element("lotSerialNumberEnabled");
+  private Element tiltEnabledElement =         new Element("TiltEnabled");
   
   static {
     log.debug("ProductKey is loaded");
   }
   
   public ProductKey(){
-    productKey.addChild(versionElement);
+    productKey.addChild(typeElement);
     productKey.addChild(customerElement);
+    productKey.addChild(orderNumberElement);
     productKey.addChild(clientCountElement);
     productKey.addChild(automatCountElement);
-    productKey.addChild(tiltEnabledElement);
     productKey.addChild(liftEnabledElement);
+    productKey.addChild(serialNumberEnabledElement);
+    productKey.addChild(tiltEnabledElement);
     log.debug("ProductKey is constructed");
   }
   
   public void setVersion(String version) {
-    this.versionElement.setValue(version);
+    this.typeElement.setValue(version);
+  }
+  
+  public void setCustomer(String customer) {
+    this.customerElement.setValue(customer);
+  }
+
+  public void setOrderNumber(String orderNumber){
+    this.orderNumberElement.setValue(orderNumber);
   }
   
   public void setClientCount(int clientCount){
@@ -38,13 +50,18 @@ public class ProductKey {
     this.automatCountElement.setValue(automatCount);
   }
   
+  public void setLiftEnabled(boolean liftEnabled){
+    this.liftEnabledElement.setValue(liftEnabled);
+  }
+  
+  public void setSerialNumberEnabled(boolean serialNumberEnabled){
+    this.serialNumberEnabledElement.setValue(serialNumberEnabled);
+  }
+
   public void setTiltEnabled(boolean tiltEnabled){
     this.tiltEnabledElement.setValue(tiltEnabled);
   }
 
-  public void setLiftEnabled(boolean liftEnabled){
-    this.liftEnabledElement.setValue(liftEnabled);
-  }
 
   public String getKeyAsXmlString() {
     log.debug("ProductKey.getKeyAsXml() is called");
@@ -52,11 +69,4 @@ public class ProductKey {
     log.debug("ProductKey.getKeyAsXml() returns: " + returnValue);
     return returnValue;
   }
-
-  public void setCustomer(String customer) {
-    this.customerElement.setValue(customer);
-    
-  }
-
-
 }

@@ -63,9 +63,9 @@ public class Element {
     String returnValue = "";
     if (nullOrEmpty(value)){
       if (children != null){
-        returnValue = getStartTag();
+        returnValue = getStartTag() + "\r\n";
         for (Element c : children){
-          returnValue += c.toString();
+          returnValue += "    " +  c.toString() + "\r\n";
         }
         returnValue += getEndTag();
       } else {
@@ -81,5 +81,6 @@ public class Element {
     return s==null || s.length() < 1;
   }
 
+  
 
 }

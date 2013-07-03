@@ -9,6 +9,7 @@ import org.junit.Test;
 public class TestElement {
 
   private Element testElement = null;
+  private static final String CR_LF = "\r\n";
   
   @After
   public void tearDown(){
@@ -38,7 +39,7 @@ public class TestElement {
    testElement = new Element("Mother");
    Element child = new Element("Child");
    testElement.addChild(child);
-   assertEquals("<Mother><Child/></Mother>", testElement.toString());
+   assertEquals("<Mother>" + CR_LF + "    <Child/>"+ CR_LF + "</Mother>", testElement.toString());
  }
  
  @Test
@@ -50,7 +51,7 @@ public class TestElement {
    testElement.addChild(child1);
    testElement.addChild(child2);
    testElement.addChild(child3);
-   assertEquals("<Mother><Peter/><Paul/><Mary/></Mother>", testElement.toString());
+   assertEquals("<Mother>" + CR_LF + "    <Peter/>" + CR_LF + "    <Paul/>" + CR_LF + "    <Mary/>" + CR_LF + "</Mother>", testElement.toString());
  }
 
  @Test
@@ -59,7 +60,7 @@ public class TestElement {
    Element child = new Element("Child");
    child.setValue(42);
    testElement.addChild(child);
-   assertEquals("<Mother><Child>42</Child></Mother>", testElement.toString());
+   assertEquals("<Mother>" + CR_LF + "    <Child>42</Child>" + CR_LF + "</Mother>", testElement.toString());
  }
  
  @Test
@@ -74,7 +75,11 @@ public class TestElement {
    testElement.addChild(child1);
    testElement.addChild(child2);
    testElement.addChild(child3);
-   assertEquals("<Mother><Peter>13</Peter><Paul>10</Paul><Mary>8</Mary></Mother>", testElement.toString());
+   assertEquals("<Mother>" + CR_LF + 
+                "    <Peter>13</Peter>" + CR_LF + 
+                "    <Paul>10</Paul>" + CR_LF + 
+                "    <Mary>8</Mary>" + CR_LF + 
+                "</Mother>", testElement.toString());
  }
  
  @Test
@@ -84,7 +89,11 @@ public class TestElement {
    Element grandChild =  new Element("GrandChild");
    child.addChild(grandChild);
    testElement.addChild(child);
-   assertEquals("<Mother><Child><GrandChild/></Child></Mother>", testElement.toString());
+   assertEquals("<Mother>" + CR_LF +
+                "    <Child>" + CR_LF + 
+                "        <GrandChild/>" + CR_LF + 
+                "    </Child>" + CR_LF +
+                "</Mother>", testElement.toString());
  }
  
  @Test
@@ -95,7 +104,7 @@ public class TestElement {
    grandChild.setValue("Dirty diaper");
    child.addChild(grandChild);
    testElement.addChild(child);
-   assertEquals("<Mother><Child><GrandChild>Dirty diaper</GrandChild></Child></Mother>", testElement.toString());
+   assertEquals("<Mother>\n    <Child>\n        <GrandChild>Dirty diaper</GrandChild>\n    </Child>\n</Mother>", testElement.toString());
  }
  
  @Test(expected=IllegalArgumentException.class)

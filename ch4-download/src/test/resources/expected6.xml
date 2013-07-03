@@ -1,1 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><ProductKey><Version>Standard</Version><ClientCount>2</ClientCount><AutomatCount>4</AutomatCount><TiltEnabled>true</TiltEnabled><LiftEnabled>true</LiftEnabled></ProductKey>
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductKey>
+	<Type>Standard</Type>
+	<Customer>Thor</Customer>
+	<OrderNumber>00006</OrderNumber>
+	<ClientCount>2</ClientCount>
+	<AutomatCount>4</AutomatCount>
+	<LiftEnabled>true</LiftEnabled>
+	<lotSerialNumberEnabled />
+	<TiltEnabled>true</TiltEnabled>
+</ProductKey>
