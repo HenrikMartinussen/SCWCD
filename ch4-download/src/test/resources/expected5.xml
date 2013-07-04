@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ProductKey>
-	<Type>Standard</Type>
-	<Customer>Faxe</Customer>
-	<OrderNumber>00005</OrderNumber>
-	<ClientCount>1</ClientCount>
-	<AutomatCount>1</AutomatCount>
-	<LiftEnabled>false</LiftEnabled>
-	<lotSerialNumberEnabled />
-	<TiltEnabled>false</TiltEnabled>
-</ProductKey>
+<Shark-Key>
+    <Body>
+        <Customer>Faxe</Customer>
+        <Type>Standard</Type>
+        <OrderNumber>00005</OrderNumber>
+        <Clients>1</Clients>
+        <Automats>1</Automats>
+        <SharkVersion>2012Q1</SharkVersion>
+        <Expires>2999-01-01</Expires>
+        <KeyVersion>2</KeyVersion>
+        <Features>
+            <LiftEnabled>false</LiftEnabled>
+            <TrayAccessControlEnabled>false</TrayAccessControlEnabled>
+            <Inventory>false</Inventory>
+            <LotSerialNumberEnabled>false</LotSerialNumberEnabled>
+            <WebStatusPageEnabled>false</WebStatusPageEnabled>
+            <TiltEnabled>true</TiltEnabled>
+            <StorageManager>false</StorageManager>
+            <AutomatLogimat>false</AutomatLogimat>
+            <WebServiceHostLink>false</WebServiceHostLink>
+            <EventNotifications>false</EventNotifications>
+            <StatisticTools>false</StatisticTools>
+            <LabelPrint>false</LabelPrint>
+            <WeightManagement>false</WeightManagement>
+            <ImageSupport>false</ImageSupport>
+            <SMDManagement>false</SMDManagement>
+            <ExternalAccess>false</ExternalAccess>
+            <PackageSizes>false</PackageSizes>
+        </Features>
+    </Body>
+    <Signature>-fedcba9876543210fedcba9876543210fedcba9876543210</Signature>
+</Shark-Key>

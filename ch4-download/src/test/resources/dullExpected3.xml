@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductKey>
+    <Type>Basic</Type>
+    <Customer>Gourmetbryggeriet</Customer>
+    <OrderNumber>00003</OrderNumber>
+    <ClientCount>1</ClientCount>
+    <AutomatCount>1</AutomatCount>
+    <LiftEnabled>false</LiftEnabled>
+    <lotSerialNumberEnabled/>
+    <TiltEnabled>false</TiltEnabled>
+</ProductKey>

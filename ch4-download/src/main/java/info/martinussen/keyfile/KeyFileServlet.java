@@ -37,11 +37,11 @@ public class KeyFileServlet extends HttpServlet{
     ProductKey key = buildProductKey(req);
     
     String xmlKey = key.getKeyAsXmlString();
-    log.debug("XmlKey: " + xmlKey);
+    log.debug("KeyFileServlet.doPost XmlKey: \r\n" + xmlKey);
     
     resp.setContentType("text/xml");
     resp.setHeader("Content-Disposition",
-                       "attachment;filename=keyFile.xml"); //TODO filename is supposed to be dynamic
+                       "attachment;filename=" + buildProposedFileName(req)); 
 
     OutputStream os = resp.getOutputStream();
     byte[] outBytes = xmlKey.getBytes();
@@ -49,40 +49,55 @@ public class KeyFileServlet extends HttpServlet{
     os.flush();
     os.close();
   }
+  
+  private String buildProposedFileName(HttpServletRequest req){
+    return "keyFile.xml";//TODO filename is supposed to be dynamic
+  }
 
   private ProductKey buildProductKey(HttpServletRequest req) {
     ProductKey key = new ProductKey();
     
     String version = req.getParameter("version"); assertNotNull(version);
-    String customer = req.getParameter("customerName"); assertNotNull(customer);
-    String orderNumber = req.getParameter("orderNumber"); assertNotNull(orderNumber);
+    String customer = req.getParameter("customerName"); assertNotNull(customer);//todo filter contents
+    String orderNumber = req.getParameter("orderNumber"); assertNotNull(orderNumber);//todo filter contents
     String clientCountStr = req.getParameter("clientCount"); assertNotNull(clientCountStr);
     int clientCount = Integer.parseInt(clientCountStr);
     String automatCountStr = req.getParameter("automatCount"); assertNotNull(automatCountStr);
     int automatCount = Integer.parseInt(automatCountStr);
-    
-    //unchecked checkboxes is not included in the requestParameter List
-    String tiltEnabledStr = req.getParameter("tiltEnabled"); 
-    boolean tiltEnabled = tiltEnabledStr != null && tiltEnabledStr.equals("on");
-    String liftEnabledStr = req.getParameter("liftEnabled"); 
-    boolean liftEnabled = liftEnabledStr != null && liftEnabledStr.equals("on");
+    boolean liftEnabled = isCheckBoxChecked(req, "liftEnabled");
+    boolean trayAccessControlEnabled = isCheckBoxChecked(req, "trayAccessControlEnabled");
+    boolean serialNumbersEnabled = isCheckBoxChecked(req, "lotSerialEnabled");
+    boolean webStatusPageEnabled = isCheckBoxChecked(req, "webStatusPageEnabled");
+    boolean tiltEnabled = isCheckBoxChecked(req, "tiltEnabled"); 
     
     log.debug("Request parameter version: " + version);
     log.debug("Request parameter customerName: " + customer);
     log.debug("Request parameter orderNumber: " + orderNumber);
     log.debug("Request parameter clientCount: " + clientCount);
     log.debug("Request parameter automatCount: " + automatCount);
-    log.debug("Request parameter tiltEnabled: " + tiltEnabled);
     log.debug("Request parameter liftEnabled: " + liftEnabled);
+    log.debug("Request parameter trayAccessControl: " + trayAccessControlEnabled);
+    log.debug("Request parameter serialNumbersEnabled: " + serialNumbersEnabled);
+    log.debug("Request parameter webStatusPageEnabled: " + webStatusPageEnabled);
+    log.debug("Request parameter tiltEnabled: " + tiltEnabled);
     
     key.setVersion(version);
     key.setCustomer(customer);
     key.setOrderNumber(orderNumber);
     key.setClientCount(clientCount);
     key.setAutomatCount(automatCount);
-    key.setTiltEnabled(tiltEnabled);
     key.setLiftEnabled(liftEnabled);
+    key.setTrayAccessControlEnabled(trayAccessControlEnabled);
+    key.setSerialNumbersEnabled(serialNumbersEnabled);
+    key.setWebStatusPageEnabled(webStatusPageEnabled);
+    key.setTiltEnabled(tiltEnabled);
     return key;
+  }
+  
+  private boolean isCheckBoxChecked(HttpServletRequest req, String checkBoxName){
+    String checkBoxString = req.getParameter(checkBoxName);
+    //unchecked checkboxes is not included in the requestParameter List
+    return checkBoxString != null && checkBoxString.equals("on");
   }
   
   private void assertNotNull(Object o){

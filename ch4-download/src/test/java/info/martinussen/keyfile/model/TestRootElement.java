@@ -19,7 +19,7 @@ public class TestRootElement {
     testElement = new RootElement("KeyFile");
     assertEquals("<KeyFile>", testElement.getStartTag());
     assertEquals("</KeyFile>", testElement.getEndTag());
-    assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?><KeyFile/>", testElement.toString());
+    assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<KeyFile/>", testElement.toString());
   }
 
   @Test (expected=IllegalArgumentException.class)

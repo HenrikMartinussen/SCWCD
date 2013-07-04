@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductKey>
+    <Type>Light</Type>
+    <Customer>Tuborg A/S</Customer>
+    <OrderNumber>00002</OrderNumber>
+    <ClientCount>2</ClientCount>
+    <AutomatCount>4</AutomatCount>
+    <LiftEnabled>false</LiftEnabled>
+    <lotSerialNumberEnabled/>
+    <TiltEnabled>true</TiltEnabled>
+</ProductKey>

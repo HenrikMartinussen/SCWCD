@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductKey>
+    <Type>Enterprise</Type>
+    <Customer>Skovlyst</Customer>
+    <OrderNumber>00008</OrderNumber>
+    <ClientCount>6</ClientCount>
+    <AutomatCount>4</AutomatCount>
+    <LiftEnabled>true</LiftEnabled>
+    <lotSerialNumberEnabled/>
+    <TiltEnabled>true</TiltEnabled>
+</ProductKey>

@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ProductKey>
-    <Type>Light</Type>
-    <Customer>Carlsberg A/S</Customer>
-    <OrderNumber>00001</OrderNumber>
-    <ClientCount>1</ClientCount>
-    <AutomatCount>1</AutomatCount>
-    <LiftEnabled>false</LiftEnabled>
-    <lotSerialNumberEnabled />
-    <TiltEnabled>false</TiltEnabled>
-</ProductKey>
+<Shark-Key>
+    <Body>
+        <Customer>Carlsberg A/S</Customer>
+        <Type>Light</Type>
+        <OrderNumber>00001</OrderNumber>
+        <Clients>1</Clients>
+        <Automats>1</Automats>
+        <SharkVersion>2012Q1</SharkVersion>
+        <Expires>2999-01-01</Expires>
+        <KeyVersion>2</KeyVersion>
+        <Features>
+            <LiftEnabled>false</LiftEnabled>
+            <TrayAccessControlEnabled>true</TrayAccessControlEnabled>
+            <Inventory>false</Inventory>
+            <LotSerialNumberEnabled>true</LotSerialNumberEnabled>
+            <WebStatusPageEnabled>true</WebStatusPageEnabled>
+            <TiltEnabled>false</TiltEnabled>
+            <StorageManager>false</StorageManager>
+            <AutomatLogimat>false</AutomatLogimat>
+            <WebServiceHostLink>false</WebServiceHostLink>
+            <EventNotifications>false</EventNotifications>
+            <StatisticTools>false</StatisticTools>
+            <LabelPrint>false</LabelPrint>
+            <WeightManagement>false</WeightManagement>
+            <ImageSupport>false</ImageSupport>
+            <SMDManagement>false</SMDManagement>
+            <ExternalAccess>false</ExternalAccess>
+            <PackageSizes>false</PackageSizes>
+        </Features>
+    </Body>
+    <Signature>-fedcba9876543210fedcba9876543210fedcba9876543210</Signature>
+</Shark-Key>
