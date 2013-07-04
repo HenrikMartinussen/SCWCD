@@ -64,14 +64,18 @@ public class Element {
     if (nullOrEmpty(value)){
       if (children != null){
         returnValue = getStartTag() + "\r\n";
-        for (Element c : children){
-          returnValue += "    " +  c.toString() + "\r\n";
+        for (Element child : children){
+          String childString = child.toString();
+          String[] lines = childString.split("\r\n");
+          for (String childStringLines : lines){
+            returnValue += "    " +  childStringLines + "\r\n";
+          }
         }
         returnValue += getEndTag();
-      } else {
+      } else { //no children
         returnValue = "<" +  name + "/>";
       }
-    } else {
+    } else { //has value
       returnValue = getStartTag() + value  + getEndTag();
     }
     return returnValue;

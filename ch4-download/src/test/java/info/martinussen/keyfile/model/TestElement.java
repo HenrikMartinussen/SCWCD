@@ -104,7 +104,11 @@ public class TestElement {
    grandChild.setValue("Dirty diaper");
    child.addChild(grandChild);
    testElement.addChild(child);
-   assertEquals("<Mother>\n    <Child>\n        <GrandChild>Dirty diaper</GrandChild>\n    </Child>\n</Mother>", testElement.toString());
+   assertEquals("<Mother>" + CR_LF +
+                "    <Child>" + CR_LF + 
+                "        <GrandChild>Dirty diaper</GrandChild>" + CR_LF +
+                "    </Child>" + CR_LF +
+                "</Mother>", testElement.toString());
  }
  
  @Test(expected=IllegalArgumentException.class)

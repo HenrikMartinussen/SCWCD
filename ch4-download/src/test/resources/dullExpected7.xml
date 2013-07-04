@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductKey>
+    <Type>Enterprise</Type>
+    <Customer>Albani</Customer>
+    <OrderNumber>00007</OrderNumber>
+    <ClientCount>2</ClientCount>
+    <AutomatCount>2</AutomatCount>
+    <LiftEnabled>false</LiftEnabled>
+    <lotSerialNumberEnabled/>
+    <TiltEnabled>true</TiltEnabled>
+</ProductKey>
