@@ -53,7 +53,17 @@ public class KeyFileServlet extends HttpServlet{
   }
   
   private String buildProposedFileName(HttpServletRequest req){
-    return "keyFile.xml";//TODO filename is supposed to be dynamic
+//    String filename = "Key-" 
+//        + textFieldCustomer.getText().replaceAll(" ", "") 
+//        + "-" + textFieldOrderNumber.getText() 
+//        + ".xke";
+    
+    StringBuilder fileNameBuilder = new StringBuilder();
+    fileNameBuilder.append("Key-");
+    fileNameBuilder.append(((String) req.getAttribute("customerNameRaw")).replaceAll(" ", ""));
+    fileNameBuilder.append((String) req.getAttribute("formattedOrderNumber"));
+    fileNameBuilder.append(".xke");
+    return fileNameBuilder.toString();
   }
 
   private ProductKey buildProductKey(HttpServletRequest req) {
@@ -61,9 +71,11 @@ public class KeyFileServlet extends HttpServlet{
     
     String version = req.getParameter("version"); assertNotNull(version);
     String customerRaw = req.getParameter("customerName"); assertNotNull(customerRaw);
+    req.setAttribute("customerNameRaw", customerRaw);
     String customer = filterNonXmlChars(customerRaw);
     String orderNumberRaw = req.getParameter("orderNumber"); assertNotNull(orderNumberRaw); 
-    String orderNumber =  numericFilter(orderNumberRaw); 
+    String orderNumber = KeyFileUtil.to5chars(numericFilter(orderNumberRaw)); 
+    req.setAttribute("formattedOrderNumber", orderNumber);
     String clientCountStr = req.getParameter("clientCount"); assertNotNull(clientCountStr);
     int clientCount = Integer.parseInt(clientCountStr);
     String automatCountStr = req.getParameter("automatCount"); assertNotNull(automatCountStr);
@@ -99,6 +111,7 @@ public class KeyFileServlet extends HttpServlet{
   }
   
 
+  
   private boolean isCheckBoxChecked(HttpServletRequest req, String checkBoxName){
     String checkBoxString = req.getParameter(checkBoxName);
     //unchecked checkboxes is not included in the requestParameter List
