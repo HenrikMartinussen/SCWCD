@@ -1,5 +1,7 @@
 package info.martinussen.keyfile.model;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 
 public class ProductKey {
@@ -116,5 +118,23 @@ public class ProductKey {
     log.debug("ProductKey.getKeyAsXml() returns: \r\n" + returnValue);
     return returnValue;
   }
+
+  public String getSuggestedFileName(HttpServletRequest req) {//TODO remove req input parameter
+    return buildProposedFileName(req);
+  }
+
+  private String buildProposedFileName(HttpServletRequest req){
+//  String filename = "Key-" 
+//      + textFieldCustomer.getText().replaceAll(" ", "") 
+//      + "-" + textFieldOrderNumber.getText() 
+//      + ".xke";
+  
+  StringBuilder fileNameBuilder = new StringBuilder();
+  fileNameBuilder.append("Key-");
+  fileNameBuilder.append(((String) req.getAttribute("customerNameRaw")).replaceAll(" ", ""));
+  fileNameBuilder.append((String) req.getAttribute("formattedOrderNumber"));
+  fileNameBuilder.append(".xke");
+  return fileNameBuilder.toString();
+}
 
 }
