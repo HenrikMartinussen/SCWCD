@@ -1,5 +1,8 @@
 package info.martinussen.scwcd.hfsj.ch8.model;
 
+/*
+ * hfsj p. 354
+ */
 public class Employee extends Person {
   private int empID;
 

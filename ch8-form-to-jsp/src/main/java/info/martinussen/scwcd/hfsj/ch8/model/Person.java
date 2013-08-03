@@ -1,5 +1,8 @@
 package info.martinussen.scwcd.hfsj.ch8.model;
 
+/*
+ * hfsj p. 354
+ */
 public abstract class Person {
   private String name;
 
