@@ -1,31 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
                              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         version="2.5">
-  <display-name>Archetype Created Web Application</display-name>
+	version="2.5">
+	<display-name>Key File Generation Web Application</display-name>
 
-  <servlet>
-    <servlet-name>Key File Servlet</servlet-name>
-    <servlet-class>info.martinussen.keyfile.KeyFileServlet</servlet-class>
-  </servlet>
+	<login-config>
+		<auth-method>FORM</auth-method><!-- To make the container enforce FORM 
+			based authentication -->
+		<realm-name>BasicRealm</realm-name>
+		<form-login-config>
+			<form-login-page>/loginPage.html</form-login-page>
+			<form-error-page>/loginError.html</form-error-page>
+		</form-login-config>
+	</login-config>
 
-  <servlet-mapping>
-    <servlet-name>Key File Servlet</servlet-name>
-    <url-pattern>/Selectlicense.do</url-pattern>
-  </servlet-mapping>
+	<security-role>
+		<role-name>member</role-name>
+	</security-role>
 
-  <filter>
-    <filter-name>auditLogger</filter-name>
-    <filter-class>info.martinussen.keyfile.AuditLoggingFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>auditLogger</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>ALL</web-resource-name>
+			<url-pattern>/ProcessUserInfo.do</url-pattern>
+			<url-pattern>/GenerateKey.do</url-pattern>
+			<!-- no http-method-tag means all http methods are constrained -->
+		</web-resource-collection>
+		<auth-constraint>
+			<!-- only employees are ALLOWED access to the above url patterns using 
+				(in this case) any http method -->
+			<role-name>employee</role-name>
+		</auth-constraint>
+	</security-constraint>
 
-  <listener>
-  	<listener-class>info.martinussen.keyfile.StartupListener</listener-class>
-  </listener>
+	<servlet>
+		<servlet-name>User</servlet-name>
+		<servlet-class>info.martinussen.keyfile.UserServlet</servlet-class>
+		<security-role-ref>
+			<role-name>employees</role-name><!-- role name used in servlet code -->
+			<role-link>employee</role-link><!-- role name used in security-role tag 
+				in security realm definition -->
+		</security-role-ref>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Key File Servlet</servlet-name>
+		<servlet-class>info.martinussen.keyfile.KeyFileServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>User</servlet-name>
+		<url-pattern>/ProcessUserInfo.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Key File Servlet</servlet-name>
+		<url-pattern>/GenerateKey.do</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>auditLogger</filter-name>
+		<filter-class>info.martinussen.keyfile.AuditLoggingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>auditLogger</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>info.martinussen.keyfile.StartupListener</listener-class>
+	</listener>
+
+	<session-config>
+		<session-timeout>2</session-timeout><!-- session-timeout in minutes -->
+	</session-config>
+
 </web-app>

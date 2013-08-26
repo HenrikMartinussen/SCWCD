@@ -26,6 +26,19 @@
         </filter>
     </appender>
     
+    <appender name="AuditLog" class="org.apache.log4j.FileAppender">
+    	<param name="File" value="audit.log"/>
+    	<layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[%d{ISO8601}] %-5p [%c] %m %n" />
+        </layout>
+    </appender>
+    
+    <logger name="info.martinussen.keyfile.model">
+    	<level value="info"/>
+    	<appender-ref ref="AuditLog"/>
+    </logger>
+    
     <logger name="info.martinussen.keyfile" additivity="false">
         <level value="trace" />
         <appender-ref ref="STDOUT" />
