@@ -115,6 +115,7 @@ public class ProductKey {
   public String getKeyAsXmlString() {
     log.debug("ProductKey.getKeyAsXml() is called");
     String returnValue = productKey.toString();
+    log.info("New Key Generated:\r\n" + returnValue);
     log.debug("ProductKey.getKeyAsXml() returns: \r\n" + returnValue);
     return returnValue;
   }
