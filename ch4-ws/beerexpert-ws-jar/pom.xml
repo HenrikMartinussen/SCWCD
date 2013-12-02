@@ -88,6 +88,7 @@
               <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
               <packageName>info.martinussen.beerexpert.service.generated</packageName>
               <sourceDestDir>${basedir}/target/generated-sources/main/java</sourceDestDir>
+              <target>2.0</target><!-- forces generation of sourcecode for specific version of JAX-WS RI (or JAXB?) -->
             </configuration>
           </execution>
         </executions>

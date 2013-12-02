@@ -18,3 +18,10 @@ use the wsdl as input in a new project in SoapUI, fill in request parameter valu
 integration tests can be run by issuing the command mvn verify in either the parent folder (besides this readme)
 or in the beerexpert-ws-war subfolder.
 
+
+in case a specific version of JAXB is to be targeted by wsimport see this stackoverflow thread:
+http://stackoverflow.com/questions/13841437/jaxws-maven-plugin-2-2-failure-with-nosuchmethoderror
+
+
+in case basic authentication is needed see this article
+http://anisovets.blogspot.dk/2012/05/web-service-client-with-basic.html
