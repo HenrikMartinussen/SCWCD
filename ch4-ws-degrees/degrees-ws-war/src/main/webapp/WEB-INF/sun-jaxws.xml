@@ -4,6 +4,6 @@
   
   <!-- http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/ -->
   <endpoint name='degreesService'
-            implementation='info.martinussen.beerexpert.service.DegreesServiceImpl'
+            implementation='info.martinussen.degrees.service.DegreesServiceImpl'
             url-pattern='/degreesService' />
 </endpoints>

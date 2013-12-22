@@ -1,10 +1,10 @@
-package info.martinussen.beerexpert.model;
+package info.martinussen.degrees.model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import info.martinussen.degrees.model.Converter;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;

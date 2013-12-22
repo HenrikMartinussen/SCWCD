@@ -1,9 +1,10 @@
-package info.martinussen.beerexpert.service;
+package info.martinussen.degrees.service;
 
-import info.martinussen.beerexpert.model.Converter;
-import info.martinussen.beerexpert.service.generated.DegreesServicePortType;
-import info.martinussen.beerexpert.service.generated.DegreesServiceRequestType;
-import info.martinussen.beerexpert.service.generated.DegreesServiceResponseType;
+
+import info.martinussen.degrees.model.Converter;
+import info.martinussen.degrees.service.generated.DegreesServicePortType;
+import info.martinussen.degrees.service.generated.DegreesServiceRequestType;
+import info.martinussen.degrees.service.generated.DegreesServiceResponseType;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -14,7 +15,7 @@ import org.apache.log4j.Logger;
 
 //http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/
 
-@WebService(endpointInterface="info.martinussen.beerexpert.service.generated.DegreesServicePortType")
+@WebService(endpointInterface="info.martinussen.degrees.service.generated.DegreesServicePortType")
 public class DegreesServiceImpl implements DegreesServicePortType {
   
   static Logger log = Logger.getLogger(DegreesServiceImpl.class);
@@ -26,13 +27,13 @@ public class DegreesServiceImpl implements DegreesServicePortType {
   public DegreesServiceImpl(){
     super();
     log.trace("DegreesServiceImpl was instantiated");
-  }
+  } 
 
   /**
    * 
    * @param toCelsiusRequest
    * @return
-   *     returns info.martinussen.beerexpert.service.generated.DegreesServiceResponseType
+   *     returns info.martinussen.degrees.service.generated.DegreesServiceResponseType
    */
   @Override
   @WebMethod(action = "http://martinussen.info/DegreesService/convertToCelsius")
@@ -43,7 +44,7 @@ public class DegreesServiceImpl implements DegreesServicePortType {
     
     log.debug("DegreesServiceImpl.convertToCelsius() was called");
     Double fahrenheit = toCelsiusRequest.getDegrees();
-    Converter converter = new Converter();
+    Converter converter = new Converter(); 
     Double celsius = converter.toCelcius(fahrenheit);
     log.debug("DegreesServiceImpl called converter.toCelsius with parameter " + fahrenheit);
     log.debug("converter.toCelsius responded: " + celsius);
@@ -58,7 +59,7 @@ public class DegreesServiceImpl implements DegreesServicePortType {
    * 
    * @param toFahrenheitRequest
    * @return
-   *     returns info.martinussen.beerexpert.service.generated.DegreesServiceResponseType
+   *     returns info.martinussen.degrees.service.generated.DegreesServiceResponseType
    */
   @WebMethod(action = "http://martinussen.info/DegreesService/convertToFahrenheit")
   @WebResult(name = "ToFahrenheitResponse", targetNamespace = "http://martinussen.info/degreesservice/1.0", partName = "ToFahrenheitResponse")

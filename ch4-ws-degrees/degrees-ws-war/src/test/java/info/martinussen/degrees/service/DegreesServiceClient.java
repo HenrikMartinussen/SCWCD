@@ -1,8 +1,8 @@
-package info.martinussen.beerexpert.service;
+package info.martinussen.degrees.service;
 
-import info.martinussen.beerexpert.service.generated.DegreesServicePortType;
-import info.martinussen.beerexpert.service.generated.DegreesServiceRequestType;
-import info.martinussen.beerexpert.service.generated.DegreesServiceResponseType;
+import info.martinussen.degrees.service.generated.DegreesServicePortType;
+import info.martinussen.degrees.service.generated.DegreesServiceRequestType;
+import info.martinussen.degrees.service.generated.DegreesServiceResponseType;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,7 +17,7 @@ import javax.xml.ws.Service;
 public class DegreesServiceClient {
   
   public static final String WSDL_URL = "http://localhost:8081/degrees-ws-war/degreesService?wsdl";
-  public static final String SERVICE_URI = "http://service.beerexpert.martinussen.info/";//TODO
+  public static final String SERVICE_URI = "http://service.degrees.martinussen.info/";//TODO
   public static final String SERVICE_NAME = "DegreesServiceImplService";
   
   DegreesServicePortType port = null;
