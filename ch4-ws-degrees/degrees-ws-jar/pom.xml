@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                      http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>info.martinussen.degrees</groupId>
+    <artifactId>degrees-ws-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>degrees-ws-jar</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Fahrenheit/Celsius conversion Webservice jax-ws generated artifacts</name>
+
+  <!-- https://jax-ws.java.net/2.2.8/docs/ -->
+  <!-- http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/ -->
+  <dependencies>
+    <dependency>
+      <groupId>com.sun.xml.ws</groupId>
+      <artifactId>jaxws-rt</artifactId>
+      <version>2.2.8</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>degrees-ws-jar</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <encoding>UTF-8</encoding>
+          <!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/usage.html -->
+          <compilerArguments>
+            <endorseddirs>${project.build.directory}/endorsed</endorseddirs>
+          </compilerArguments>
+        </configuration>
+      </plugin>
+
+      <!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/usage.html -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.3</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/endorsed</outputDirectory>
+              <silent>true</silent>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>javax.xml.bind</groupId>
+                  <artifactId>jaxb-api</artifactId>
+                  <version>2.2.7</version>
+                  <type>jar</type>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>javax.xml.ws</groupId>
+                  <artifactId>jaxws-api</artifactId>
+                  <version>2.2.9</version>
+                  <type>jar</type>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+			
+      <!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/ -->
+      <plugin>
+        <groupId>org.jvnet.jax-ws-commons</groupId>
+        <artifactId>jaxws-maven-plugin</artifactId>
+        <version>2.3</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>wsimport</goal>
+            </goals>
+            <configuration>
+              <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
+              <packageName>info.martinussen.beerexpert.service.generated</packageName>
+              <sourceDestDir>${basedir}/target/generated-sources/main/java</sourceDestDir>
+              <target>2.0</target><!-- forces generation of sourcecode for specific version of JAX-WS RI (or JAXB?) -->
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
