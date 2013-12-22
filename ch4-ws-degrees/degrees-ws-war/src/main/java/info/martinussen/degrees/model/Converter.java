@@ -1,4 +1,4 @@
-package info.martinussen.beerexpert.model;
+package info.martinussen.degrees.model;
 
 import org.apache.log4j.Logger;
 

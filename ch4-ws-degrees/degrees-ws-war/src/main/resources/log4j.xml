@@ -27,7 +27,7 @@
     </appender>
     
 
-    <logger name="info.martinussen.beerexpert" additivity="false">
+    <logger name="info.martinussen.degrees" additivity="false">
         <level value="trace" />
         <appender-ref ref="STDOUT" />
     </logger>

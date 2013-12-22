@@ -1,10 +1,11 @@
-package info.martinussen.beerexpert.service;
+package info.martinussen.degrees.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import info.martinussen.degrees.service.DegreesServiceClient;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
