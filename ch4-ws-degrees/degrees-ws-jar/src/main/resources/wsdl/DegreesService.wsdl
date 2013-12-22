@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="degreesService"
+  targetNamespace="http://martinussen.info/degreesservice/1.0"
+  xmlns:tns="http://martinussen.info/degreesservice/1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://martinussen.info/degreesservice/1.0">
+      <xsd:import schemaLocation="../xsd/degreesService.xsd"
+        namespace="http://martinussen.info/degreesservice/1.0" />
+    </xsd:schema>
+  </wsdl:types>
+  
+  <wsdl:message name="ToCelsiusRequest">
+    <wsdl:part name="ToCelsiusRequest" element="tns:ToCelsiusRequest" />
+  </wsdl:message>
+  
+  <wsdl:message name="ToCelsiusResponse">
+    <wsdl:part name="ToCelsiusResponse" element="tns:ToCelsiusResponse" />
+  </wsdl:message>
+  
+  <wsdl:message name="ToFahrenheitRequest">
+    <wsdl:part name="ToFahrenheitRequest" element="tns:ToFahrenheitRequest" />
+  </wsdl:message>
+  
+  <wsdl:message name="ToFahrenheitResponse">
+    <wsdl:part name="ToFahrenheitResponse" element="tns:ToFahrenheitResponse" />
+  </wsdl:message>
+  
+  <wsdl:portType name="DegreesServicePortType">
+    <wsdl:operation name="convertToCelsius">
+      <wsdl:input name="ToCelsiusRequest" message="tns:ToCelsiusRequest" />
+      <wsdl:output name="ToCelsiusResponse" message="tns:ToCelsiusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="convertToFahrenheit">
+      <wsdl:input name="ToFahrenheitRequest" message="tns:ToFahrenheitRequest" />
+      <wsdl:output name="ToFahrenheitResponse" message="tns:ToFahrenheitResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  <wsdl:binding name="DegreesServiceBinding" type="tns:DegreesServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="convertToCelsius">
+      <soap:operation style="document" soapAction="http://martinussen.info/DegreesService/convertToCelsius" />
+      <wsdl:input name="ToCelsiusRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ToCelsiusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="convertToFahrenheit">
+      <soap:operation style="document" soapAction="http://martinussen.info/DegreesService/convertToFahrenheit" />
+      <wsdl:input name="ToFahrenheitRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ToFahrenheitResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  <wsdl:service name="DegreesService">
+    <wsdl:port name="DegreesServicePort" binding="tns:DegreesServiceBinding">
+      <soap:address location="/service/degreesService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
