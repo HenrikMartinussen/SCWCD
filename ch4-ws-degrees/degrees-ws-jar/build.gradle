@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+    maven { url 'http://download.java.net/maven/1' }
+    maven { url 'http://download.java.net/maven/2' }
+}
+
+configurations {
+    jaxws
+}
+
+task wsimport {
+    destDir = file("${buildDir}/generated-sources/main/java")
+    wsdlSrc = file('src/main/resources/wsdl/DegreesService.wsdl')
+    inputs.file wsdlSrc
+    outputs.dir destDir
+    doLast {
+        sourceSets.main.output.classesDir.mkdirs()
+        destDir.mkdirs()
+        ant {
+            taskdef(name:'wsimport',
+                classname:'com.sun.tools.ws.ant.WsImport',
+                classpath:configurations.jaxws.asPath)
+
+            wsimport(keep:true,
+                xendorsed:true,
+		verbose:true,
+
+                destdir: sourceSets.main.output.classesDir,
+                sourcedestdir: destDir,
+                wsdl: wsdlSrc,
+		package: 'info.martinussen.degrees.service.generated',
+		target:'2.0')
+        }
+    }
+}
+
+compileJava.dependsOn(wsimport)
+
+dependencies {
+    jaxws 'com.sun.xml.ws:jaxws-tools:2.2.8'
+}
