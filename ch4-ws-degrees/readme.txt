@@ -3,6 +3,10 @@ Very simple webservice application - one service endpoint which exposes a celsiu
 
 
 In order to run application:
+gradle clean check ind parent folder (besides this readme)
+gradle jettyRun in this folder or in the degrees-ws-war child project
+
+If you prefer maven:
 mvn clean install in parent folder (beside this readme)
 in degrees-ws-war run mvn jetty:run
 
