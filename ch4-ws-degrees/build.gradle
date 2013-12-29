@@ -1,0 +1,11 @@
+ext.projectIds = ['group': 'info.martinussen.degrees', 'version': '1.0']
+
+
+allprojects{
+	group = projectIds.group
+	version = projectIds.version
+}
+
+subprojects{
+	apply plugin: 'java'
+}
