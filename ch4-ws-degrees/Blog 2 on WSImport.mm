@@ -104,7 +104,9 @@
 <node CREATED="1388357637852" ID="Freemind_Link_520156686" MODIFIED="1388357666703" TEXT="unit- and integrationtests in separate folder structures">
 <node CREATED="1388394434182" ID="Freemind_Link_852562414" MODIFIED="1388394452201" TEXT="eliminates some of the test report issues"/>
 </node>
-<node CREATED="1388357722687" ID="Freemind_Link_1488413273" MODIFIED="1388357727486" TEXT="warnings"/>
+<node CREATED="1388357722687" ID="Freemind_Link_1488413273" MODIFIED="1388357727486" TEXT="warnings">
+<node CREATED="1388419577891" ID="Freemind_Link_1404414100" MODIFIED="1388419579772" TEXT="http://forums.gradle.org/gradle/topics/6caj90zrfqr0l"/>
+</node>
 <node CREATED="1388357728163" ID="Freemind_Link_651643313" MODIFIED="1388406765962" TEXT="logging lacks similarity from class to class"/>
 </node>
 <node CREATED="1388394334122" ID="Freemind_Link_426689818" MODIFIED="1388394346326" POSITION="right" TEXT="ideas for future projects">
