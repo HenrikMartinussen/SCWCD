@@ -28,7 +28,8 @@
 <node CREATED="1388399611546" ID="Freemind_Link_201097254" MODIFIED="1388399622999" TEXT="on gradle integration test"/>
 </node>
 </node>
-<node CREATED="1388395107581" ID="Freemind_Link_1220036907" MODIFIED="1388395111409" TEXT="references">
+<node CREATED="1388395107581" ID="Freemind_Link_1220036907" MODIFIED="1388606914017" TEXT="references">
+<icon BUILTIN="button_ok"/>
 <node CREATED="1388331930664" ID="Freemind_Link_1671674581" MODIFIED="1388399512748" TEXT="Coderanch">
 <node CREATED="1388395586039" ID="Freemind_Link_1632070137" MODIFIED="1388395599595" TEXT="Monica. Shiralkar"/>
 <node CREATED="1388395574047" ID="Freemind_Link_274855971" MODIFIED="1388395584483" TEXT="Abhay Agarwal"/>
@@ -51,7 +52,8 @@
 <node CREATED="1388399361638" ID="Freemind_Link_162042379" MODIFIED="1388399363082" TEXT="http://www.mkyong.com/webservices/jax-ws/jax-ws-hello-world-example/"/>
 </node>
 </node>
-<node CREATED="1388406456374" ID="Freemind_Link_1900286120" MODIFIED="1388406459794" TEXT="links">
+<node CREATED="1388406456374" ID="Freemind_Link_1900286120" MODIFIED="1388606916771" TEXT="links">
+<icon BUILTIN="button_ok"/>
 <node CREATED="1388405422092" ID="Freemind_Link_414886222" MODIFIED="1388405426912" TEXT="bitbucket">
 <node CREATED="1388406502068" ID="Freemind_Link_1364857410" MODIFIED="1388406503391" TEXT="https://bitbucket.org/henmar/scwcd/src/1faf745ae951/ch4-ws-degrees/?at=default"/>
 </node>
@@ -80,7 +82,11 @@
 </node>
 </node>
 <node CREATED="1388394232439" ID="Freemind_Link_1734292327" MODIFIED="1388394241266" POSITION="left" TEXT="build/test">
-<node CREATED="1388394242455" ID="Freemind_Link_1980225740" MODIFIED="1388394251930" TEXT="gradle clean build"/>
+<node CREATED="1388394242455" ID="Freemind_Link_1980225740" MODIFIED="1388453478062" TEXT="gradle clean build">
+<icon BUILTIN="button_cancel"/>
+</node>
+<node CREATED="1388611922335" ID="Freemind_Link_495778819" MODIFIED="1388611936933" TEXT="gradle eclipse eclipseWtp"/>
+<node CREATED="1388453459745" ID="Freemind_Link_1707201615" MODIFIED="1388453473243" TEXT="gradle clean install check"/>
 <node CREATED="1388394259071" ID="Freemind_Link_1937463788" MODIFIED="1388394264172" TEXT="test report">
 <node CREATED="1388394265400" ID="Freemind_Link_89115930" MODIFIED="1388394267283" TEXT="degrees-ws-war\build\reports\allTests\index.html"/>
 </node>
