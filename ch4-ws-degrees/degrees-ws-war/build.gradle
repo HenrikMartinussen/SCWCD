@@ -9,15 +9,16 @@ httpPort = 8081
 [jettyRun, jettyRunWar,jettyStop]*.stopKey = 'stopKey'
 
 repositories {
+	mavenLocal()
 	mavenCentral()
 }
 	
 dependencies {
 	compile 'log4j:log4j:1.2.14'
   compile 'com.sun.xml.ws:jaxws-rt:2.2.8'
+  compile 'info.martinussen.degrees:degrees-ws-jar:1.0'
 	testCompile 'junit:junit:4.+'
 	providedCompile 'javax.servlet:servlet-api:2.5'
-	compile project(':degrees-ws-jar')
 }
 
 test {
@@ -26,6 +27,7 @@ test {
   //setTestReport(false)
   reports.html.destination = file("$reports.html.destination/unit") 
   reports.junitXml.destination =file("$reports.junitXml.destination/unit") 
+  logging.captureStandardOutput LogLevel.DEBUG
 }
 
 task integrationTest(type:Test) {

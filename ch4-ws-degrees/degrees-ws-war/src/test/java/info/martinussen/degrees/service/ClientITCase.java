@@ -32,9 +32,9 @@ public class ClientITCase {
   @Parameters
   public static Collection<Double[]> getTestParameters(){
     return Arrays.asList(new Double[][]{
-        {32.0, 0.0}, // fahrenheit, celcius
-        {0.0, -17.777777777777777777777777777778}, // fahrenheit, celcius
-        {212.0, 100.0}, // fahrenheit, celcius
+        {32.0, 0.0},     // fahrenheit, celcius
+        {0.0, -17.7778}, // fahrenheit, celcius
+        {212.0, 100.0},  // fahrenheit, celcius
     });
   }
   
@@ -59,7 +59,7 @@ public class ClientITCase {
   @Test
   public void testToCelcius() {
     Double result = testClient.convertToCelsius(this.fahrenheit); 
-    assertEquals(celcius, result, 0.001);
+    assertEquals(celcius, result, 0.0001);
   }
 
   /**
@@ -68,7 +68,7 @@ public class ClientITCase {
   @Test
   public void testToFahrenhei() {
     Double result = testClient.convertToFahrenheit(this.celcius); 
-    assertEquals(fahrenheit, result, 0.001);
+    assertEquals(fahrenheit, result, 0.0001);
   }
 
 }

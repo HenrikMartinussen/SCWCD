@@ -33,7 +33,7 @@
     </logger>
         
     <logger name="com.sun.xml.ws.transport" additivity="false">
-        <level value="info" />
+        <level value="debug" />
         <appender-ref ref="STDOUT" />
     </logger>
         
