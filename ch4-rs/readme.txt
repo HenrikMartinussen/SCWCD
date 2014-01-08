@@ -1,0 +1,1 @@
+http://code.joejag.com/2011/creating-a-simple-java-restful-service-using-jersey-and-maven/
