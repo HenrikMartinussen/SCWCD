@@ -1,16 +1,24 @@
 apply plugin: 'eclipse'
 apply plugin: 'groovy'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+httpPort = 8081
 
 ext {
   log4jVersion = '1.2.12'
-  groovyVersion = '2.0.5'
+  groovyVersion = '2.1.5'
   junitVersion = '4.11'  
 }
 
 dependencies {
   compile "log4j:log4j:$log4jVersion"
   compile "org.codehaus.groovy:groovy-all:$groovyVersion"
+  providedCompile 'javax.servlet:servlet-api:2.5'
+  providedCompile 'javax.servlet.jsp:jsp-api:2.2'
+  
   testCompile "junit:junit:$junitVersion"
+  
 }
 
 repositories {
