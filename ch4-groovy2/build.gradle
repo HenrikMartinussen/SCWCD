@@ -1,16 +1,11 @@
-apply plugin: 'groovy'
 apply plugin: 'eclipse'
+apply plugin: 'groovy'
 
 ext {
-  javaVersion = '1.6'
   log4jVersion = '1.2.12'
-  groovyVersion = '1.8.4'
+  groovyVersion = '2.0.5'
   junitVersion = '4.11'  
 }
-
-sourceCompatibility = "$javaVersion"
-targetCompatibility = "$javaVersion"
-
 
 dependencies {
   compile "log4j:log4j:$log4jVersion"

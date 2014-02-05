@@ -1,7 +1,10 @@
 package info.martinussen.scwcd.hfsj.ch4.model
-class BeerExpertGroovyImpl implements BeerExpert {
 
-	def  log = Logger.getLogger BeerExpertGroovyImpl.class
+import org.apache.log4j.Logger
+
+class BeerExpertGroovyImpl implements BeerExpert{
+ 
+	def  log = Logger.getLogger(BeerExpertGroovyImpl.class)
 
 	@Override
 	public List<String> getBrands(String color) {
