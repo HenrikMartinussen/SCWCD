@@ -6,41 +6,40 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import org.junit.runners.Parameterized.Parameters
-import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
-import org.apache.log4j.Logger;
+import org.apache.log4j.Logger
+import info.martinussen.scwcd.hfsj.ch4.model.BeerExpertGroovyImpl
 
 @RunWith(Parameterized)
-public class TestBeerExpert{ 
-  
+public class TestBeerExpert{
+
   Logger log = Logger.getLogger(TestBeerExpert.class)
-  
+
   BeerExpert testExpert = null;
   def param
   def expected1
   def expected2
-  
-  @Parameters 
+
+  @Parameters
   static data () {
-	  return [["amber", "Jack Amber",    "Red Moose"]  as String[],
-		        ["light", "Jail Pale Ale", "Gout Stout"] as String[],
-		        ["brown", "Jail Pale Ale", "Gout Stout"] as String[],
-		        ["dark",  "Jail Pale Ale", "Gout Stout"] as String[]]
+    return [["amber", "Jack Amber",    "Red Moose"]  as String[],
+            ["light", "Jail Pale Ale", "Gout Stout"] as String[],
+            ["brown", "Jail Pale Ale", "Gout Stout"] as String[],
+            ["dark",  "Jail Pale Ale", "Gout Stout"] as String[]]
   }
-  
-  TestBeerExpert (p , ex1, ex2){ 
-	param = p
-	expected1 = ex1
-	expected2 = ex2
+
+  TestBeerExpert (p , ex1, ex2){
+    param = p
+    expected1 = ex1
+    expected2 = ex2
   }
-  
+
   @Test
-  void testBeerExpertAmber(){ 
-	testExpert = new BeerExpertGroovyImpl()
-	def result = testExpert.getBrands(param)
-	assertTrue result.size() == 2 
-	assertTrue result.contains(expected1)
-	assertTrue result.contains(expected2)
-	testExpert = null;
+  void testGetBrands(){
+    testExpert = new BeerExpertGroovyImpl()
+    def result = testExpert.getBrands(param)
+    assertTrue result.size() == 2
+    assertTrue result.contains(expected1)
+    assertTrue result.contains(expected2)
+    testExpert = null;
   }
-  
 }
