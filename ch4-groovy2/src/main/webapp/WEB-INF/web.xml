@@ -15,5 +15,10 @@
     <servlet-name>Groovy</servlet-name>
     <url-pattern>*.groovy</url-pattern>
   </servlet-mapping>
+  
+  <listener>
+    <listener-class>info.martinussen.scwcd.hfsj.ch4.web.StartupListener</listener-class>
+  </listener>
+  
 
 </web-app>
