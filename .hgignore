@@ -17,6 +17,12 @@ workspace/*
 *.ipr
 *.iws
 
+#IntelliJ build products are not to be version tracked:
+#In Windows:
+.idea\
+#In Linux
+*/.idea/*
+
 #Maven build products are not to be version tracked:
 #In windows:
 target\

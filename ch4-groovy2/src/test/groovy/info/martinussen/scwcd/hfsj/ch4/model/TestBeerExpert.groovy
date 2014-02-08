@@ -7,7 +7,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import org.junit.runners.Parameterized.Parameters
 import org.apache.log4j.Logger
-import info.martinussen.scwcd.hfsj.ch4.model.BeerExpertGroovyImpl
+import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert
 
 @RunWith(Parameterized)
 public class TestBeerExpert{
@@ -35,7 +35,7 @@ public class TestBeerExpert{
 
   @Test
   void testGetBrands(){
-    testExpert = new BeerExpertGroovyImpl()
+    testExpert = new BeerExpert()
     def result = testExpert.getBrands(param)
     assertTrue result.size() == 2
     assertTrue result.contains(expected1)
