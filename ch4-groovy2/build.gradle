@@ -16,7 +16,7 @@ ext {
 dependencies {
   compile "log4j:log4j:$log4jVersion"
   compile "org.codehaus.groovy:groovy-all:$groovyVersion"
-  compile 'javax.servlet:servlet-api:2.5'
+  providedCompile 'javax.servlet:servlet-api:2.5'
   providedCompile 'javax.servlet.jsp:jsp-api:2.2'
   
   testCompile "junit:junit:$junitVersion"
