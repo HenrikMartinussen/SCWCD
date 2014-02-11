@@ -7,14 +7,19 @@ def brands = []
 brands =  expert.getBrands(color)
 assert brands.size() > 0
 
+html.expandEmptyElements=false
+response.contentType = 'text/html'
 html.html{
   head{
     title 'Beer Recommendations'
   }
   body {
-    h1 'Beer Recommendations'
-    brands.each{
-      p "Try: ${it}"
+    h1(align="center") {'Beer Recommendations'}
+    p {
+      brands.each{ brand ->
+        br()
+        print "Try: ${brand}"
+      }
     }
   }
 }

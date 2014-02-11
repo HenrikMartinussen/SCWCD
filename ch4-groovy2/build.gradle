@@ -4,6 +4,8 @@ apply plugin: 'war'
 apply plugin: 'jetty'
 
 httpPort = 8081
+stopPort = 8085
+stopKey = 'prrrr'
 
 ext {
   log4jVersion = '1.2.12'
