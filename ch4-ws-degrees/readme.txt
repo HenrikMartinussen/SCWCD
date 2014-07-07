@@ -18,8 +18,11 @@ point browser to http://localhost:8081/degrees-ws-war/degreesService?wsdl in ord
 
 use the wsdl as input in a new project in SoapUI, fill in request parameter value and run test
 
-integration tests can be run by issuing the command mvn verify in either the parent folder (besides this readme)
-or in the beerexpert-ws-war subfolder.
+In order to run integration tests:
+gradle check in either the parent folder (besides this readme) or in the beerexpert-ws-war subfolder.
+
+If you prefer maven:
+mvn verify
 
 
 in case a specific version of JAXB is to be targeted by wsimport see this stackoverflow thread:
