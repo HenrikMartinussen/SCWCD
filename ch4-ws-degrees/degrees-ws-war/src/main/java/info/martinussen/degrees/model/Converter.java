@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
  * http://en.wikipedia.org/wiki/Fahrenheit
  * <table>
  * <tr><td/><td>from Fahrenheit</td><td>to Fahrenheit</td></tr>
- * <tr><td>Celsius</td><td>[°C] = ([°F] − 32) × 5⁄9</td><td>[°F] = [°C] × 9⁄5 + 32</td></tr>
+ * <tr><td>Celsius</td><td>[�C] = ([�F] - 32) * 5/9</td><td>[�F] = [�C] * 9/5 + 32</td></tr>
  * </table>
  * @author henrik
  *
