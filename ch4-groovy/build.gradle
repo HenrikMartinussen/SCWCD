@@ -2,9 +2,9 @@ apply plugin: 'groovy'
 apply plugin: 'eclipse'
 
 ext {
-  javaVersion = '1.6'
+  javaVersion = '1.7'
   log4jVersion = '1.2.12'
-  groovyVersion = '1.8.4'
+  groovyVersion = '2.1.8'
   junitVersion = '4.11'  
 }
 
@@ -16,6 +16,7 @@ dependencies {
   compile "log4j:log4j:$log4jVersion"
   testCompile "org.codehaus.groovy:groovy-all:$groovyVersion"
   testCompile "junit:junit:$junitVersion"
+  testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
 }
 
 repositories {

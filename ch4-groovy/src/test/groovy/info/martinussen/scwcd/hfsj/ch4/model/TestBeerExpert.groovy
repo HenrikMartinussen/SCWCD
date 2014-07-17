@@ -1,13 +1,12 @@
 package info.martinussen.scwcd.hfsj.ch4.model
 
-import static org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.Before
 import org.junit.After
 import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
 import org.apache.log4j.Logger;
 
-public class TestBeerExpert{
+class TestBeerExpert{
   
   Logger log = Logger.getLogger(TestBeerExpert.class)
   
@@ -21,31 +20,26 @@ public class TestBeerExpert{
   @After
   void tearDown(){
 	  testExpert = null;
-	  log.debug "testExpert was nulled"
+	  log.debug 'testExpert was nulled'
   }
   
   @Test
   void testBeerExpertAmber(){
-    def expected = ["Jack Amber", "Red Moose"] 
-    assertEquals expected, testExpert.getBrands("amber")
+    assert testExpert.getBrands('amber') ==  ['Jack Amber', 'Red Moose'] 
   }
   
   @Test
   void testBeerExpertLight(){
-    def expected = ["Jail Pale Ale", "Gout Stout"] 
-    assertEquals expected, testExpert.getBrands("light")
+    assert testExpert.getBrands('light') == ['Jail Pale Ale', 'Gout Stout'] 
   }
   
   @Test
   void testBeerExpertBrown(){
-    def expected = ["Jail Pale Ale", "Gout Stout"] 
-    assertEquals expected, testExpert.getBrands("brown")
+    assert testExpert.getBrands('brown') == ['Jail Pale Ale', 'Gout Stout'] 
   }
 
   @Test
   void testBeerExpertDark(){
-    def expected = ["Jail Pale Ale", "Gout Stout"] 
-    assertEquals expected, testExpert.getBrands("dark")
+    assert testExpert.getBrands('dark') == ['Jail Pale Ale', 'Gout Stout'] 
   }
-  
 }

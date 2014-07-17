@@ -1,113 +1,118 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>info.martinussen.scwcd.hfsj</groupId>
-  <artifactId>ch4-groovy</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>ch4-groovy</name>
-  <url>http://maven.apache.org</url>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>info.martinussen.scwcd.hfsj</groupId>
+	<artifactId>ch4-groovy</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>ch4-groovy</name>
+	<url>http://maven.apache.org</url>
+	
+    <!-- http://groovy.codehaus.org/Groovy-Eclipse+compiler+plugin+for+Maven -->
 
-  <!-- todo: rework this according to -->
-  <!-- http://groovy.codehaus.org/Groovy-Eclipse+compiler+plugin+for+Maven -->
+	<properties>
+		<java.version>1.7</java.version>
+		<groovy.version>2.1.8</groovy.version>
+		<log4j.version>1.2.12</log4j.version>
+		<junit.version>4.11</junit.version>
+	</properties>
 
-  <properties>
-    <java.version>1.6</java.version>
-    <groovy.version>1.8.4</groovy.version>
-    <log4j.version>1.2.12</log4j.version>
-    <junit.version>4.8.2</junit.version>
+	<dependencies>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
 
-    <!-- <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version> -->
-    <maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
-    <maven.eclipse.plugin.version>2.9</maven.eclipse.plugin.version>
-    <groovy.eclipse.compiler.version>2.6.0-01</groovy.eclipse.compiler.version>
-  </properties>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>${groovy.version}</version>
+		</dependency>
 
-  <dependencies>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
+		<dependency>
+			<groupId>org.spockframework</groupId>
+			<artifactId>spock-maven</artifactId>
+			<version>0.7-groovy-2.0</version>
+			<scope>test</scope>
+		</dependency>
 
-    <dependency>
-      <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy</artifactId>
-      <version>${groovy.version}</version>
-      <type>jar</type>
-    </dependency>
-  </dependencies>
+	</dependencies>
 
-  <build>
-    <finalName>ch4-groovy</finalName>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven.compiler.plugin.version}</version>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <encoding>UTF-8</encoding>
+	<build>
+		<finalName>ch4-groovy</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>UTF-8</encoding>
 
-          <compilerId>groovy-eclipse-compiler</compilerId>
-          <compilerArgument>nowarn</compilerArgument>
-          <verbose>true</verbose>
-        </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-eclipse-compiler</artifactId>
-            <version>${groovy.eclipse.compiler.version}</version>
-          </dependency>
-        </dependencies>
-      </plugin>
+					<compilerId>groovy-eclipse-compiler</compilerId>
+					<!-- <compilerArgument>nowarn</compilerArgument> -->
+					<verbose>false</verbose>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-eclipse-compiler</artifactId>
+						<version>2.8.0-01</version>
+					</dependency>
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-eclipse-batch</artifactId>
+						<version>2.1.8-01</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <version>${maven.eclipse.plugin.version}</version>
-        <configuration>
-          <additionalProjectnatures>
-            <projectnature>org.eclipse.jdt.groovy.core.groovyNature</projectnature>
-          </additionalProjectnatures>
-          <!-- Source includes is necessary to allow groovy files in the 
-            java folder, else eclipse will throw a filtering exception -->
-          <sourceIncludes>
-            <sourceInclude>**/*.groovy</sourceInclude>
-          </sourceIncludes>
-          <downloadJavadocs>true</downloadJavadocs>
-        </configuration>
-      </plugin>
+			<plugin>
+				<groupId>org.codehaus.groovy</groupId>
+				<artifactId>groovy-eclipse-compiler</artifactId>
+				<version>2.8.0-01</version>
+				<extensions>true</extensions>
+			</plugin>
 
-      <!-- necessary in order to be able to have groovy code in src/main/groovy 
-        and src/test/groovy -->
-      <plugin>
-        <groupId>org.codehaus.groovy</groupId>
-        <artifactId>groovy-eclipse-compiler</artifactId>
-        <version>${groovy.eclipse.compiler.version}</version>
-        <extensions>true</extensions>
-      </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+					<forkCount>0</forkCount><!-- surefire crashes when forkCount > 0  -->
+					<reuseForks>true</reuseForks>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
-    </plugins>
-  </build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.17</version>
+			</plugin>
+		</plugins>
+	</reporting>
 
-
-  <repositories>
-    <repository>
-      <id>maven</id>
-      <name>Maven main Repository</name>
-      <url>http://repo1.maven.org/maven2/</url>
-    </repository>
-  </repositories>
+	<repositories>
+		<repository>
+			<id>maven</id>
+			<name>Maven main Repository</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+	</repositories>
 
 
 </project>
