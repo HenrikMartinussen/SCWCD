@@ -20,7 +20,7 @@ This README to some extent document whatever steps are necessary to get going ex
 
 * You are free to copy any and all code you find useful. 
 * If you have an opinion on anything (code, tests, builds, documentation etc.) don't be shy...
-* If you have hints to
+* If you have hints to get any of the incomplete dead-end projects/experiments going, I would be happy to hear from you.
 
 ### Who do I talk to? ###
 
