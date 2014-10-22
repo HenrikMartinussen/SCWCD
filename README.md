@@ -13,18 +13,14 @@ This README would normally document whatever steps are necessary to get your app
 * Most examples are Maven 2/3 based, a few uses gradle, so you'll definately need latest maven version, and latest gradle version.
 * A few experiments use Ant for creating, starting, populating databases, som youll probably need that too.
 * Most projects doesn't rely on any specific IDE. Eventhough i mostly use Eclipse, maven or gradle buildfiles should be able to be used as is, or as basis for generated project files
-* A few projects use databases, Sql Server express is my preferred "heavy duty" RDBMS - some experiments use HSQLDB in various versions. Sql Server must be set up by hand - HSQLDB
-* Database configuration
-* How to run tests
-* Deployment instructions
+* A few projects use databases, Sql Server express is my preferred "heavy duty" RDBMS - some experiments use HSQLDB in various versions. Sql Server must be set up by hand - HSQLDB experiments use in memory or "install-while-build" databases. Details are in the various local readme's
+* Also in the various local readme's are examples of build/test commands and URL's to hit for results.
 
 ### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
+* You are free to copy any and all code you find useful. 
+* If you have an opinion on anything (code, tests, builds, documentation etc.) don't be shy...
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Henrik Martinussen
