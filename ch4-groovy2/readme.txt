@@ -9,19 +9,25 @@ This project is a groovy/gradle rework of the ch4 demo project
 
 Demonstrates 
 -implementing a mvc model by means of a groovy class
--parameterized unit test of the groovy model implemented in groovy
--implementing a startup listener in groovy
+-simple parameterized spock test of the groovy model implemented in groovy
+-implementing a servlet api startup listener in groovy
 -Groovlet accessing request and context implicit variables, building html
+-Parameterized HtmlUnit integration test implemented in groovy
+-Gradle integration test task, which starts Jetty and subsequently stops it again
 
 In order to run test:
-gradle clean check
+gradle clean test
 
-In order to run web app 
+In order to run web app: 
 gradle clean build jettyRun
 
+browse to http://localhost:8081/ch4-groovy2/index.html
+or curl -i --data "color=light" http://localhost:8081/ch4-groovy2/BeerGroovlet.groovy
 
-http://localhost:8081/ch4-groovy2/index.html
-curl -i --data "color=light" http://localhost:8081/ch4-groovy2/BeerGroovlet.groovy
+In order to run integration test (- and test):
+gradle clean integrationTest  - or
+gradle clean check
+
 
 
 Reference
