@@ -9,7 +9,7 @@ stopKey = 'prrrr'
 
 ext {
   log4jVersion = '1.2.12'
-  groovyVersion = '2.1.5'
+  groovyVersion = '2.3.6'
   junitVersion = '4.11'  
   htmlunitVersion = '2.15'  
 }
