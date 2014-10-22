@@ -23,7 +23,7 @@ public class BeerServlet extends HttpServlet{
   private static Logger log = Logger.getLogger(BeerServlet.class);
 
   static {
-    log.debug("BeerServlet class is loaded");
+    log.trace("BeerServlet class is loaded");
   }
 
   public BeerServlet(){

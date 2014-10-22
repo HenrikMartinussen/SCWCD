@@ -15,12 +15,12 @@ This locks the console. The easiest way to subsequently stop jetty, is to issue 
 
 
 point browser to http://localhost:8081/ch4/
-port is configurable in pom.xml under maven-jetty-plugin configuration, connectors, connector, port
-application name stems from the pom.xml jetty-maven-plugin, and can be changed there
+port is configurable in pom.xml under jetty-maven-plugin configuration, connectors, connector, port
+application name stems from the pom.xml jetty-maven-plugin configuration, webApp, contextPath, and can be changed there
 
 In order to test and generate test coverage reports:
 mvn clean test cobertura:cobertura 
 In order to see the test coverage reports, go to target/site/cobertura/ browse from the index.html
 
 In order to run integration-tests
-mvn clean integration-test or mvn clean verify
+mvn clean verify
