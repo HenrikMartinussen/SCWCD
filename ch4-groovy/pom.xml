@@ -1,118 +1,118 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>info.martinussen.scwcd.hfsj</groupId>
-	<artifactId>ch4-groovy</artifactId>
-	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
-	<name>ch4-groovy</name>
-	<url>http://maven.apache.org</url>
-	
-    <!-- http://groovy.codehaus.org/Groovy-Eclipse+compiler+plugin+for+Maven -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>info.martinussen.scwcd.hfsj</groupId>
+  <artifactId>ch4-groovy</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>ch4-groovy</name>
+  <url>http://maven.apache.org</url>
 
-	<properties>
-		<java.version>1.7</java.version>
-		<groovy.version>2.1.8</groovy.version>
-		<log4j.version>1.2.12</log4j.version>
-		<junit.version>4.11</junit.version>
-	</properties>
+  <!-- http://groovy.codehaus.org/Groovy-Eclipse+compiler+plugin+for+Maven -->
 
-	<dependencies>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
+  <properties>
+    <java.version>1.7</java.version>
+    <groovy.version>2.1.8</groovy.version>
+    <log4j.version>1.2.12</log4j.version>
+    <junit.version>4.11</junit.version>
+  </properties>
 
-		<dependency>
-			<groupId>org.codehaus.groovy</groupId>
-			<artifactId>groovy-all</artifactId>
-			<version>${groovy.version}</version>
-		</dependency>
+  <dependencies>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>${groovy.version}</version>
+    </dependency>
 
-		<dependency>
-			<groupId>org.spockframework</groupId>
-			<artifactId>spock-maven</artifactId>
-			<version>0.7-groovy-2.0</version>
-			<scope>test</scope>
-		</dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
 
-	</dependencies>
+    <dependency>
+      <groupId>org.spockframework</groupId>
+      <artifactId>spock-maven</artifactId>
+      <version>0.7-groovy-2.0</version>
+      <scope>test</scope>
+    </dependency>
 
-	<build>
-		<finalName>ch4-groovy</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<encoding>UTF-8</encoding>
+  </dependencies>
 
-					<compilerId>groovy-eclipse-compiler</compilerId>
-					<!-- <compilerArgument>nowarn</compilerArgument> -->
-					<verbose>false</verbose>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.codehaus.groovy</groupId>
-						<artifactId>groovy-eclipse-compiler</artifactId>
-						<version>2.8.0-01</version>
-					</dependency>
-					<dependency>
-						<groupId>org.codehaus.groovy</groupId>
-						<artifactId>groovy-eclipse-batch</artifactId>
-						<version>2.1.8-01</version>
-					</dependency>
-				</dependencies>
-			</plugin>
+  <build>
+    <finalName>ch4-groovy</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <encoding>UTF-8</encoding>
 
-			<plugin>
-				<groupId>org.codehaus.groovy</groupId>
-				<artifactId>groovy-eclipse-compiler</artifactId>
-				<version>2.8.0-01</version>
-				<extensions>true</extensions>
-			</plugin>
+          <compilerId>groovy-eclipse-compiler</compilerId>
+          <!-- <compilerArgument>nowarn</compilerArgument> -->
+          <verbose>false</verbose>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-compiler</artifactId>
+            <version>2.8.0-01</version>
+          </dependency>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-batch</artifactId>
+            <version>2.1.8-01</version>
+          </dependency>
+        </dependencies>
+      </plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.17</version>
-				<configuration>
-					<forkCount>0</forkCount><!-- surefire crashes when forkCount > 0  -->
-					<reuseForks>true</reuseForks>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+      <plugin>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-eclipse-compiler</artifactId>
+        <version>2.8.0-01</version>
+        <extensions>true</extensions>
+      </plugin>
 
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-report-plugin</artifactId>
-				<version>2.17</version>
-			</plugin>
-		</plugins>
-	</reporting>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.17</version>
+        <configuration>
+          <forkCount>0</forkCount><!-- surefire crashes when forkCount > 0 -->
+          <reuseForks>true</reuseForks>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
-	<repositories>
-		<repository>
-			<id>maven</id>
-			<name>Maven main Repository</name>
-			<url>http://repo1.maven.org/maven2/</url>
-		</repository>
-	</repositories>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>2.17</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <repositories>
+    <repository>
+      <id>maven</id>
+      <name>Maven main Repository</name>
+      <url>http://repo1.maven.org/maven2/</url>
+    </repository>
+  </repositories>
 
 
 </project>

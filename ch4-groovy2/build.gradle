@@ -11,6 +11,7 @@ ext {
   log4jVersion = '1.2.12'
   groovyVersion = '2.1.5'
   junitVersion = '4.11'  
+  htmlunitVersion = '2.15'  
 }
 
 dependencies {
@@ -20,8 +21,34 @@ dependencies {
   providedCompile 'javax.servlet.jsp:jsp-api:2.2'
   
   testCompile "junit:junit:$junitVersion"
+  testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+  testCompile "net.sourceforge.htmlunit:htmlunit:$htmlunitVersion"
+  testCompile "org.ccil.cowan.tagsoup:tagsoup:1.2.1"
+  
   
 }
+
+[jettyRun, jettyRunWar,jettyStop]*.stopPort = 8082
+[jettyRun, jettyRunWar,jettyStop]*.stopKey = 'stopKey'
+
+test {
+  exclude '**/*Integration*.*'
+}
+
+
+task integrationTest(type: Test) {
+  include '**/*Integration*.*'
+  doFirst {
+      jettyRun.daemon = true
+      jettyRun.execute()
+  }
+  doLast {
+      jettyStop.execute()
+  }
+}
+
+check.dependsOn  integrationTest
+integrationTest.dependsOn test
 
 repositories {
   mavenCentral()
