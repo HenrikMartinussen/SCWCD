@@ -36,7 +36,7 @@ public class Ch4SeleniumITCase {
     colorSelect.selectByVisibleText("amber");
     webDriver.findElement(By.tagName("input")).click();
     WebDriverWait wait = new WebDriverWait(webDriver, 10);
-    wait.until(ExpectedConditions.textToBePresentInElement(By.tagName("body"), "try: Jack Amber\ntry: Red Moose"));
+    wait.until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("body"), "try: Jack Amber\ntry: Red Moose"));
     //TODO make it an obvious assert
   }
   
@@ -46,7 +46,7 @@ public class Ch4SeleniumITCase {
     colorSelect.selectByVisibleText("dark");
     webDriver.findElement(By.tagName("input")).click();
     WebDriverWait wait = new WebDriverWait(webDriver, 10);
-    wait.until(ExpectedConditions.textToBePresentInElement(By.tagName("body"), "try: Jail Pale Ale\ntry: Gout Stout"));
+    wait.until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("body"), "try: Jail Pale Ale\ntry: Gout Stout"));
   }
   
   @Test
@@ -55,7 +55,7 @@ public class Ch4SeleniumITCase {
     colorSelect.selectByVisibleText("light");
     webDriver.findElement(By.tagName("input")).click();
     WebDriverWait wait = new WebDriverWait(webDriver, 10);
-    wait.until(ExpectedConditions.textToBePresentInElement(By.tagName("body"), "try: Jail Pale Ale\ntry: Gout Stout"));
+    wait.until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("body"), "try: Jail Pale Ale\ntry: Gout Stout"));
   }
   
   @Test
@@ -64,6 +64,6 @@ public class Ch4SeleniumITCase {
     colorSelect.selectByVisibleText("brown");
     webDriver.findElement(By.tagName("input")).click();
     WebDriverWait wait = new WebDriverWait(webDriver, 10);
-    wait.until(ExpectedConditions.textToBePresentInElement(By.tagName("body"), "try: Jail Pale Ale\ntry: Gout Stout"));
+    wait.until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("body"), "try: Jail Pale Ale\ntry: Gout Stout"));
   }
 }

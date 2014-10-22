@@ -14,7 +14,7 @@ public class StartupListener implements ServletContextListener {
 	private BeerExpert beerExpert; 
 
 	static {
-		log.debug("StartupListener loaded");
+		log.trace("StartupListener loaded");
 	}
 
 	public StartupListener (){
@@ -30,6 +30,7 @@ public class StartupListener implements ServletContextListener {
 	}
 
 	public void contextDestroyed(ServletContextEvent event) {
+	  event.getServletContext().removeAttribute("beerExpert");
 		log.debug("Context destroyed");
 	}
 }

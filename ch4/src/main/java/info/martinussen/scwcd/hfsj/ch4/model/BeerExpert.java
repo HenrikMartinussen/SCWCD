@@ -9,7 +9,7 @@ public class BeerExpert {
   static Logger log = Logger.getLogger(BeerExpert.class);
   
   static {
-    log.debug("BeerExpert is loaded");
+    log.trace("BeerExpert is loaded");
   }
   
   public BeerExpert(){
