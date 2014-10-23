@@ -1,6 +1,6 @@
 package info.martinussen.scwcd.hfsj.ch4.integration
 
-import org.ccil.cowan.tagsoup.Parser
+import static groovyx.net.http.ContentType.URLENC
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +10,9 @@ import org.apache.log4j.Logger
 class BeerGroovlet2IntegrationTest {
   
   def  log = Logger.getLogger(BeerGroovlet2IntegrationTest.class)
+  def port = '8081'
+  def url = "http://localhost:${port}/ch4-groovy2/BeerGroovlet.groovy"
+  def httpBuilder 
   
 
   @After
@@ -20,11 +23,13 @@ class BeerGroovlet2IntegrationTest {
   
   @Test
   public void testAmber(){
-    def gHtml = new URL("http://localhost:8081/ch4-groovy2").withReader { r ->
-      new XmlSlurper( new Parser() ).parse( r )
+    httpBuilder = new HTTPBuilder(url)
+    def postBody = [color: 'light']
+    http.post(path: url, body:postBody, requestContenttype: URLENC){ resp ->
+      assert resp.statusLine.statusCode == 200
     }
     
-    log.debug( gHtml.body.text())
+    log.debug(resp)
     
   }
   
