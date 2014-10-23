@@ -24,7 +24,7 @@ class BeerGroovletIntegrationTest {
 /* Integrationtest demonstrating htmlunit used from groovy, navigating from 
  * index.html to the resulting page.
  * htmlunit's api is used to pick out the expected values on the result page
- * Futhermore this integrationtest demonstrates JUnit 4 parameterized test, 
+ * Furthermore this integrationtest demonstrates JUnit 4 parameterized test, 
  * implemented in groovy
  *
  * The test opens the index.html selects from the dropdown and clicks submit.
