@@ -35,3 +35,9 @@ gradle clean check
 Reference
 "Making Java Groovy" by Kenneth A. Kousen
 10.2.1. A “Hello, World!” groovlet 
+
+Links
+http://www.kellyrob99.com/blog/
+http://www.javacodegeeks.com/2013/02/groovy-and-http.html
+http://groovy.codehaus.org/modules/http-builder/home.html
+http://stackoverflow.com/questions/13939354/get-plain-html-from-http-requests
