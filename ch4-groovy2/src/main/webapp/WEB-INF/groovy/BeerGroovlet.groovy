@@ -27,7 +27,7 @@ html.html{
     title 'Beer Recommendations'
   }
   body {
-    h1(align="center") {'Beer Recommendations'}
+    h1(align:"center",'Beer Recommendations')
     p {
       brands.each{ brand ->
         br()

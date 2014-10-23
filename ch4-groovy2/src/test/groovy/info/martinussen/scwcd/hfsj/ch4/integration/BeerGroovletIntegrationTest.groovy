@@ -21,6 +21,21 @@ import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput
 
 @RunWith(Parameterized)
 class BeerGroovletIntegrationTest {
+/* Integrationtest demonstrating htmlunit used from groovy, navigating from 
+ * index.html to the resulting page.
+ * htmlunit's api is used to pick out the expected values on the result page
+ * Futhermore this integrationtest demonstrates JUnit 4 parameterized test, 
+ * implemented in groovy
+ *
+ * The test opens the index.html selects from the dropdown and clicks submit.
+ * On the resulting page it is verified that the expected content is present.
+ */
+ //TODO introduce more groovyness - it still looks like what it is - a rework of a java test.
+ 
+  def port        = '8081'
+  def url         = "http://localhost:${port}"
+  def contextPath = "/ch4-groovy2"
+  def uri         = "$url$contextPath"
   
   WebClient webClient
   HtmlPage startForm
@@ -46,15 +61,14 @@ class BeerGroovletIntegrationTest {
   @After
   void tearDown(){
     startForm = null
-        webClient.closeAllWindows()
-        webClient = null
+    webClient.closeAllWindows()
+    webClient = null
   }
-  
   
   @Test
   public void testAllColors(){
     webClient = new WebClient()
-    startForm = (HtmlPage) webClient.getPage ("http://localhost:8081/ch4-groovy2")
+    startForm = (HtmlPage) webClient.getPage (uri)
     HtmlSelect select = (HtmlSelect) startForm.getElementsByTagName('select').item(0)
     HtmlOption option = select.getOptionByValue(param)
     select.setSelectedAttribute(option, true)
@@ -64,9 +78,7 @@ class BeerGroovletIntegrationTest {
     HtmlPage resultPage = submit.click()
     HtmlParagraph p = (HtmlParagraph) resultPage.getElementsByTagName("p").item(0)
     
-    assert p.asText().contains(expected1)
-    assert p.asText().contains(expected2)
+    assert p.asText() =~ "Try: $expected1"
+    assert p.asText() =~ "Try: $expected2"
   }
-  
-
 }
