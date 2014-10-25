@@ -41,3 +41,5 @@ http://www.kellyrob99.com/blog/
 http://www.javacodegeeks.com/2013/02/groovy-and-http.html
 http://groovy.codehaus.org/modules/http-builder/home.html
 http://stackoverflow.com/questions/13939354/get-plain-html-from-http-requests
+http://eugenedvorkin.com/integration-testing-with-gradle-selenium-and-spock-for-java-project-part-1/
+http://www.gebish.org/manual/0.7.2/intro.html
