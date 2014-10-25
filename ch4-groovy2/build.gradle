@@ -12,6 +12,9 @@ ext {
   groovyVersion = '2.3.6'
   junitVersion = '4.11'  
   htmlunitVersion = '2.15'  
+  spockVersion = '0.7-groovy-2.0'
+  gebVersion = '0.9.3' //'0.10.1-SNAPSHOT'
+  seleniumVersion = '2.43.1'
 }
 
 dependencies {
@@ -21,15 +24,16 @@ dependencies {
   providedCompile 'javax.servlet.jsp:jsp-api:2.2'
   
   testCompile "junit:junit:$junitVersion"
-  testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+  testCompile ("org.spockframework:spock-core:$spockVersion"){
+    exclude group: "org.codehaus.groovy"
+  }
   testCompile "net.sourceforge.htmlunit:htmlunit:$htmlunitVersion"
   testCompile "org.codehaus.groovy.modules.http-builder:http-builder:0.7"
 
-  testCompile "org.codehaus.geb:geb-core:0.7.2"
-  testCompile "org.seleniumhq.selenium:selenium-firefox-driver:2.15.0"
-  testCompile "org.seleniumhq.selenium:selenium-support:2.15.0"
-  
-  
+  testCompile "org.gebish:geb-junit4:$gebVersion"
+  testCompile "org.gebish:geb-core:$gebVersion"
+  testCompile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+  testCompile "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
 }
 
 [jettyRun, jettyRunWar,jettyStop]*.stopPort = 8082
@@ -38,7 +42,6 @@ dependencies {
 test {
   exclude '**/*Integration*.*'
 }
-
 
 task integrationTest(type: Test) {
   include '**/*Integration*.*'
@@ -56,4 +59,7 @@ integrationTest.dependsOn test
 
 repositories {
   mavenCentral()
+  maven {
+    url "https://oss.sonatype.org/content/repositories/snapshots/"
+  }
 }
