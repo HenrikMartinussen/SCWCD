@@ -14,7 +14,8 @@ Demonstrates
 - Groovlet accessing request and context implicit variables, and subsequently building html
 - Parameterized HtmlUnit integration test implemented in groovy
 - Parameterized integration test using HTTPBuilder and xmlSlurper supplying GPath access to the html
-- Parameterized integration test using Geb
+- Parameterized integration test using Geb/JUnit4
+- Parameterized integration test using Geb/Spock
 - Gradle integration test task, which starts Jetty, runs integration tests 
   (recognized by Classname convention), and subsequently stops jetty again
 
