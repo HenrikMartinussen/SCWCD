@@ -16,9 +16,9 @@ import geb.Browser
 
 @RunWith(Parameterized)
 class BeerGroovlet3IntegrationTest {
-/* Integrationtest demonstrating htmlunit used from groovy, navigating from 
- * index.html to the resulting page.
- * htmlunit's api is used to pick out the expected values on the result page
+/* Integrationtest demonstrating Geb, navigating from index.html to the 
+ * resulting page.
+ * Geb's api is used to pick out the expected values on the result page
  * Furthermore this integrationtest demonstrates JUnit 4 parameterized test, 
  * implemented in groovy
  *
@@ -50,9 +50,6 @@ class BeerGroovlet3IntegrationTest {
     expected2 = ex2
   }
 
-  @After
-  void tearDown(){
-  }
   
   @Test
   public void testAllColors(){

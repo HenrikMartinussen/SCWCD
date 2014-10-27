@@ -27,7 +27,7 @@ class BeerGroovletIntegrationTest {
  * Furthermore this integrationtest demonstrates JUnit 4 parameterized test, 
  * implemented in groovy
  *
- * The test opens the index.html selects from the dropdown and clicks submit.
+ * The test opens the index.html, selects from the dropdown and clicks submit.
  * On the resulting page it is verified that the expected content is present.
  */
  

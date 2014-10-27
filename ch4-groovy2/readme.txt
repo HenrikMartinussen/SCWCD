@@ -9,13 +9,16 @@ This project is a groovy/gradle rework of the ch4 demo project
 
 Demonstrates 
 - implementing a mvc model by means of a groovy class
-- simple parameterized spock test of the groovy model implemented in groovy
+- simple parameterized spock test of the groovy model
 - implementing a servlet api startup listener in groovy
-- Groovlet accessing request and context implicit variables, building html
+- Groovlet accessing request and context implicit variables, and subsequently building html
 - Parameterized HtmlUnit integration test implemented in groovy
-- Parameterized integration test using HTTPBuilder and xmlSlurper supplied GPath
+- Parameterized integration test using HTTPBuilder and xmlSlurper supplying GPath access to the html
+- Parameterized integration test using Geb
 - Gradle integration test task, which starts Jetty, runs integration tests 
-  recognized by Classname convention), and subsequently stops jetty again
+  (recognized by Classname convention), and subsequently stops jetty again
+
+Note that the different integration testclasses cover the same test cases, only the implementation varies
 
 In order to run test:
 gradle clean test
@@ -26,7 +29,7 @@ gradle clean jettyRun
 browse to http://localhost:8081/ch4-groovy2/index.html
 or curl -i --data "color=light" http://localhost:8081/ch4-groovy2/BeerGroovlet.groovy
 
-In order to run integration test (- and test):
+In order to run integration-tests (- and test):
 gradle clean integrationTest  - or
 gradle clean check
 
@@ -35,6 +38,7 @@ gradle clean check
 Reference
 "Making Java Groovy" by Kenneth A. Kousen
 10.2.1. A “Hello, World!” groovlet 
+
 
 Links
 http://www.kellyrob99.com/blog/

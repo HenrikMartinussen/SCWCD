@@ -58,7 +58,7 @@ class BeerGroovlet2IntegrationTest {
       [reader, resp.status]
     }
     assert responseStatus == HTTP_OK
-    assert html instanceof GPathResult
+
     assert html.BODY.P.text() =~ "Try: $expected1"   
     assert html.BODY.P.text() =~ "Try: $expected2"   
   }
