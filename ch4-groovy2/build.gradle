@@ -31,6 +31,7 @@ dependencies {
   testCompile "org.codehaus.groovy.modules.http-builder:http-builder:0.7"
 
   testCompile "org.gebish:geb-junit4:$gebVersion"
+  testCompile "org.gebish:geb-spock:$gebVersion"
   testCompile "org.gebish:geb-core:$gebVersion"
   testCompile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
   testCompile "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
