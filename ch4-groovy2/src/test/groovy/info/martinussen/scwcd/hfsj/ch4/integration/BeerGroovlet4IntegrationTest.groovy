@@ -41,7 +41,7 @@ class BeerGroovlet4IntegrationTest extends GebSpec{
       $("input").click()
       
     then:
-      title == 'Bier Recommendations'
+      title == 'Beer Recommendations'
       $("h1").text() == "Beer Recommendations"
       
     expect:
