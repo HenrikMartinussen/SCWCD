@@ -30,15 +30,14 @@ class BeerGroovletIntegrationTest {
  * The test opens the index.html selects from the dropdown and clicks submit.
  * On the resulting page it is verified that the expected content is present.
  */
- //TODO introduce more groovyness - it still looks like what it is - a rework of a java test.
  
   def port        = '8081'
   def url         = "http://localhost:${port}"
   def contextPath = "/ch4-groovy2"
   def uri         = "$url$contextPath"
   
-  WebClient webClient
-  HtmlPage startForm
+  def webClient //WebClient 
+  def startForm //HtmlPage 
   
   def param
   def expected1
@@ -68,15 +67,15 @@ class BeerGroovletIntegrationTest {
   @Test
   public void testAllColors(){
     webClient = new WebClient()
-    startForm = (HtmlPage) webClient.getPage (uri)
-    HtmlSelect select = (HtmlSelect) startForm.getElementsByTagName('select').item(0)
-    HtmlOption option = select.getOptionByValue(param)
+    startForm = webClient.getPage (uri)
+    def select = startForm.getElementsByTagName('select').item(0)
+    def option = select.getOptionByValue(param)
     select.setSelectedAttribute(option, true)
     
-    HtmlSubmitInput submit =  (HtmlSubmitInput) startForm.getElementsByTagName('input').item(0)
+    def submit =  startForm.getElementsByTagName('input').item(0)
     
-    HtmlPage resultPage = submit.click()
-    HtmlParagraph p = (HtmlParagraph) resultPage.getElementsByTagName("p").item(0)
+    def resultPage = submit.click()
+    def p = resultPage.getElementsByTagName("p").item(0)
     
     assert p.asText() =~ "Try: $expected1"
     assert p.asText() =~ "Try: $expected2"
