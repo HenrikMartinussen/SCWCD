@@ -1,4 +1,4 @@
-package info.martinussen.scwcd.hfsj.ch4;
+package info.martinussen.scwcd.hfsj.ch4.web;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.anyListOf;
@@ -8,11 +8,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
+import info.martinussen.scwcd.hfsj.ch4.BeerServlet;
 import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -35,6 +35,7 @@ public class TestBeerServlet {
     testBeerServlet = null;
   }
 
+  @Test
   public void testBeerAppConstructor() {
     testBeerServlet = new BeerServlet();
     assertNotNull(testBeerServlet);
@@ -83,5 +84,6 @@ public class TestBeerServlet {
     inorder.verify(requestMock, times(1)).setAttribute(eq("styles"), anyListOf(String.class));
     inorder.verify(requestMock, times(1)).getRequestDispatcher(eq("result.jsp"));
     inorder.verify(reqDispatcherMock, times(1)).forward(eq(requestMock), eq(responseMock));
+    inorder.verifyNoMoreInteractions();
   }
 }
