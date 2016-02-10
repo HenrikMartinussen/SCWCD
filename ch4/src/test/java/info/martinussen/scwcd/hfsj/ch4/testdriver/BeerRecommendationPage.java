@@ -1,10 +1,16 @@
 package info.martinussen.scwcd.hfsj.ch4.testdriver;
 
-import java.util.List;
 
 public class BeerRecommendationPage extends Page {
     private String header;
-    private List<String> recommendations;
+    private String recommendation;
+
+    public BeerRecommendationPage(String header, String recommendation){
+        if (header != null && recommendation != null){
+            this.header = header;
+            this.recommendation = recommendation;
+        }
+    }
 
     public boolean headerContainsIgnoreCase(String fragment){
         final boolean returnValue;
@@ -16,9 +22,15 @@ public class BeerRecommendationPage extends Page {
         return returnValue;
     }
 
-    public boolean recommendationsContainsIgnoreCase(){
-        return false;
+    public boolean recommendationsContainsIgnoreCase(String fragment){
+        boolean returnValue = false;
+        if (recommendation.toLowerCase().contains(fragment.toLowerCase())){
+            returnValue = true;
+        }
+        return returnValue;
     }
 
-
+    public void setRecommendation(String recommendation) {
+        this.recommendation = recommendation;
+    }
 }

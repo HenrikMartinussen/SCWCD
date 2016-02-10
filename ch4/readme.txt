@@ -4,8 +4,9 @@ The baseline is the Beer recommendation webapp in chapter 4 of head First Servle
 Demonstrates 
 -parameterized unit test (TestBeerExpert)
 -test of servlet w/o container using mocks (mockito) (TestBeerServlet)
--integration test using htmlunit (Ch4HUITCase)
+-integration test using htmlUnit (Ch4HUITCase)
 -integration test using Selenium (Ch4SeleniumITCase)
+-integration test using custom test driver/test framework (which encapsulates htmlUnit)
 -measuring test coverage using cobertura
 
 In order to run application:
