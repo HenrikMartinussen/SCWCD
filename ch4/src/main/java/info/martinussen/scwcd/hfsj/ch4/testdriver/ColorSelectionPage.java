@@ -5,8 +5,6 @@ import com.gargoylesoftware.htmlunit.html.*;
 
 import java.io.IOException;
 
-import static org.junit.Assert.assertTrue;
-
 /**
  * Abstraction over the entry page of the Beer Selector application
  * This class can be used to perform integration/system tests, while encapsulating the browser driving.
