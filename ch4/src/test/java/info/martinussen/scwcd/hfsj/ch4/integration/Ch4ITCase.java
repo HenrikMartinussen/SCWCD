@@ -39,7 +39,7 @@ public class Ch4ITCase {
 
     @Before
     public void setUp(){
-        colorSelectionPage = new ColorSelectionPage("http://localhost:8081/ch4");
+        colorSelectionPage = new ColorSelectionPage("http://localhost:8081/ch4");// TODO try to avoid the constructor call - use some kind of factory instead
         assertTrue(colorSelectionPage.titleContainsIgnoreCase("Beer Selection Page"));
     }
 
