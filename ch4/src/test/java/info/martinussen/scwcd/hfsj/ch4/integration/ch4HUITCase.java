@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
+import com.gargoylesoftware.htmlunit.html.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,11 +15,6 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlOption;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlParagraph;
-import com.gargoylesoftware.htmlunit.html.HtmlSelect;
-import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 
 /**
  * Junit in action p 17 Running parameterized tests
@@ -71,7 +67,9 @@ public class Ch4HUITCase {
     HtmlParagraph p = (HtmlParagraph) resultPage.getElementsByTagName("p").item(0);
     
     assertTrue("Unexpected text", p.asText().contains(EXPECTED_PREFIX + expected1)); 
-    assertTrue("Unexpected text", p.asText().contains(EXPECTED_PREFIX + expected2)); 
+    assertTrue("Unexpected text", p.asText().contains(EXPECTED_PREFIX + expected2));
+    HtmlHeading1 header = (HtmlHeading1) resultPage.getElementsByTagName("h1").item(0);
+    assertTrue("Unexpected header", header.asText().contains("Beer recommendations JSP"));
   }
   
 

@@ -1,5 +1,6 @@
 <%@ page import="java.util.*" %>
 <html>
+<header><title>Beer recommendations</title></header>
 <body>
 <h1 align="center">Beer recommendations JSP</h1>
 <p>
