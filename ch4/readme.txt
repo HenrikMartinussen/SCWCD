@@ -7,6 +7,7 @@ Demonstrates
 -integration test using htmlUnit (Ch4HUITCase)
 -integration test using Selenium (Ch4SeleniumITCase)
 -integration test using custom test driver/test framework (which encapsulates htmlUnit)
+-integration test using test driver and GroovyTestCase specialisation
 -measuring test coverage using cobertura
 
 In order to run application:
