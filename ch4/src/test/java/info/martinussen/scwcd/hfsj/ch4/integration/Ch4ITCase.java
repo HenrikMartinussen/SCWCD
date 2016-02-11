@@ -47,9 +47,9 @@ public class Ch4ITCase {
     public void testCh4(){
         colorSelectionPage.selectColor(testColor);
         BeerRecommendationPage beerRecommendationPage = colorSelectionPage.clickSubmit();
-        assertTrue(beerRecommendationPage.titleContainsIgnoreCase("Beer recommendations"));
-        assertTrue(beerRecommendationPage.headerContainsIgnoreCase("Beer Recommendations JSP"));
-        assertTrue(beerRecommendationPage.recommendationsContainsIgnoreCase("try: " + expected1));
-        assertTrue(beerRecommendationPage.recommendationsContainsIgnoreCase("try: " + expected2));
+        assertTrue(beerRecommendationPage.getTitle().contains("Beer recommendations"));
+        assertTrue(beerRecommendationPage.getHeader().contains("Beer recommendations JSP"));
+        assertTrue(beerRecommendationPage.getRecommendation().contains("try: " + expected1));
+        assertTrue(beerRecommendationPage.getRecommendation().contains("try: " + expected2));
     }
 }

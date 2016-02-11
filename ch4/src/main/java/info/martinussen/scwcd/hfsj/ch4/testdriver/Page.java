@@ -7,6 +7,10 @@ public abstract class Page {
         this.title = title;
     }
 
+    public String getTitle(){
+        return title;
+    }
+
     public boolean titleContainsIgnoreCase(String fragment){
         final boolean returnValue;
         if (title.toLowerCase().contains(fragment.toLowerCase())){

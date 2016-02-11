@@ -12,25 +12,11 @@ public class BeerRecommendationPage extends Page {
         }
     }
 
-    public boolean headerContainsIgnoreCase(String fragment){
-        final boolean returnValue;
-        if (header.toLowerCase().contains(fragment.toLowerCase())){
-            returnValue = true;
-        } else {
-            returnValue = false;
-        }
-        return returnValue;
+    public String getHeader(){
+        return header;
     }
 
-    public boolean recommendationsContainsIgnoreCase(String fragment){
-        boolean returnValue = false;
-        if (recommendation.toLowerCase().contains(fragment.toLowerCase())){
-            returnValue = true;
-        }
-        return returnValue;
-    }
-
-    public void setRecommendation(String recommendation) {
-        this.recommendation = recommendation;
+    public String getRecommendation(){
+        return recommendation;
     }
 }
