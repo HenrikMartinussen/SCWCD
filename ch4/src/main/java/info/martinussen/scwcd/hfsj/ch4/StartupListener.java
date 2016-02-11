@@ -30,7 +30,7 @@ public class StartupListener implements ServletContextListener {
 	}
 
 	public void contextDestroyed(ServletContextEvent event) {
-	  event.getServletContext().removeAttribute("beerExpert");
+	  	event.getServletContext().removeAttribute("beerExpert");
 		log.debug("Context destroyed");
 	}
 }
