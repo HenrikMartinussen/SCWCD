@@ -21,38 +21,38 @@ class Ch4SystemTestCase extends GroovyTestCase {
     
     void testCh4WhenSelectingColorLight(){
         colorSelectionPage.selectColor(ColorSelectionPage.COLOR_LIGHT)
-        BeerRecommendationPage beerRecommendationPage = colorSelectionPage.clickSubmit()
-        assert beerRecommendationPage.titleContainsIgnoreCase('Beer recommendations')
-        assert beerRecommendationPage.headerContainsIgnoreCase('Beer Recommendations JSP')
-        assert beerRecommendationPage.recommendationsContainsIgnoreCase('try: Jail Pale Ale')
-        assert beerRecommendationPage.recommendationsContainsIgnoreCase('try: Gout Stout')
+        BeerRecommendationPage beerRecommendationPage =  colorSelectionPage.clickSubmit()
+        assert beerRecommendationPage.title           =~ 'Beer recommendations'
+        assert beerRecommendationPage.header          =~ 'Beer recommendations JSP'
+        assert beerRecommendationPage.recommendation  =~ 'try: Jail Pale Ale'
+        assert beerRecommendationPage.recommendation  =~ 'try: Gout Stout'
     }
     
     void testCh4WhenSelectingColorBrown(){
         colorSelectionPage.selectColor(ColorSelectionPage.COLOR_BROWN)
-        BeerRecommendationPage beerRecommendationPage = colorSelectionPage.clickSubmit()
-        assert beerRecommendationPage.titleContainsIgnoreCase('Beer recommendations')
-        assert beerRecommendationPage.headerContainsIgnoreCase('Beer Recommendations JSP')
-        assert beerRecommendationPage.recommendationsContainsIgnoreCase('try: Jail Pale Ale')
-        assert beerRecommendationPage.recommendationsContainsIgnoreCase('try: Gout Stout')
+        BeerRecommendationPage beerRecommendationPage =  colorSelectionPage.clickSubmit()
+        assert beerRecommendationPage.title           =~ 'Beer recommendations'
+        assert beerRecommendationPage.header          =~ 'Beer recommendations JSP'
+        assert beerRecommendationPage.recommendation  =~ 'try: Jail Pale Ale'
+        assert beerRecommendationPage.recommendation  =~ 'try: Gout Stout'
     }
 
     void testCh4WhenSelectingColorDark(){
         colorSelectionPage.selectColor(ColorSelectionPage.COLOR_DARK)
-        BeerRecommendationPage beerRecommendationPage = colorSelectionPage.clickSubmit()
-        assert beerRecommendationPage.titleContainsIgnoreCase('Beer recommendations')
-        assert beerRecommendationPage.headerContainsIgnoreCase('Beer Recommendations JSP')
-        assert beerRecommendationPage.recommendationsContainsIgnoreCase('try: Jail Pale Ale')
-        assert beerRecommendationPage.recommendationsContainsIgnoreCase('try: Gout Stout')
+        BeerRecommendationPage beerRecommendationPage =  colorSelectionPage.clickSubmit()
+        assert beerRecommendationPage.title           =~ 'Beer recommendations'
+        assert beerRecommendationPage.header          =~ 'Beer recommendations JSP'
+        assert beerRecommendationPage.recommendation  =~ 'try: Jail Pale Ale'
+        assert beerRecommendationPage.recommendation  =~ 'try: Gout Stout'
     }   
     
     void testCh4WhenSelectingColorAmber(){
         colorSelectionPage.selectColor(ColorSelectionPage.COLOR_AMBER)
-        BeerRecommendationPage beerRecommendationPage = colorSelectionPage.clickSubmit()
-        assert beerRecommendationPage.titleContainsIgnoreCase('Beer recommendations')
-        assert beerRecommendationPage.headerContainsIgnoreCase('Beer Recommendations JSP')
-        assert beerRecommendationPage.recommendationsContainsIgnoreCase('try: Jack Amber')
-        assert beerRecommendationPage.recommendationsContainsIgnoreCase('try: Red Moose')
+        BeerRecommendationPage beerRecommendationPage =  colorSelectionPage.clickSubmit()
+        assert beerRecommendationPage.title           =~ 'Beer recommendations'
+        assert beerRecommendationPage.header          =~ 'Beer recommendations JSP'
+        assert beerRecommendationPage.recommendation  =~ 'try: Jack Amber'
+        assert beerRecommendationPage.recommendation  =~ 'try: Red Moose'
     }
 
 }
