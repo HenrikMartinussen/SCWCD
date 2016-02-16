@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns='http://java.sun.com/xml/ns/jax-ws/ri/runtime'
+  version='2.0'>
+  
+  <!-- http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/ -->
+  <endpoint name='beerExpertService'
+            implementation='info.martinussen.beerexpert.service.BeerExpertServiceImpl'
+            url-pattern='/beerExpertService' />
+</endpoints>

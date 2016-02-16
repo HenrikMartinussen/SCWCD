@@ -14,6 +14,10 @@
   <version>1.0-SNAPSHOT</version>
   <name>Beer Expert Webservice jax-ws generated artifacts</name>
 
+  <properties>
+    <cxf.version>3.0.7</cxf.version>
+  </properties>
+
   <!-- https://jax-ws.java.net/2.2.8/docs/ -->
   <!-- http://rphgoossens.wordpress.com/2011/02/20/developing-a-contract-first-jax-ws-webservice/ -->
   <dependencies>
@@ -41,58 +45,33 @@
         </configuration>
       </plugin>
 
-      <!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/usage.html -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.3</version>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-codegen-plugin</artifactId>
+        <version>${cxf.version}</version>
         <executions>
           <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>copy</goal>
-            </goals>
+            <id>generate-sources</id>
+            <phase>generate-sources</phase>
             <configuration>
-              <outputDirectory>${project.build.directory}/endorsed</outputDirectory>
-              <silent>true</silent>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>javax.xml.bind</groupId>
-                  <artifactId>jaxb-api</artifactId>
-                  <version>2.2.7</version>
-                  <type>jar</type>
-                </artifactItem>
-                <artifactItem>
-                  <groupId>javax.xml.ws</groupId>
-                  <artifactId>jaxws-api</artifactId>
-                  <version>2.2.9</version>
-                  <type>jar</type>
-                </artifactItem>
-              </artifactItems>
+              <sourceRoot>${project.build.directory}/generated-sources/main/java</sourceRoot>
+              <wsdlOptions>
+                <wsdlOption>
+                  <wsdl>${basedir}/src/main/resources/wsdl/connectService.wsdl</wsdl>
+                  <extraargs>
+                    <extraarg>-p</extraarg>
+                    <extraarg>eu.sos.connect.generated</extraarg>
+                  </extraargs>
+                </wsdlOption>
+              </wsdlOptions>
             </configuration>
+            <goals>
+              <goal>wsdl2java</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
-			
-      <!-- https://jax-ws-commons.java.net/jaxws-maven-plugin/ -->
-      <plugin>
-        <groupId>org.jvnet.jax-ws-commons</groupId>
-        <artifactId>jaxws-maven-plugin</artifactId>
-        <version>2.3</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>wsimport</goal>
-            </goals>
-            <configuration>
-              <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
-              <packageName>info.martinussen.beerexpert.service.generated</packageName>
-              <sourceDestDir>${basedir}/target/generated-sources/main/java</sourceDestDir>
-              <target>2.0</target><!-- forces generation of sourcecode for specific version of JAX-WS RI (or JAXB?) -->
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+
     </plugins>
   </build>
 </project>
