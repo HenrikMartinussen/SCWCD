@@ -5,6 +5,7 @@ The baseline is the Beer recommendation webapp in chapter 4 of head First Servle
 This project demonstrates:
 -Contract first SOAP web service, with cxf as jax-ws implementation
 -Contract first SOAP web service implemented in a single maven project (in contrast to the ch4-ws project)
+-Parameterized JUnit 4 unit- and integration-test
 
 
 In order to run application:
