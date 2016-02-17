@@ -47,7 +47,11 @@ public class BeerExpertServiceImpl implements BeerExpertServicePortType {
               BeerExpertServiceRequestType beerExpertServiceRequest) {
 
     log.debug("BeerExpertServiceImpl.getBeerAdvise() was called");
-    log.debug("BeerExpertServiceImpl.getBeerAdvise(); webServiceContext=" + webServiceContext);
+
+    if (webServiceContext == null){
+      throw new NullPointerException("webServiceContext was not expected to be null at this point");
+    }
+
     String color = beerExpertServiceRequest.getColor();
     BeerExpert beerExpert = new BeerExpert();
     List<String> advice = beerExpert.getBrands(color);
