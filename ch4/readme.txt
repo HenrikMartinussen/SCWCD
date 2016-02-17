@@ -26,3 +26,7 @@ In order to see the test coverage reports, go to target/site/cobertura/ browse f
 
 In order to run integration-tests
 mvn clean verify
+
+In order to run GroovyTestCase specialisation, using test driver:
+1) start application mvn clean package jetty:run
+2) in another console run groovy Ch4SystemTestCase
