@@ -6,7 +6,7 @@
 
 
   <groupId>info.martinussen.beerexpert</groupId>
-  <artifactId>beerexpert-ws</artifactId>
+  <artifactId>beerexpert-ws-cxf</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>Beer Expert Webservice implementation</name>

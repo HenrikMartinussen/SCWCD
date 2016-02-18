@@ -12,7 +12,9 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.servlet.ServletContext;
 import javax.xml.ws.WebServiceContext;
+import javax.xml.ws.handler.MessageContext;
 
 import org.apache.log4j.Logger;
 
@@ -28,11 +30,17 @@ public class BeerExpertServiceImpl implements BeerExpertServicePortType {
   }
 
   @Resource
-  WebServiceContext webServiceContext;
+  private WebServiceContext webServiceContext;
 
   public BeerExpertServiceImpl(){
     super();
     log.trace("BeerExpertServiceImpl was instantiated");
+  }
+
+  @Resource
+  void setWebServiceContext(WebServiceContext webServiceContext){
+    log.debug("BeerExpertServiceImpl.setWebServiceContext() was called - webServiceContext=" + webServiceContext);
+    this.webServiceContext = webServiceContext;
   }
   
   @Override
@@ -51,6 +59,9 @@ public class BeerExpertServiceImpl implements BeerExpertServicePortType {
     if (webServiceContext == null){
       throw new NullPointerException("webServiceContext was not expected to be null at this point");
     }
+    MessageContext messageContext = webServiceContext.getMessageContext();
+    ServletContext servletContext = (ServletContext) messageContext.get(MessageContext.SERVLET_CONTEXT);
+
 
     String color = beerExpertServiceRequest.getColor();
     BeerExpert beerExpert = new BeerExpert();
