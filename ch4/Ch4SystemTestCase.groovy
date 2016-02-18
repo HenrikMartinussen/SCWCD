@@ -51,7 +51,7 @@ class Ch4SystemTestCase extends GroovyTestCase {
         BeerRecommendationPage beerRecommendationPage =  colorSelectionPage.clickSubmit()
         assert beerRecommendationPage.title           =~ 'Beer recommendations'
         assert beerRecommendationPage.header          =~ 'Beer recommendations JSP'
-        assert beerRecommendationPage.recommendation  =~ 'try: Jyck Amber'
+        assert beerRecommendationPage.recommendation  =~ 'try: Jack Amber'
         assert beerRecommendationPage.recommendation  =~ 'try: Red Moose'
     }
 
