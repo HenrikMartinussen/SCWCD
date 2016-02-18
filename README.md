@@ -12,7 +12,7 @@ This README to some extent document whatever steps are necessary to get going ex
 * You'll obviously need Java - I recently started using jdk version 1.7.0_71. Most examples are configured to use version 1.5 or 1.6
 * Most examples are Maven 2/3 based, a few uses gradle, so you'll definitely need latest maven version, and latest gradle version.
 * A few experiments use Ant for creating, starting, populating databases, so you'll probably need that too.
-* Most projects doesn't rely on any specific IDE. Even though i mostly use Eclipse, maven or gradle buildfiles should be able to be used as is, or as basis for generated project files
+* Most projects don't rely on any specific IDE. Even though i mostly use Eclipse, maven or gradle buildfiles should be able to be used as is, or as basis for generated project files
 * A few projects use databases, Sql Server express is my preferred "heavy duty" RDBMS - some experiments use HSQLDB in various versions. Sql Server must be set up by hand - HSQLDB experiments use in memory or "install-while-build" databases. Details are in the various local readme's
 * Also in the various local readme's are examples of build/test commands and URL's to hit for results.
 
