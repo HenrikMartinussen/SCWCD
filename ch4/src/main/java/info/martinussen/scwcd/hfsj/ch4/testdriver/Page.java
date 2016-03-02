@@ -11,14 +11,4 @@ public abstract class Page {
         return title;
     }
 
-    public boolean titleContainsIgnoreCase(String fragment){
-        final boolean returnValue;
-        if (title.toLowerCase().contains(fragment.toLowerCase())){
-            returnValue = true;
-        } else {
-            returnValue = false;
-        }
-        return returnValue;
-    }
-
 }

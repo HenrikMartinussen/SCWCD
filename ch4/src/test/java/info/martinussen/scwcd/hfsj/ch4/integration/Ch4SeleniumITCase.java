@@ -12,17 +12,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Ch4SeleniumITCase {
   
-  private static final String RESOURCE_TO_OPEN = "/ch4/";
-  private static final String SERVER = "http://localhost";
-  private static final String PORT = "8081";
-  
+  private static final String SCHEME           = "http://";
+  private static final String HOST_NAME        = "localhost";
+  private static final String PORT             = "8081";
+  private static final String RESOURCE_TO_OPEN = "ch4/";
+  private static final String URL              = SCHEME + HOST_NAME + ":" + PORT + "/" + RESOURCE_TO_OPEN;
+
+
   private WebDriver webDriver;
   
   
   @Before
   public void setUp(){
     webDriver = new FirefoxDriver();
-    webDriver.get(SERVER + ":" + PORT  + RESOURCE_TO_OPEN);
+    webDriver.get(URL);
   }
   
   @After

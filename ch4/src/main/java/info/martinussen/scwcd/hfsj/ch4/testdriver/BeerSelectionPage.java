@@ -9,26 +9,32 @@ import java.io.IOException;
  * Abstraction over the entry page of the Beer Selector application
  * This class can be used to perform integration/system tests, while encapsulating the browser driving.
  */
-public class ColorSelectionPage extends Page{
+public class BeerSelectionPage extends Page{
     public static final String COLOR_LIGHT = "light";
     public static final String COLOR_AMBER = "amber";
     public static final String COLOR_BROWN = "brown";
     public static final String COLOR_DARK  = "dark";
 
-    private String color = "";
+    private String    color = "";
 
     private WebClient webClient;
-    private HtmlPage startForm;
+    private HtmlPage  startForm;
 
 
-    public ColorSelectionPage(String url) {
+    private BeerSelectionPage(String url) {
         webClient = new WebClient();
         try {
-            startForm = (HtmlPage) webClient.getPage(url);
+            startForm = webClient.getPage(url);
         } catch (IOException e) {
             throw new RuntimeException(e); //Rethrow as RTE
         }
         this.setTitle(startForm.getTitleText());
+    }
+
+    public static BeerSelectionPage showPage(String url){
+
+        BeerSelectionPage page = new BeerSelectionPage(url);
+        return page;
     }
 
     /**
