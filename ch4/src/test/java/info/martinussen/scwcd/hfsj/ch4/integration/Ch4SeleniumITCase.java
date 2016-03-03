@@ -18,10 +18,8 @@ public class Ch4SeleniumITCase {
   private static final String RESOURCE_TO_OPEN = "ch4/";
   private static final String URL              = SCHEME + HOST_NAME + ":" + PORT + "/" + RESOURCE_TO_OPEN;
 
-
   private WebDriver webDriver;
-  
-  
+
   @Before
   public void setUp(){
     webDriver = new FirefoxDriver();
