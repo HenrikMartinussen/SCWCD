@@ -1,6 +1,6 @@
 @Grab(group='info.martinussen.scwcd.hfsj', module='ch4', version='1.0-SNAPSHOT', classifier='classes')
 
-import info.martinussen.scwcd.hfsj.ch4.testdriver.BeerRecommendationPage
+//import info.martinussen.scwcd.hfsj.ch4.testdriver.BeerRecommendationPage
 import info.martinussen.scwcd.hfsj.ch4.testdriver.BeerSelectionPage
 
 def testCases = [] //groovy way of defining an empty List
