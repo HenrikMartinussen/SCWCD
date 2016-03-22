@@ -18,7 +18,7 @@
     <junit.version>4.11</junit.version>
     <mockito.version>1.8.4</mockito.version>
     <htmlunit.version>2.15</htmlunit.version>
-    <selenium.version>2.50.1</selenium.version>
+    <selenium.version>2.53.0</selenium.version>
     <cobertura.version>2.6</cobertura.version>
     <servlet.api.version>2.5</servlet.api.version>
     <jetty.version>7.6.14.v20131031</jetty.version>
