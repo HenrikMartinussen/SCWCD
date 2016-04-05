@@ -15,7 +15,7 @@ public class BeerExpert {
 
     public BeerExpert(){
         log.debug("BeerExpert is constructed");
-        brands.put("dark", Arrays.asList(new String[]{"Jail Pale Ale", "Gout Stout"}));
+        brands.put("dark",  Arrays.asList(new String[]{"Jail Pale Ale", "Gout Stout"}));
         brands.put("light", Arrays.asList(new String[]{"Jail Pale Ale", "Gout Stout"}));
         brands.put("brown", Arrays.asList(new String[]{"Jail Pale Ale", "Gout Stout"}));
         brands.put("amber", Arrays.asList(new String[]{"Jack Amber", "Red Moose"}));
@@ -23,21 +23,28 @@ public class BeerExpert {
 
     public List<String> getBrands(String color){
         log.debug("BeerExpert.getBrands() is called, parameter color was: " + color);
-        List<String> brands = new ArrayList<String>();
-        if (color.equals("amber")){
-            brands.add("Jack Amber");
-            brands.add("Red Moose");
-        } else {
-            brands.add("Jail Pale Ale");
-            brands.add("Gout Stout");
-        }
-        log.debug("BeerExpert.getBrands() returns: " + brands);
-        return brands;
+
+        List<String> advice = brands.get(color);
+
+        log.trace("BeerExpert.getBrands() returns: " + brands);
+        return advice;
     }
 
     public String getBrandsAsXml(String color){
+        log.debug("BeerExpert.getBrandsAsXml() is called, parameter color was: " + color);
 
-        return "amber".equals(color) ? "<advice><brand>Jack Amber</brand><brand>Red Moose</brand></advice>" : "<advice><brand>Jail Pale Ale</brand><brand>Gout Stout</brand></advice>";
+        List<String> advice = brands.get(color);
+
+        StringBuilder xmlBuilder = new StringBuilder();
+        xmlBuilder.append("<advice>");
+        for (String brand : advice){
+            xmlBuilder.append("<brand>");
+            xmlBuilder.append(brand);
+            xmlBuilder.append("</brand>");
+        }
+        xmlBuilder.append("</advice>");
+
+        log.trace("BeerExpert.getBrandsAsXml() returns: " + xmlBuilder.toString());
+        return xmlBuilder.toString();
     }
-
 }
