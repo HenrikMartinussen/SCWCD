@@ -6,10 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * Created by edbafhmt.
@@ -24,10 +24,39 @@ public class TestBeerExpert {
     }
 
     @Test
-    public void tsetLight(){
+    public void testLight(){
         List<String> expectedAdvice = Arrays.asList(new String[]{"Jail Pale Ale", "Gout Stout"});
-        List<String> advice = testExpert.getBrands("Light");
-        fail("Not implemented yet");
+        Collections.sort(expectedAdvice);
+        List<String> advice = testExpert.getBrands("light");
+        Collections.sort(advice);
+        assertEquals(expectedAdvice, advice);
+    }
+
+    @Test
+    public void testDark(){
+        List<String> expectedAdvice = Arrays.asList(new String[]{"Jail Pale Ale", "Gout Stout"});
+        Collections.sort(expectedAdvice);
+        List<String> advice = testExpert.getBrands("dark");
+        Collections.sort(advice);
+        assertEquals(expectedAdvice, advice);
+    }
+
+    @Test
+    public void testBrown(){
+        List<String> expectedAdvice = Arrays.asList(new String[]{"Jail Pale Ale", "Gout Stout"});
+        Collections.sort(expectedAdvice);
+        List<String> advice = testExpert.getBrands("brown");
+        Collections.sort(advice);
+        assertEquals(expectedAdvice, advice);
+    }
+
+    @Test
+    public void testAmber(){
+        List<String> expectedAdvice = Arrays.asList(new String[]{"Jack Amber", "Red Moose"});
+        Collections.sort(expectedAdvice);
+        List<String> advice = testExpert.getBrands("amber");
+        Collections.sort(advice);
+        assertEquals(expectedAdvice, advice);
     }
 
     @Test
