@@ -14,15 +14,15 @@ import java.util.List;
 public class BeerExpertService
 {
 
-   @Path("/{order}")
+   @Path("/{color}")
    @GET
    @Produces("text/html")
-   public String find(@PathParam("order") String order) {
-      List<String> advice = new BeerExpert().getBrands(order);
+   public String find(@PathParam("color") String color) {
+      List<String> advice = new BeerExpert().getBrands(color);
       StringBuilder response = new StringBuilder();
 
       if (advice.size() > 0){
-         response.append("<h2>Advice on Color ").append(order).append("</h2>\n");
+         response.append("<h2>Advice on Color ").append(color).append("</h2>\n");
          for (String s : advice){
             response.append("<p>Try: ").append(s).append("\n");
          }

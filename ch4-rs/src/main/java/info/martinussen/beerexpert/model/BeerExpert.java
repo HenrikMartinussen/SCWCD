@@ -26,7 +26,7 @@ public class BeerExpert {
 
         List<String> advice = brands.get(color);
 
-        log.trace("BeerExpert.getBrands() returns: " + brands);
+        log.trace("BeerExpert.getBrands() returns: " + advice);
         return advice;
     }
 
