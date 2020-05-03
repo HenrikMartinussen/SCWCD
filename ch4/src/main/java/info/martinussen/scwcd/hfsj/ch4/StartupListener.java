@@ -1,15 +1,15 @@
 package info.martinussen.scwcd.hfsj.ch4;
 
 import info.martinussen.scwcd.hfsj.ch4.model.BeerExpert;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import org.apache.log4j.Logger;
-
 public class StartupListener implements ServletContextListener {
 
-	private static Logger log = Logger.getLogger(StartupListener.class);
+	private static Logger log = LogManager.getLogger(StartupListener.class);
 	
 	private BeerExpert beerExpert; 
 
