@@ -1,0 +1,22 @@
+*.log*
+
+.classpath
+.project
+.settings
+
+#Eclipse workspace are not to be version tracked:
+#works for windows:
+**/workspace/*
+
+
+#Gradle build products are not to be version tracked:
+#In windows:
+**/build
+
+#Eclipse build products are not to be version tracked:
+bin
+
+#Gradle work files are not to be version tracked:
+.gradle
+
+
